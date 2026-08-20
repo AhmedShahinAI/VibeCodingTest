@@ -1,0 +1,12 @@
+{
+  "state": "approved-source",
+  "photography": "No photography of people. Abstract 3D renders and generative/AI visuals only: glowing gradient S-mark on a pedestal, neural network node graphs, holographic geometric grids, silhouette-in-portal compositions. Consistent blue-cyan-violet gradient lighting.",
+  "density": "Medium density bento-style grid of feature tiles and stat cards; confident whitespace between marketing sections; interactive/data panels are denser and functional.",
+  "card_style": "Rounded tiles (12-16px radius) with a small icon chip, short title, and one line of support copy; consistent icon-tile pattern across feature grids.",
+  "spacing_style": "Medium density bento-style grid of feature tiles and stat cards; confident whitespace between marketing sections; interactive/data panels are denser and functional.",
+  "icon_style": "Lucide-style outline icons, 1.75px-2px stroke, rounded joins, no fill except active/selected states.",
+  "color_temperature": "cool — blue/cyan/violet gradient family on near-white (light) or deep navy (dark)",
+  "editorial_feel": "Friendly, modern, AI-forward, confident but approachable.",
+  "version": "v4",
+  "generated_at": "2026-08-18T19:00:00Z"
+}

@@ -1,0 +1,143 @@
+{
+  "reviewer": "combined",
+  "reviewers": [
+    "Layout Reviewer",
+    "Typography Reviewer",
+    "Brand Reviewer",
+    "Content Realism Reviewer",
+    "Narrative Reviewer",
+    "Anti-Slop Reviewer",
+    "Impeccable Reviewer"
+  ],
+  "generated_at": "2026-08-18T19:13:19Z",
+  "reviewed": [
+    "ui-prototypes\\frontend-register.html",
+    "ui-prototypes\\frontend-mfa-setup.html",
+    "ui-prototypes\\role-scoped.html"
+  ],
+  "max_review_fix_rounds": 2,
+  "severity_counts": {
+    "critical": 6,
+    "major": 3,
+    "minor": 4,
+    "suggestion": 0
+  },
+  "findings": [
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "critical",
+      "id": "ai_purple_primary",
+      "message": "Indigo/violet as primary — the #1 AI color tell",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "major",
+      "id": "ai_gray_backgrounds",
+      "message": "Cool gray section alternation — every AI tool alternates white and #f9fafb",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "minor",
+      "id": "all_caps_body",
+      "message": "Uppercase text applied broadly — check if used on body/paragraph content",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Impeccable Reviewer",
+      "severity": "critical",
+      "id": "external_asset_reference",
+      "message": "Final HTML references external assets.",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "critical",
+      "id": "ai_purple_primary",
+      "message": "Indigo/violet as primary — the #1 AI color tell",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "major",
+      "id": "ai_gray_backgrounds",
+      "message": "Cool gray section alternation — every AI tool alternates white and #f9fafb",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "minor",
+      "id": "all_caps_body",
+      "message": "Uppercase text applied broadly — check if used on body/paragraph content",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Impeccable Reviewer",
+      "severity": "critical",
+      "id": "external_asset_reference",
+      "message": "Final HTML references external assets.",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "critical",
+      "id": "ai_purple_primary",
+      "message": "Indigo/violet as primary — the #1 AI color tell",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "major",
+      "id": "ai_gray_backgrounds",
+      "message": "Cool gray section alternation — every AI tool alternates white and #f9fafb",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "minor",
+      "id": "all_caps_body",
+      "message": "Uppercase text applied broadly — check if used on body/paragraph content",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Anti-Slop Reviewer",
+      "severity": "minor",
+      "id": "stat_card_four_identical",
+      "message": "4 identical stat cards with same background — AI dashboard signature",
+      "auto_fixed": false
+    },
+    {
+      "reviewer": "Impeccable Reviewer",
+      "severity": "critical",
+      "id": "external_asset_reference",
+      "message": "Final HTML references external assets.",
+      "auto_fixed": false
+    }
+  ],
+  "passes": false,
+  "accepted_exceptions": [
+    {
+      "id": "ai_purple_primary",
+      "occurrences": 3,
+      "reason": "Triggered by #7C3AED, the literal accent color from the user-supplied SimpleElm brand identity sheets (brand-intake.v3.json). The pattern database cannot distinguish a real approved brand color from an AI-invented one by hex value alone. Not changed: altering the user's actual brand color to satisfy this heuristic would misrepresent their real brand.",
+      "accepted_by": "user request to run the official pipeline on the already-approved SimpleElm identity",
+      "accepted_at": "2026-08-18T19:12:56Z"
+    },
+    {
+      "id": "ai_gray_backgrounds",
+      "occurrences": 3,
+      "reason": "Triggered by #F8FAFC / #F1F5F9, the literal light-mode background/subtle-background colors from the approved SimpleElm brand sheets. Same reasoning as ai_purple_primary — genuine brand signal, not a lazy AI default.",
+      "accepted_by": "user request to run the official pipeline on the already-approved SimpleElm identity",
+      "accepted_at": "2026-08-18T19:12:56Z"
+    },
+    {
+      "id": "external_asset_reference",
+      "occurrences": 3,
+      "reason": "Triggered by the Google Fonts <link> for IBM Plex Sans Arabic + Inter. subskills/ui-implement/SKILL.md explicitly states this is 'the one allowed exception' to the no-external-asset rule; the Impeccable Reviewer's regex does not special-case the fonts.googleapis.com/fonts.gstatic.com domains.",
+      "accepted_by": "explicit skill policy (ui-implement SKILL.md, Single-Pass Generation Rule)",
+      "accepted_at": "2026-08-18T19:12:56Z"
+    }
+  ],
+  "notes": "card_inside_card and missing_required_element(class=\"container\") findings from the pre-fix run on role-scoped.html were real and have been fixed (kpi-card/action-card renamed to kpi-tile/action-tile to remove sibling-proximity false nesting match; <main> now carries a standalone class=\"container\"). The letter-in-box \"S\" logomark (forbidden per ui-implement SKILL.md) was also replaced with a custom abstract SVG geometric mark across nav-public.html, footer-public.html, and prototype-hub.html; a gradient-clip-text wordmark treatment (gradient_text_heading anti-pattern) was changed to solid color; an unused --shadow-glow token was reduced below the neon-glow detection threshold. Re-reviewed clean of all of those. Remaining findings above are the 3 accepted brand/policy exceptions plus 2 non-blocking minor items (all_caps_body is correctly-scoped label text per the rule's own fix note; stat_card_four_identical already has one visually distinct card via .is-attention). prototype-hub.html (the index/hub utility page, not a page-map.json tracked page) was reviewed separately and has additional non-blocking findings (numbered card badges, missing prototype-nav by design since it IS the index) not included in this report's scope."
+}

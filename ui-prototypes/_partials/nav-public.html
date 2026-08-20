@@ -1,0 +1,51 @@
+<div class="container topnav-inner">
+  <a href="frontend-register.html" class="brand" aria-label="SimpleElm — تعلم بعمق. ببساطة">
+    <svg class="brand-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="seMarkNav" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#2563EB"/>
+          <stop offset=".55" stop-color="#00D1FF"/>
+          <stop offset="1" stop-color="#7C3AED"/>
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" rx="12" fill="url(#seMarkNav)"/>
+      <circle cx="20" cy="20" r="4.5" fill="#fff"/>
+      <path d="M20 9.5a10.5 10.5 0 0 1 10.5 10.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M20 30.5A10.5 10.5 0 0 1 9.5 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".7"/>
+    </svg>
+    <span class="brand-text">
+      <span class="brand-name">Simple<span class="brand-name-accent">Elm</span></span>
+      <span class="brand-tagline">تعلم بعمق. ببساطة</span>
+    </span>
+  </a>
+  <nav class="topnav-links" aria-label="التنقل الرئيسي">
+    <a href="#main" class="topnav-help">مركز المساعدة</a>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-label="تبديل المظهر بين الفاتح والداكن" aria-pressed="false">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
+    <button type="button" class="lang-toggle" aria-label="تبديل اللغة إلى الإنجليزية">EN&nbsp;/&nbsp;<strong>ع</strong></button>
+  </nav>
+</div>
+<script>
+(function () {
+  var STORAGE_KEY = 'simpleelm-theme';
+  var btn = document.currentScript.previousElementSibling.querySelector('[data-theme-toggle]');
+  if (!btn) return;
+  function current() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'light' || stored === 'dark') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function apply(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    btn.setAttribute('aria-pressed', String(theme === 'dark'));
+  }
+  apply(current());
+  btn.addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(STORAGE_KEY, next);
+    apply(next);
+  });
+})();
+</script>

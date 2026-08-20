@@ -1,0 +1,58 @@
+{
+  "state": "draft",
+  "project_type": {
+    "category": "EdTech",
+    "confidence": "high",
+    "signals_found": 5,
+    "matched_keywords": [
+      "course",
+      "courses",
+      "learn",
+      "instructor",
+      "exam"
+    ]
+  },
+  "patterns_to_copy": [
+    "training organization websites",
+    "executive education pages",
+    "Arabic course catalog experiences"
+  ],
+  "patterns_to_avoid": [
+    "generic SaaS hero",
+    "three-card syndrome",
+    "fake metrics",
+    "centered everything"
+  ],
+  "hero_types": [
+    "proof-first",
+    "editorial",
+    "asymmetric",
+    "founder/expert",
+    "magazine",
+    "split"
+  ],
+  "section_types": [
+    "methodology",
+    "course evidence",
+    "expert proof",
+    "partner proof",
+    "registration form",
+    "admin table"
+  ],
+  "copy_tone": [
+    "Arabic-first and evidence-led"
+  ],
+  "spacing_observations": [
+    "public pages can breathe; admin pages stay compact and scannable"
+  ],
+  "layout_observations": [
+    "avoid repeated centered hero plus equal-card grid; vary by page purpose"
+  ],
+  "visual_personality": [
+    "professional",
+    "trustworthy",
+    "approachable"
+  ],
+  "version": "v3",
+  "generated_at": "2026-08-18T01:22:42Z"
+}

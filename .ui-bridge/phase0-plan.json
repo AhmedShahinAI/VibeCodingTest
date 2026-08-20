@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-08-18T13:00:10Z",
+  "project_name": "Implementation Plan: Phase 1 — Foundation (Auth, RBAC, Tenancy, Bilingual Shell)",
+  "page_count": 3,
+  "pages": [
+    {
+      "phase": "0.1",
+      "slug": "frontend-register",
+      "name": "Frontend Register",
+      "html_output": "ui-prototypes/frontend-register.html",
+      "is_admin": false,
+      "sections": [
+        "Navbar",
+        "Main content",
+        "Footer"
+      ],
+      "task_ids": [
+        "T0-0100",
+        "T0-0101",
+        "T0-0102",
+        "T0-204",
+        "T0-205",
+        "T0-206",
+        "T0-0198",
+        "T0-0199"
+      ]
+    },
+    {
+      "phase": "0.2",
+      "slug": "frontend-mfa-setup",
+      "name": "Frontend Mfa Setup",
+      "html_output": "ui-prototypes/frontend-mfa-setup.html",
+      "is_admin": false,
+      "sections": [
+        "Navbar",
+        "Main content",
+        "Footer"
+      ],
+      "task_ids": [
+        "T0-0200",
+        "T0-0201",
+        "T0-0202",
+        "T0-212",
+        "T0-213",
+        "T0-214",
+        "T0-0298",
+        "T0-0299"
+      ]
+    },
+    {
+      "phase": "0.3",
+      "slug": "role-scoped",
+      "name": "Role-Scoped",
+      "html_output": "ui-prototypes/role-scoped.html",
+      "is_admin": false,
+      "sections": [
+        "Navbar",
+        "Main content",
+        "Footer"
+      ],
+      "task_ids": [
+        "T0-0300",
+        "T0-0301",
+        "T0-0302",
+        "T0-220",
+        "T0-221",
+        "T0-222",
+        "T0-0398",
+        "T0-0399"
+      ]
+    }
+  ]
+}

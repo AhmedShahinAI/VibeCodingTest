@@ -1,0 +1,48 @@
+{
+  "category": "SaaS Dashboard",
+  "visual_brief": "Study real product patterns from the references below. No pre-made colors or fonts are supplied — derive tokens from approved brand direction only.",
+  "top_3_products": [
+    {
+      "name": "Category leader in your domain",
+      "what_to_study": "Information hierarchy and trust proof placement"
+    },
+    {
+      "name": "Operational/admin tool in your domain",
+      "what_to_study": "Dense forms, tables, filters, and admin ergonomics"
+    },
+    {
+      "name": "Editorial reference in your domain",
+      "what_to_study": "Story rhythm, proof placement, and reading flow"
+    }
+  ],
+  "top_3_inspo_sites": [
+    {
+      "name": "Top editorial site in your category",
+      "what_to_study": "Article-like sections and expert credibility signals"
+    },
+    {
+      "name": "Enterprise tool in your category",
+      "what_to_study": "Partner proof and conversion path"
+    },
+    {
+      "name": "Admin-heavy product surface",
+      "what_to_study": "Compact controls and scan-friendly data layout"
+    }
+  ],
+  "do_this": [
+    "vary hero structures by page purpose",
+    "use page-specific narrative patterns",
+    "keep admin screens dense and utilitarian",
+    "separate public RTL and admin LTR decisions"
+  ],
+  "not_this": [
+    "do not use category color palettes",
+    "do not use category font pairings",
+    "do not repeat centered hero plus equal-card grid",
+    "do not use fake metrics or placeholder people"
+  ],
+  "token_policy": {
+    "colors": "derive only from approved brand direction or generated proposal artifact",
+    "fonts": "derive only from approved brand direction or explicit project font signals"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "app": {
+    "name": "منصة علم"
+  },
+  "common": {
+    "submit": "إرسال",
+    "loading": "جارٍ التحميل…",
+    "retry": "إعادة المحاولة",
+    "resendCode": "إعادة إرسال الرمز",
+    "languageSwitcherLabel": "اللغة"
+  },
+  "auth": {
+    "register": {
+      "title": "أنشئ حسابك",
+      "emailLabel": "البريد الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "roleLabel": "أنا",
+      "roleLearner": "متعلم",
+      "roleInstructor": "مقدم دورة",
+      "submit": "إنشاء الحساب"
+    },
+    "mfaSetup": {
+      "title": "إعداد المصادقة الثنائية",
+      "instructions": "امسح رمز الاستجابة السريعة هذا باستخدام تطبيق المصادقة، ثم تابع لتسجيل الدخول.",
+      "continueToLogin": "المتابعة لتسجيل الدخول"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "emailLabel": "البريد الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "submit": "تسجيل الدخول"
+    },
+    "mfaVerify": {
+      "title": "أدخل رمز المصادقة",
+      "codeLabel": "الرمز المكوّن من 6 أرقام",
+      "submit": "تحقق"
+    }
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "welcome": "مرحبًا، {{role}}",
+    "sections": {
+      "browseCourses": "تصفح الدورات",
+      "manageCourses": "إدارة دوراتي",
+      "gradeAssigned": "تصحيح التسليمات المسندة",
+      "reviewFlagged": "مراجعة المحتوى المُبلَّغ عنه",
+      "reviewApprove": "مراجعة واعتماد الدورات",
+      "manageUsers": "إدارة المستخدمين",
+      "tenantSettings": "إعدادات المؤسسة",
+      "provisionTenants": "توفير المؤسسات"
+    }
+  },
+  "errors": {
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    "invalidMfaCode": "هذا الرمز غير صالح أو منتهي الصلاحية.",
+    "mfaChallengeExpired": "انتهت محاولة تسجيل الدخول — يرجى المحاولة مرة أخرى.",
+    "emailAlreadyRegistered": "يوجد حساب بهذا البريد الإلكتروني مسبقًا.",
+    "sessionExpired": "انتهت صلاحية جلستك — يرجى تسجيل الدخول مرة أخرى.",
+    "sessionRevoked": "تم إلغاء جلستك لأسباب أمنية — يرجى تسجيل الدخول مرة أخرى.",
+    "forbidden": "ليس لديك صلاحية للقيام بذلك.",
+    "generic": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+  }
+}

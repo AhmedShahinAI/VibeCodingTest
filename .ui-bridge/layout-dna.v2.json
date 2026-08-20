@@ -1,0 +1,29 @@
+{
+  "state": "approved-source",
+  "symmetry": "low-to-medium",
+  "editorialness": "medium",
+  "card_density": "medium",
+  "grid_style": "Asymmetric hero, large proof quote, premium course cards, strong whitespace.",
+  "alignment_style": "mixed alignment by section purpose; avoid centered paragraphs as default",
+  "section_rhythm": "rotate proof, narrative, data, methodology, and action sections by page type",
+  "asymmetry_level": "low",
+  "page_assignments": {
+    "frontend-register": {
+      "layout_pattern": "editorial-index",
+      "hero_influence": "Founder/expert or premium proof-first hero.",
+      "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+    },
+    "frontend-mfa-setup": {
+      "layout_pattern": "proof-led-detail",
+      "hero_influence": "Founder/expert or premium proof-first hero.",
+      "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+    },
+    "role-scoped": {
+      "layout_pattern": "asymmetric-feature",
+      "hero_influence": "Founder/expert or premium proof-first hero.",
+      "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+    }
+  },
+  "version": "v2",
+  "generated_at": "2026-08-18T12:58:16Z"
+}

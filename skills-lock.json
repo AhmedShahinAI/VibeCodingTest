@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "ui-bridge": {
+      "source": "rakymat-plugins/ui-gernreate-from-plan",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "e5f800c06025fed1e95cd3e32593417d8d15056ab8b7632881b2904477544db6"
+    }
+  }
+}

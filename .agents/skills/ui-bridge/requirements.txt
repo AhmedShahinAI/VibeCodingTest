@@ -1,0 +1,3 @@
+# No third-party dependencies required.
+# All scripts//*.py use Python standard library only:
+#   pathlib, json, re, os, argparse, shutil, datetime

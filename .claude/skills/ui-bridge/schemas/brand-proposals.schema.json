@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["state", "directions"],
+  "properties": {
+    "state": { "const": "inferred_proposal" },
+    "directions": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "palette", "fonts", "references", "photography", "iconography", "density", "personality", "layout_style", "hero_style", "cta_tone", "competitive_basis"],
+        "properties": {
+          "id": { "enum": ["A", "B", "C"] },
+          "competitive_basis": {
+            "type": "object",
+            "required": ["patterns_to_copy", "patterns_to_avoid", "hero_types", "section_types", "copy_tone", "spacing_observations"]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "generated": "2026-08-18",
+  "found": {
+    "plan": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\plan.md",
+    "tasks": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\tasks.md",
+    "spec": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\spec.md"
+  },
+  "plan": {
+    "project_name": "Implementation Plan: Phase 1 — Foundation (Auth, RBAC, Tenancy, Bilingual Shell)",
+    "project_type": "edtech",
+    "phases": [
+      "Phase 0 - UI Prototypes"
+    ],
+    "user_stories": [],
+    "tech_stack": [
+      "React",
+      "Next",
+      "Tailwind",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Redis"
+    ],
+    "direction": "rtl",
+    "language": "arabic",
+    "path": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\plan.md"
+  },
+  "tasks": {
+    "total_tasks": 93,
+    "phases": {
+      "Phase 0": 24,
+      "Phase 1": 7,
+      "Phase 2": 9,
+      "Phase 3": 18,
+      "Phase 4": 13,
+      "Phase 5": 9,
+      "Phase 6": 7,
+      "Phase 7": 6,
+      "Phase Dependencies": 0
+    },
+    "pages": [
+      "frontend-register",
+      "frontend-mfa-setup",
+      "role-scoped"
+    ],
+    "pages_structured": [
+      {
+        "slug": "frontend-register",
+        "name": "Frontend Register",
+        "source": "semantic: \"Build frontend Register page\"",
+        "detection": "semantic"
+      },
+      {
+        "slug": "frontend-mfa-setup",
+        "name": "Frontend Mfa Setup",
+        "source": "semantic: \"Build frontend MFA setup page\"",
+        "detection": "semantic"
+      },
+      {
+        "slug": "role-scoped",
+        "name": "Role-Scoped",
+        "source": "semantic: \"Build role-scoped dashboard\"",
+        "detection": "semantic"
+      }
+    ],
+    "components": [],
+    "user_story_labels": [
+      "[US1]",
+      "[US2]",
+      "[US3]",
+      "[US4]"
+    ],
+    "path": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\tasks.md"
+  }
+}

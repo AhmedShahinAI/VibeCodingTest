@@ -1,0 +1,125 @@
+/* Shared design tokens for generated UI prototypes — SimpleElm brand.
+   Theming: light tokens on bare :root; dark tokens under both
+   @media (prefers-color-scheme: dark) and :root[data-theme="dark"] so an
+   explicit user toggle always wins. See _partials/theme-toggle.html. */
+:root {
+  --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  --color-primary-light: #4A7EEE;
+  --color-accent: #7C3AED;
+  --color-cyan: #00D1FF;
+  --color-violet-2: #B026FF;
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-bg-subtle: #F1F5F9;
+  --color-border: #E5E7EB;
+  --color-text-primary: #071426;
+  --color-text-secondary: #475569;
+  --color-text-inverse: #FFFFFF;
+  --color-warning: #D97706;
+  --color-success: #16A34A;
+  --color-error: #DC2626;
+
+  --font-heading: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --text-h1: clamp(2.4rem, 6vw, 5.4rem);
+  --text-h2: clamp(1.8rem, 3.5vw, 2.8rem);
+  --text-body: 1rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --shadow-card: 0 20px 50px rgba(7, 20, 38, 0.08);
+  --shadow-glow: 0 0 0 rgba(0,0,0,0);
+  --duration-fast: 160ms;
+  --duration-base: 220ms;
+  --ease-primary: cubic-bezier(0.22, 1, 0.36, 1);
+  --container-max: 1180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary: #3B82F6;
+    --color-primary-dark: #2563EB;
+    --color-primary-light: #60A5FA;
+    --color-accent: #8B5CF6;
+    --color-bg: #071426;
+    --color-surface: #0B1D3A;
+    --color-bg-subtle: #0B1D3A;
+    --color-border: #1E3358;
+    --color-text-primary: #F7FAFC;
+    --color-text-secondary: #C3CAD6;
+    --color-text-inverse: #071426;
+    --color-warning: #FBBF24;
+    --color-success: #4ADE80;
+    --color-error: #F87171;
+    --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.45);
+    --shadow-glow: 0 0 16px rgba(37, 99, 235, 0.35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-primary: #3B82F6;
+  --color-primary-dark: #2563EB;
+  --color-primary-light: #60A5FA;
+  --color-accent: #8B5CF6;
+  --color-bg: #071426;
+  --color-surface: #0B1D3A;
+  --color-bg-subtle: #0B1D3A;
+  --color-border: #1E3358;
+  --color-text-primary: #F7FAFC;
+  --color-text-secondary: #C3CAD6;
+  --color-text-inverse: #071426;
+  --color-warning: #FBBF24;
+  --color-success: #4ADE80;
+  --color-error: #F87171;
+  --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 16px rgba(37, 99, 235, 0.35);
+}
+
+html { font-family: var(--font-body); font-size: 16px; transition: background-color 200ms ease, color 200ms ease; }
+html[dir="rtl"] { direction: rtl; }
+body { background: var(--color-bg); color: var(--color-text-primary); }
+.container { width: min(var(--container-max), calc(100% - 2 * var(--space-6))); margin-inline: auto; }
+.site-shell-header { position: sticky; top: 0; z-index: 50; background: var(--color-surface); border-bottom: 1px solid var(--color-border); }
+.site-shell-footer { border-top: 1px solid var(--color-border); background: var(--color-surface); }
+.admin-shell { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+.admin-shell .sidebar { background: var(--color-surface); border-inline-end: 1px solid var(--color-border); }
+.prototype-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(7,20,38,.96); color: rgba(255,255,255,.6); padding: 8px clamp(12px,3vw,32px); display: flex; align-items: center; gap: 6px; font-size: .72rem; z-index: 9999; flex-wrap: wrap; font-family: sans-serif; border-top: 1px solid rgba(255,255,255,.08); }
+.prototype-nav a { color: #60A5FA; padding: 2px 4px; border-radius: 3px; }
+.proto-spacer { height: 48px; }
+
+/* SimpleElm wordmark accent — solid color, not gradient-clipped text (anti-slop: no gradient text) */
+.brand-name-accent {
+  color: var(--color-primary);
+}
+
+/* Theme toggle button (shared across all prototype pages) */
+.theme-toggle { background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 999px; padding: .4rem .7rem; font-size: .82rem; color: var(--color-text-primary); cursor: pointer; display: inline-flex; align-items: center; gap: .35rem; }
+.theme-toggle .icon-sun, .theme-toggle .icon-moon { width: 16px; height: 16px; }
+/* Icon shown = theme you'll switch TO. Default (light): show moon. */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: inline; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: inline; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: inline; }
+
+@media (max-width: 768px) {
+  .container { width: min(var(--container-max), calc(100% - 2 * var(--space-4))); }
+  .admin-shell { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  html { transition: none; }
+}

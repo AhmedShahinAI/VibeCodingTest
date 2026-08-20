@@ -1,0 +1,211 @@
+{
+  "generated": "2026-08-20",
+  "total_pages": 4,
+  "total_matches": 12,
+  "pages": [
+    {
+      "slug": "frontend-mfa-setup",
+      "file": "ui-prototypes\\frontend-mfa-setup.html",
+      "title": "إعداد التحقق بخطوتين — SimpleElm",
+      "ids": [
+        "seMarkNav",
+        "main",
+        "otp-1",
+        "seMarkFooter"
+      ],
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إعداد التحقق بخطوتين"
+        }
+      ]
+    },
+    {
+      "slug": "frontend-register",
+      "file": "ui-prototypes\\frontend-register.html",
+      "title": "إنشاء حساب — SimpleElm",
+      "ids": [
+        "seMarkNav",
+        "main",
+        "full-name",
+        "email",
+        "password",
+        "password-confirm",
+        "terms",
+        "seMarkFooter"
+      ],
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إنشاء حساب جديد في SimpleElm"
+        }
+      ]
+    },
+    {
+      "slug": "prototype-hub",
+      "file": "ui-prototypes\\prototype-hub.html",
+      "title": "فهرس النماذج — SimpleElm",
+      "ids": [
+        "main",
+        "seMarkHub"
+      ],
+      "sections": [
+        {
+          "id": "main",
+          "heading": "فهرس نماذج SimpleElm"
+        }
+      ]
+    },
+    {
+      "slug": "role-scoped",
+      "file": "ui-prototypes\\role-scoped.html",
+      "title": "لوحة التحكم — SimpleElm",
+      "ids": [
+        "seMarkNav",
+        "main",
+        "seMarkFooter"
+      ],
+      "sections": [
+        {
+          "id": "main",
+          "heading": "الإجراءات المتاحة لدورك"
+        }
+      ]
+    }
+  ],
+  "task_matches": {
+    "T0-204": {
+      "task_line": "T0-204 [P] [US1] Build section: Navbar - `ui-prototypes/frontend-register.html` ✅",
+      "file": "ui-prototypes\\frontend-register.html",
+      "slug": "frontend-register",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إنشاء حساب جديد في SimpleElm"
+        }
+      ]
+    },
+    "T0-205": {
+      "task_line": "T0-205 [P] [US1] Build section: Main content - `ui-prototypes/frontend-register.html` ✅",
+      "file": "ui-prototypes\\frontend-register.html",
+      "slug": "frontend-register",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إنشاء حساب جديد في SimpleElm"
+        }
+      ]
+    },
+    "T0-206": {
+      "task_line": "T0-206 [P] [US1] Build section: Footer - `ui-prototypes/frontend-register.html` ✅",
+      "file": "ui-prototypes\\frontend-register.html",
+      "slug": "frontend-register",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إنشاء حساب جديد في SimpleElm"
+        }
+      ]
+    },
+    "T0-0199": {
+      "task_line": "T0-0199 [P] [US1] Publish the approved prototype file `ui-prototypes/frontend-register.html` ✅",
+      "file": "ui-prototypes\\frontend-register.html",
+      "slug": "frontend-register",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إنشاء حساب جديد في SimpleElm"
+        }
+      ]
+    },
+    "T0-212": {
+      "task_line": "T0-212 [P] [US1] Build section: Navbar - `ui-prototypes/frontend-mfa-setup.html` ✅",
+      "file": "ui-prototypes\\frontend-mfa-setup.html",
+      "slug": "frontend-mfa-setup",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إعداد التحقق بخطوتين"
+        }
+      ]
+    },
+    "T0-213": {
+      "task_line": "T0-213 [P] [US1] Build section: Main content - `ui-prototypes/frontend-mfa-setup.html` ✅",
+      "file": "ui-prototypes\\frontend-mfa-setup.html",
+      "slug": "frontend-mfa-setup",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إعداد التحقق بخطوتين"
+        }
+      ]
+    },
+    "T0-214": {
+      "task_line": "T0-214 [P] [US1] Build section: Footer - `ui-prototypes/frontend-mfa-setup.html` ✅",
+      "file": "ui-prototypes\\frontend-mfa-setup.html",
+      "slug": "frontend-mfa-setup",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إعداد التحقق بخطوتين"
+        }
+      ]
+    },
+    "T0-0299": {
+      "task_line": "T0-0299 [P] [US1] Publish the approved prototype file `ui-prototypes/frontend-mfa-setup.html` ✅",
+      "file": "ui-prototypes\\frontend-mfa-setup.html",
+      "slug": "frontend-mfa-setup",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "إعداد التحقق بخطوتين"
+        }
+      ]
+    },
+    "T0-220": {
+      "task_line": "T0-220 [P] [US1] Build section: Navbar - `ui-prototypes/role-scoped.html` ✅",
+      "file": "ui-prototypes\\role-scoped.html",
+      "slug": "role-scoped",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "الإجراءات المتاحة لدورك"
+        }
+      ]
+    },
+    "T0-221": {
+      "task_line": "T0-221 [P] [US1] Build section: Main content - `ui-prototypes/role-scoped.html` ✅",
+      "file": "ui-prototypes\\role-scoped.html",
+      "slug": "role-scoped",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "الإجراءات المتاحة لدورك"
+        }
+      ]
+    },
+    "T0-222": {
+      "task_line": "T0-222 [P] [US1] Build section: Footer - `ui-prototypes/role-scoped.html` ✅",
+      "file": "ui-prototypes\\role-scoped.html",
+      "slug": "role-scoped",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "الإجراءات المتاحة لدورك"
+        }
+      ]
+    },
+    "T0-0399": {
+      "task_line": "T0-0399 [P] [US1] Publish the approved prototype file `ui-prototypes/role-scoped.html` ✅",
+      "file": "ui-prototypes\\role-scoped.html",
+      "slug": "role-scoped",
+      "sections": [
+        {
+          "id": "main",
+          "heading": "الإجراءات المتاحة لدورك"
+        }
+      ]
+    }
+  },
+  "index_markdown": "## UI Prototype Index\n\nGenerated: 2026-08-20\nTotal: 4 page(s)\n\n| Page | File | Sections |\n|------|------|----------|\n| إعداد التحقق بخطوتين — SimpleElm | `ui-prototypes\\frontend-mfa-setup.html` | 1 |\n| إنشاء حساب — SimpleElm | `ui-prototypes\\frontend-register.html` | 1 |\n| فهرس النماذج — SimpleElm | `ui-prototypes\\prototype-hub.html` | 1 |\n| لوحة التحكم — SimpleElm | `ui-prototypes\\role-scoped.html` | 1 |"
+}

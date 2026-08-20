@@ -1,0 +1,105 @@
+{
+  "state": "approved_brand",
+  "policy": "strict",
+  "generated_at": "2026-08-18T19:00:00Z",
+  "source": "explicit project assets — user-supplied SimpleElm brand identity sheets (light + dark)",
+  "required_user_action": [],
+  "approved_direction": {
+    "id": "SimpleElm",
+    "state": "approved_by_user",
+    "name": "SimpleElm",
+    "name_ar": "سيمبل إلم",
+    "tagline_ar": "تعلم بعمق. ببساطة",
+    "tagline_en": "Learn Deeply. Simply.",
+    "references": [
+      "AI-forward product tours (glowing 3D hero objects, neural-network motifs)",
+      "modern developer-tool marketing sites (gradient-accented, dark-mode-first)",
+      "interactive ML/AI learning tools (loss-curve visualizations, live simulations)"
+    ],
+    "photography": "No photography of people. Abstract 3D renders and generative/AI visuals only: glowing gradient S-mark on a pedestal, neural network node graphs, holographic geometric grids, silhouette-in-portal compositions. Consistent blue-cyan-violet gradient lighting across every image.",
+    "iconography": "Lucide-style outline icons, 1.75px-2px stroke, rounded joins, no fill except active/selected states. Domain set: home, courses (book), labs (flask), AI playground (brain), learning paths (route), community (users), assistant/help (message-circle).",
+    "density": "Medium density bento-style grid of feature tiles and stat cards; confident whitespace between sections; data/interactive panels (loss curve, simulator) are allowed to be denser than marketing sections.",
+    "personality": "Friendly, modern, AI-forward, confident but approachable — 'learn deep concepts, simply.' Technical credibility without being cold or corporate.",
+    "layout_style": "Centered hero with large 3D gradient mark, bento grid of feature tiles, dedicated interactive-learning module (sliders + live chart), mixed asymmetric proof/vision sections, consistent card-with-icon-tile pattern.",
+    "hero_style": "Centered, product-forward hero: headline + subhead + dual CTA beside a glowing 3D brand mark composition.",
+    "cta_tone": "ابدأ التعلم الآن / استكشف الكورسات — start learning, explore courses, try the AI playground.",
+    "project_type": "EdTech",
+    "palette": {
+      "primary": "#2563EB",
+      "accent": "#7C3AED",
+      "background": "#F8FAFC",
+      "surface": "#FFFFFF",
+      "text": "#071426",
+      "text_inverse": "#FFFFFF",
+      "generation": "explicit-user-asset"
+    },
+    "dark_palette": {
+      "primary": "#2563EB",
+      "accent": "#7C3AED",
+      "background": "#071426",
+      "surface": "#0B1D3A",
+      "text": "#F7FAFC",
+      "text_inverse": "#071426",
+      "generation": "explicit-user-asset"
+    },
+    "extended_swatches": {
+      "cyan": "#00D1FF",
+      "violet_2": "#B026FF",
+      "light_border": "#E5E7EB",
+      "light_bg_alt": "#F8FAFC",
+      "dark_muted": "#A1A8B3"
+    },
+    "fonts": {
+      "arabic_heading": "IBM Plex Sans Arabic",
+      "arabic_body": "IBM Plex Sans Arabic",
+      "latin_fallback": "Inter",
+      "mono": "JetBrains Mono",
+      "generation": "explicit-user-asset"
+    },
+    "theming": {
+      "modes": ["light", "dark"],
+      "default": "respect-os-preference",
+      "user_override": true,
+      "mechanism": "data-theme attribute on <html>, persisted in localStorage",
+      "storage_key": "simpleelm-theme"
+    },
+    "competitive_basis": {
+      "patterns_to_copy": [
+        "AI-forward product tours",
+        "modern developer-tool marketing sites",
+        "interactive ML/AI learning tools"
+      ],
+      "patterns_to_avoid": [
+        "generic SaaS hero",
+        "three-card syndrome",
+        "fake metrics",
+        "stock classroom photography"
+      ],
+      "hero_types": ["centered-product", "gradient-mesh-abstract", "bento", "stats-hero"],
+      "section_types": ["feature-bento", "interactive-simulator", "visual-style-strip", "vision-statement", "trust-strip"],
+      "copy_tone": ["Arabic-first and confident, technical but warm"],
+      "spacing_observations": ["marketing sections breathe; interactive/data panels stay denser and functional"]
+    }
+  },
+  "raw_signals": {
+    "logos": [{ "path": "user-supplied brand sheet (light + dark)", "confidence": "explicit" }],
+    "hex_colors": [
+      { "hex": "#071426", "confidence": "explicit" },
+      { "hex": "#2563EB", "confidence": "explicit" },
+      { "hex": "#00D1FF", "confidence": "explicit" },
+      { "hex": "#7C3AED", "confidence": "explicit" },
+      { "hex": "#B026FF", "confidence": "explicit" },
+      { "hex": "#E5E7EB", "confidence": "explicit" },
+      { "hex": "#F8FAFC", "confidence": "explicit" },
+      { "hex": "#0B1D3A", "confidence": "explicit" },
+      { "hex": "#F7FAFC", "confidence": "explicit" },
+      { "hex": "#A1A8B3", "confidence": "explicit" }
+    ],
+    "font_families": [
+      { "font": "IBM Plex Sans Arabic", "confidence": "explicit" },
+      { "font": "Inter", "confidence": "explicit" }
+    ],
+    "rtl_detected": true,
+    "arabic_detected": true
+  }
+}

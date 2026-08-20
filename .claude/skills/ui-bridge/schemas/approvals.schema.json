@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": ["approved", "version", "approved_at", "approved_by"],
+    "properties": {
+      "approved": { "type": "boolean" },
+      "version": { "type": "string" },
+      "approved_at": { "type": "string" },
+      "approved_by": { "type": "string" }
+    }
+  }
+}

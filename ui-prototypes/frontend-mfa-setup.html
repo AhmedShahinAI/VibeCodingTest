@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  var t = localStorage.getItem('simpleelm-theme');
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<title>إعداد التحقق بخطوتين — SimpleElm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-tokens.css">
+<style>
+:root {
+  --color-primary: #2563EB;
+  --color-accent: #7C3AED;
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-border: #E5E7EB;
+  --color-text-primary: #071426;
+  --color-text-secondary: #475569;
+  --color-error: #DC2626;
+  --font-heading: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --text-h1: clamp(2rem, 4vw, 2.85rem);
+  --space-4: 1rem;
+  --radius-md: 1rem;
+  --duration-base: 220ms;
+  --ease-primary: cubic-bezier(0.22, 1, 0.36, 1);
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding-bottom: 48px; }
+.skip-link { position: absolute; inset-inline-start: -999px; top: 0; background: var(--color-primary); color: #fff; padding: 12px 20px; border-radius: 0 0 8px 8px; z-index: 10000; font-weight: 600; }
+.skip-link:focus { inset-inline-start: 0; }
+a { color: inherit; }
+button { font-family: inherit; }
+
+.topnav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: .9rem; }
+.brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; }
+.brand-mark { width: 38px; height: 38px; flex-shrink: 0; }
+.brand-mark-lg { width: 46px; height: 46px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: var(--color-text-primary); }
+.brand-tagline { font-family: 'Inter', sans-serif; font-size: .68rem; letter-spacing: .08em; color: var(--color-text-secondary); text-transform: uppercase; }
+.topnav-links { display: flex; align-items: center; gap: 1rem; }
+.topnav-help { font-size: .92rem; font-weight: 600; color: var(--color-text-secondary); text-decoration: none; }
+.topnav-help:hover { color: var(--color-primary); }
+.lang-toggle { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 999px; padding: .4rem .85rem; font-size: .82rem; color: var(--color-text-primary); cursor: pointer; }
+.footer-inner { padding-block: 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+.footer-copy { margin: 0; color: var(--color-text-secondary); font-size: .9rem; max-width: 42ch; }
+.footer-legal { margin: 0; color: var(--color-text-secondary); font-size: .82rem; }
+.footer-legal a { color: var(--color-text-secondary); text-decoration: underline; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 4px;
+}
+
+.mfa-hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr); gap: clamp(24px, 4vw, 56px); align-items: start; padding-block: clamp(28px, 5vw, 56px) clamp(48px, 7vw, 80px); }
+.mfa-panel h1 { font-family: var(--font-heading); font-size: var(--text-h1); margin: 0 0 .5rem; line-height: 1.15; }
+.mfa-panel > p.lede { color: var(--color-text-secondary); font-size: 1.05rem; margin: 0 0 1.75rem; max-width: 48ch; }
+
+.steps { list-style: none; margin: 0 0 1.75rem; padding: 0; counter-reset: step; display: grid; gap: .9rem; }
+.steps li { display: flex; gap: .85rem; align-items: flex-start; font-size: .94rem; color: var(--color-text-primary); }
+.steps li::before { counter-increment: step; content: counter(step); flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--color-surface); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .82rem; color: var(--color-primary); }
+
+.qr-block { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 1.2rem; padding: 1.75rem; display: flex; gap: 1.75rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.qr-code { width: 148px; height: 148px; flex-shrink: 0; background: #fff; border-radius: .6rem; padding: 10px; border: 1px solid var(--color-border); }
+/* QR codes need a real white backing regardless of theme so scanners can read them. */
+.qr-meta { flex: 1; min-width: 200px; }
+.qr-meta p { margin: 0 0 .6rem; font-size: .88rem; color: var(--color-text-secondary); }
+.manual-code { display: block; font-family: 'JetBrains Mono', monospace; background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: .5rem; padding: .65rem .85rem; font-size: .92rem; letter-spacing: .06em; color: var(--color-text-primary); }
+
+.otp-row { display: flex; gap: .6rem; margin-bottom: .6rem; direction: ltr; }
+.otp-row input { width: 3rem; height: 3.2rem; text-align: center; font-size: 1.3rem; font-family: 'JetBrains Mono', monospace; border: 1px solid var(--color-border); border-radius: .55rem; }
+.otp-row input:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+.otp-label { display: block; font-weight: 600; font-size: .92rem; margin-bottom: .6rem; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: 0 1.5rem; border-radius: .6rem; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; transition: box-shadow var(--duration-base) var(--ease-primary); }
+.btn-primary { background: var(--color-primary); color: #fff; width: 100%; margin-top: .6rem; }
+.btn-primary:hover { box-shadow: 0 10px 24px rgba(37,99,235,.28); }
+.resend-line { margin-top: 1.1rem; font-size: .88rem; color: var(--color-text-secondary); text-align: center; }
+.resend-line a { color: var(--color-primary); font-weight: 700; text-decoration: none; }
+.resend-line a:hover { text-decoration: underline; }
+
+.backup-note { margin-top: 1.75rem; padding: 1rem 1.15rem; border-radius: .8rem; background: color-mix(in srgb, var(--color-warning) 12%, var(--color-surface)); border: 1px solid color-mix(in srgb, var(--color-warning) 40%, var(--color-surface)); font-size: .88rem; color: var(--color-text-primary); display: flex; gap: .7rem; }
+.backup-note svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-warning); }
+
+.proof-panel { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 1.4rem; padding: clamp(1.75rem, 3vw, 2.5rem); position: sticky; top: 96px; }
+.proof-quote { font-family: var(--font-heading); font-size: 1.2rem; line-height: 1.6; margin: 0 0 1.25rem; position: relative; padding-inline-start: 1.1rem; }
+.proof-quote::before { content: "\201C"; position: absolute; inset-inline-start: 0; top: -.2rem; font-size: 2rem; color: var(--color-accent); font-family: Georgia, serif; line-height: 1; }
+.proof-author { display: flex; align-items: center; gap: .75rem; margin-bottom: 2rem; }
+.proof-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-heading); flex-shrink: 0; }
+.proof-author-name { font-weight: 700; font-size: .92rem; display: block; }
+.proof-author-role { font-size: .8rem; color: var(--color-text-secondary); }
+.trust-list { list-style: none; margin: 0; padding: 1.5rem 0 0; border-top: 1px solid var(--color-border); display: grid; gap: .85rem; }
+.trust-list li { display: flex; align-items: flex-start; gap: .65rem; font-size: .9rem; color: var(--color-text-primary); }
+.trust-list svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-primary); margin-top: 1px; }
+
+@media (max-width: 768px) {
+  .mfa-hero { grid-template-columns: 1fr; }
+  .proof-panel { position: static; }
+  .otp-row input { width: 2.5rem; height: 2.8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">تجاوز إلى المحتوى الرئيسي</a>
+
+<header class="site-shell-header">
+<!-- PARTIAL:nav-public -->
+<div class="container topnav-inner">
+  <a href="frontend-register.html" class="brand" aria-label="SimpleElm — تعلم بعمق. ببساطة">
+    <svg class="brand-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="seMarkNav" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#2563EB"/>
+          <stop offset=".55" stop-color="#00D1FF"/>
+          <stop offset="1" stop-color="#7C3AED"/>
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" rx="12" fill="url(#seMarkNav)"/>
+      <circle cx="20" cy="20" r="4.5" fill="#fff"/>
+      <path d="M20 9.5a10.5 10.5 0 0 1 10.5 10.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M20 30.5A10.5 10.5 0 0 1 9.5 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".7"/>
+    </svg>
+    <span class="brand-text">
+      <span class="brand-name">Simple<span class="brand-name-accent">Elm</span></span>
+      <span class="brand-tagline">تعلم بعمق. ببساطة</span>
+    </span>
+  </a>
+  <nav class="topnav-links" aria-label="التنقل الرئيسي">
+    <a href="#main" class="topnav-help">مركز المساعدة</a>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-label="تبديل المظهر بين الفاتح والداكن" aria-pressed="false">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
+    <button type="button" class="lang-toggle" aria-label="تبديل اللغة إلى الإنجليزية">EN&nbsp;/&nbsp;<strong>ع</strong></button>
+  </nav>
+</div>
+<script>
+(function () {
+  var STORAGE_KEY = 'simpleelm-theme';
+  var btn = document.currentScript.previousElementSibling.querySelector('[data-theme-toggle]');
+  if (!btn) return;
+  function current() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'light' || stored === 'dark') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function apply(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    btn.setAttribute('aria-pressed', String(theme === 'dark'));
+  }
+  apply(current());
+  btn.addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(STORAGE_KEY, next);
+    apply(next);
+  });
+})();
+</script>
+<!-- /PARTIAL:nav-public -->
+</header>
+
+<main id="main" class="container">
+  <section class="mfa-hero">
+    <div class="mfa-panel">
+      <h1>إعداد التحقق بخطوتين</h1>
+      <p class="lede">خطوة أخيرة قبل الدخول إلى مساحة عملك. بدون هذه الخطوة لن تُمنح أي جلسة، حتى ببيانات دخول صحيحة.</p>
+
+      <ol class="steps">
+        <li>افتح تطبيق مصادقة مثل Google Authenticator أو Authy على هاتفك.</li>
+        <li>امسح الرمز المقابل، أو أدخل الرمز اليدوي إذا تعذّر المسح.</li>
+        <li>أدخل الرمز المكوّن من 6 أرقام الذي يظهر في التطبيق لتفعيل الحساب.</li>
+      </ol>
+
+      <div class="qr-block">
+        <svg class="qr-code" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="رمز QR لإعداد تطبيق المصادقة">
+          <rect width="21" height="21" fill="#fff"/>
+          <rect x="0" y="0" width="7" height="7" fill="#000000"/><rect x="1" y="1" width="5" height="5" fill="#fff"/><rect x="2" y="2" width="3" height="3" fill="#000000"/>
+          <rect x="14" y="0" width="7" height="7" fill="#000000"/><rect x="15" y="1" width="5" height="5" fill="#fff"/><rect x="16" y="2" width="3" height="3" fill="#000000"/>
+          <rect x="0" y="14" width="7" height="7" fill="#000000"/><rect x="1" y="15" width="5" height="5" fill="#fff"/><rect x="2" y="16" width="3" height="3" fill="#000000"/>
+          <g fill="#000000">
+            <rect x="9" y="1" width="1" height="1"/><rect x="11" y="2" width="1" height="1"/><rect x="9" y="4" width="1" height="1"/><rect x="10" y="5" width="1" height="1"/><rect x="12" y="3" width="1" height="1"/>
+            <rect x="9" y="9" width="1" height="1"/><rect x="10" y="9" width="1" height="1"/><rect x="11" y="9" width="1" height="1"/><rect x="9" y="10" width="1" height="1"/><rect x="12" y="10" width="1" height="1"/>
+            <rect x="9" y="11" width="1" height="1"/><rect x="11" y="11" width="1" height="1"/><rect x="13" y="9" width="1" height="1"/><rect x="15" y="9" width="1" height="1"/><rect x="17" y="9" width="1" height="1"/>
+            <rect x="9" y="13" width="1" height="1"/><rect x="9" y="15" width="1" height="1"/><rect x="9" y="17" width="1" height="1"/><rect x="11" y="13" width="1" height="1"/><rect x="13" y="13" width="1" height="1"/>
+            <rect x="15" y="13" width="1" height="1"/><rect x="17" y="13" width="1" height="1"/><rect x="13" y="15" width="1" height="1"/><rect x="15" y="17" width="1" height="1"/><rect x="17" y="15" width="1" height="1"/>
+            <rect x="11" y="17" width="1" height="1"/><rect x="15" y="11" width="1" height="1"/><rect x="17" y="11" width="1" height="1"/><rect x="13" y="17" width="1" height="1"/>
+          </g>
+        </svg>
+        <div class="qr-meta">
+          <p>لا يمكن مسح الرمز؟ أدخل هذا المفتاح يدويًا في تطبيق المصادقة:</p>
+          <code class="manual-code">JBSW Y3DP EHPK 3PXP WQ2M</code>
+        </div>
+      </div>
+
+      <form>
+        <label class="otp-label" for="otp-1">رمز التحقق المكوّن من 6 أرقام</label>
+        <div class="otp-row">
+          <input type="text" inputmode="numeric" maxlength="1" id="otp-1" aria-label="الرقم 1 من 6">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="الرقم 2 من 6">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="الرقم 3 من 6">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="الرقم 4 من 6">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="الرقم 5 من 6">
+          <input type="text" inputmode="numeric" maxlength="1" aria-label="الرقم 6 من 6">
+        </div>
+        <button type="submit" class="btn btn-primary">تأكيد وتفعيل الحساب</button>
+      </form>
+      <p class="resend-line">لم يصلك رمز أو انتهت صلاحيته؟ <a href="#main">إعادة إنشاء الرمز</a></p>
+
+      <div class="backup-note">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 1.5 1.7 5v5.4c0 5 3.5 8.7 8.3 9.1 4.8-.4 8.3-4.1 8.3-9.1V5L10 1.5Z" stroke="currentColor" stroke-width="1.4"/><path d="M10 6v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="13.6" r=".9" fill="currentColor"/></svg>
+        <span>احتفظ برموز الاسترداد الاحتياطية بعد التفعيل — ستحتاجها إذا فقدت هاتفك. تُصدر مرة واحدة فقط ولا يمكن استرجاعها لاحقًا.</span>
+      </div>
+    </div>
+
+    <aside class="proof-panel">
+      <p class="proof-quote">ما يطمئننا في الجانب الأمني أن أي إساءة استخدام لرمز الجلسة تُكتشف فورًا ويُبطَل كل الجهاز المرتبط بها، لا الجلسة الواحدة فقط.</p>
+      <div class="proof-author">
+        <span class="proof-avatar" aria-hidden="true">ف.ع</span>
+        <span>
+          <span class="proof-author-name">م. فاطمة العلي</span>
+          <span class="proof-author-role">مسؤولة الالتزام والأمان، عملاء SimpleElm</span>
+        </span>
+      </div>
+      <ul class="trust-list">
+        <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2 3 5v5c0 4.4 3 7.6 7 8 4-.4 7-3.6 7-8V5l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.2 10 2 2 3.6-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> دوران رمز التحديث تلقائيًا مع كشف إعادة الاستخدام</li>
+        <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2 3 5v5c0 4.4 3 7.6 7 8 4-.4 7-3.6 7-8V5l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.2 10 2 2 3.6-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> كل محاولة دخول، ناجحة أو فاشلة، تُسجَّل فور حدوثها</li>
+        <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2 3 5v5c0 4.4 3 7.6 7 8 4-.4 7-3.6 7-8V5l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.2 10 2 2 3.6-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> يمكنك إبطال أي جهاز مرتبط من إعدادات الحساب</li>
+      </ul>
+    </aside>
+  </section>
+</main>
+
+<footer class="site-shell-footer">
+<!-- PARTIAL:footer-public -->
+<div class="container footer-inner">
+  <a href="frontend-register.html" class="brand brand-footer" aria-label="SimpleElm — تعلم بعمق. ببساطة">
+    <svg class="brand-mark brand-mark-lg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="seMarkFooter" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#2563EB"/>
+          <stop offset=".55" stop-color="#00D1FF"/>
+          <stop offset="1" stop-color="#7C3AED"/>
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" rx="12" fill="url(#seMarkFooter)"/>
+      <circle cx="20" cy="20" r="4.5" fill="#fff"/>
+      <path d="M20 9.5a10.5 10.5 0 0 1 10.5 10.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M20 30.5A10.5 10.5 0 0 1 9.5 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".7"/>
+    </svg>
+    <span class="brand-text">
+      <span class="brand-name">Simple<span class="brand-name-accent">Elm</span></span>
+      <span class="brand-tagline">تعلم بعمق. ببساطة</span>
+    </span>
+  </a>
+  <p class="footer-copy">منصة تدريب متعددة المستأجرين، بحماية على مستوى الصف وعزل كامل لبيانات كل جهة.</p>
+  <p class="footer-legal">© 2026 SimpleElm. جميع الحقوق محفوظة. · <a href="#main">الخصوصية</a> · <a href="#main">الشروط</a></p>
+</div>
+<!-- /PARTIAL:footer-public -->
+</footer>
+
+<nav class="prototype-nav" aria-label="التنقل بين نماذج الصفحات" dir="ltr">
+  <a href="frontend-register.html">Register</a> |
+  <a href="frontend-mfa-setup.html" class="current">MFA Setup</a> |
+  <a href="role-scoped.html">Dashboard</a> |
+  <a href="prototype-hub.html">Prototype Hub</a>
+</nav>
+<div class="proto-spacer" aria-hidden="true"></div>
+</body>
+</html>

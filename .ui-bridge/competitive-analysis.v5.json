@@ -1,0 +1,50 @@
+{
+  "state": "approved-source",
+  "patterns_to_copy": [
+    "training organization websites",
+    "executive education pages",
+    "Arabic course catalog experiences",
+    "premium service brands",
+    "expert-led boutique sites",
+    "high-trust editorial portfolios"
+  ],
+  "patterns_to_avoid": [
+    "generic SaaS hero",
+    "three-card syndrome",
+    "fake metrics",
+    "centered everything"
+  ],
+  "hero_types": [
+    "proof-first",
+    "editorial",
+    "asymmetric",
+    "founder/expert",
+    "magazine",
+    "split"
+  ],
+  "section_types": [
+    "bento",
+    "timeline",
+    "editorial-list",
+    "proof-strip",
+    "split-detail",
+    "data-table",
+    "focused-panel",
+    "record-workspace",
+    "methodology-flow"
+  ],
+  "copy_tone": [
+    "Browse courses, reserve a seat, request program details."
+  ],
+  "spacing_observations": [
+    "Low-to-medium density, strong contrast, fewer but more confident sections."
+  ],
+  "layout_observations": [
+    "Asymmetric hero, large proof quote, premium course cards, strong whitespace."
+  ],
+  "visual_personality": [
+    "Selective, premium, expert-led, confident."
+  ],
+  "version": "v5",
+  "generated_at": "2026-08-18T12:58:16Z"
+}

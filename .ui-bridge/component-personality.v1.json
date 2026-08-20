@@ -1,0 +1,11 @@
+{
+  "state": "draft",
+  "buttons": "specific CTA text, clear primary/secondary hierarchy",
+  "cards": "vary layout by content type; no six equal cards",
+  "badges": "max three badge types per page",
+  "stats": "one featured metric or real table; no fake metric row",
+  "forms": "labeled, compact, realistic validation states",
+  "tables": "dense admin utility, restrained borders, no zebra-striping",
+  "version": "v1",
+  "generated_at": "2026-08-18T01:22:42Z"
+}

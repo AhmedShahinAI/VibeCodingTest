@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["state", "policy", "signals"],
+  "properties": {
+    "state": { "enum": ["approved_brand", "brand_intake_required", "inferred_proposal", "unapproved_fallback"] },
+    "policy": { "enum": ["strict", "proposal", "fallback"] },
+    "signals": {
+      "type": "object",
+      "required": ["hex_colors", "css_variables", "font_families", "google_fonts", "tailwind_colors", "logos", "rtl_detected", "arabic_detected"],
+      "properties": {
+        "hex_colors": { "type": "array" },
+        "css_variables": { "type": "array" },
+        "font_families": { "type": "array" },
+        "google_fonts": { "type": "array" },
+        "tailwind_colors": { "type": "object" },
+        "logos": { "type": "array" },
+        "rtl_detected": { "type": "boolean" },
+        "arabic_detected": { "type": "boolean" }
+      }
+    },
+    "required_user_action": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 8 }
+    }
+  }
+}

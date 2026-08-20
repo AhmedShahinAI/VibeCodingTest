@@ -1,0 +1,716 @@
+{
+  "generated_by": "infer_master.py",
+  "version": "1.0",
+  "root": "D:\\Vibe Coding Course\\Lec2",
+  "category": "SaaS Dashboard",
+  "effective_category": "SaaS Dashboard",
+  "is_arabic": true,
+  "is_rtl": true,
+  "spec": {
+    "project_name": "Implementation Plan: Phase 1 — Foundation (Auth, RBAC, Tenancy, Bilingual Shell)",
+    "plan_path": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\plan.md",
+    "tasks_path": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\tasks.md",
+    "phases": [
+      "0"
+    ]
+  },
+  "pages": [
+    {
+      "name": "Frontend Register",
+      "slug": "frontend-register",
+      "route": "/frontend-register",
+      "source": "Build frontend Register page",
+      "detection": "semantic",
+      "section_hints": []
+    },
+    {
+      "name": "Frontend Mfa Setup",
+      "slug": "frontend-mfa-setup",
+      "route": "/frontend-mfa-setup",
+      "source": "Build frontend MFA setup page",
+      "detection": "semantic",
+      "section_hints": []
+    },
+    {
+      "name": "Role-Scoped",
+      "slug": "role-scoped",
+      "route": "/role-scoped",
+      "source": "Build role-scoped dashboard",
+      "detection": "semantic",
+      "section_hints": [
+        "dashboard"
+      ]
+    },
+    {
+      "name": "Register",
+      "slug": "register",
+      "route": "/register",
+      "source": "Build Register page",
+      "detection": "semantic",
+      "section_hints": []
+    },
+    {
+      "name": "Mfa Setup",
+      "slug": "mfa-setup",
+      "route": "/mfa-setup",
+      "source": "Build MFA setup page",
+      "detection": "semantic",
+      "section_hints": []
+    }
+  ],
+  "typography": {
+    "font_pair": {
+      "heading": "IBM Plex Sans Arabic",
+      "body": "IBM Plex Sans Arabic",
+      "mono": "JetBrains Mono",
+      "rationale": "Approved brand direction",
+      "google_url": ""
+    },
+    "css_import": "",
+    "css_variables": "/* Typography System */\n:root {\n  --font-heading: 'IBM Plex Sans Arabic', sans-serif;\n  --font-body: 'IBM Plex Sans Arabic', sans-serif;\n  --font-mono: 'JetBrains Mono', monospace;\n\n  --text-display: 4rem;\n  --text-h1: 3rem;\n  --text-h2: 2.25rem;\n  --text-h3: 1.875rem;\n  --text-h4: 1.5rem;\n  --text-h5: 1.25rem;\n  --text-h6: 1.125rem;\n  --text-body-lg: 1.125rem;\n  --text-body: 1rem;\n  --text-body-sm: 0.875rem;\n  --text-caption: 0.75rem;\n  --text-label: 0.6875rem;\n\n  --leading-display: 1.1;\n  --leading-heading: 1.25;\n  --leading-subheading: 1.35;\n  --leading-body: 1.6;\n  --leading-body-compact: 1.4;\n  --leading-caption: 1.4;\n\n  --tracking-display: -0.03em;\n  --tracking-heading: -0.02em;\n  --tracking-subheading: -0.01em;\n  --tracking-body: 0em;\n  --tracking-label-uppercase: 0.08em;\n  --tracking-caption-uppercase: 0.1em;\n\n  --weight-black: 900;\n  --weight-extrabold: 800;\n  --weight-bold: 700;\n  --weight-semibold: 600;\n  --weight-medium: 500;\n  --weight-regular: 400;\n  --weight-light: 300;\n}"
+  },
+  "colors": {
+    "palette": {
+      "primary": "#2563EB",
+      "primary_dark": "#1350d4",
+      "primary_light": "#4a7eee",
+      "primary_subtle": "#f6f7f9",
+      "accent": "#7C3AED",
+      "secondary": "#1350d4",
+      "accent_subtle": "#f8f3f2",
+      "warning": "#9f0f97",
+      "error": "#9f0f1a",
+      "success": "#7d8c0d",
+      "bg": "#F8FAFC",
+      "bg_subtle": "#fafafa",
+      "surface": "#FFFFFF",
+      "border": "#d8dade",
+      "border_strong": "#afb4c0",
+      "text_primary": "#071426",
+      "text_secondary": "#424957",
+      "text_tertiary": "#6a7181",
+      "text_inverse": "#FFFFFF"
+    },
+    "css_variables": "/* Color System */\n:root {\n  --color-primary: #2563EB;\n  --color-primary-dark: #1350d4;\n  --color-primary-light: #4a7eee;\n  --color-primary-subtle: #f6f7f9;\n  --color-accent: #7C3AED;\n  --color-secondary: #1350d4;\n  --color-accent-subtle: #f8f3f2;\n  --color-warning: #9f0f97;\n  --color-error: #9f0f1a;\n  --color-success: #7d8c0d;\n  --color-bg: #F8FAFC;\n  --color-bg-subtle: #fafafa;\n  --color-surface: #FFFFFF;\n  --color-border: #d8dade;\n  --color-border-strong: #afb4c0;\n  --color-text-primary: #071426;\n  --color-text-secondary: #424957;\n  --color-text-tertiary: #6a7181;\n  --color-text-inverse: #FFFFFF;\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n    --color-bg: #14171f;\n    --color-bg-subtle: #212631;\n    --color-surface: #252b36;\n    --color-border: #3c4353;\n    --color-border-strong: #525b6f;\n    --color-text-primary: #efeff0;\n    --color-text-secondary: #c9cbcf;\n    --color-text-tertiary: #a1a6b0;\n    --color-text-inverse: #14171f;\n    --color-primary: #4a7eee;\n    --color-primary-light: #4a7eee;\n    --color-primary-dark: #2563EB;\n    --color-primary-subtle: #262e40;\n    --color-secondary: #1350d4;\n    --color-accent: #7C3AED;\n    --color-accent-subtle: #f8f3f2;\n    --color-warning: #9f0f97;\n    --color-error: #9f0f1a;\n    --color-success: #7d8c0d;\n  }\n}"
+  },
+  "approved_brand": {
+    "id": "SimpleElm",
+    "state": "approved_by_user",
+    "name": "SimpleElm",
+    "name_ar": "سيمبل إلم",
+    "tagline_ar": "تعلم بعمق. ببساطة",
+    "tagline_en": "Learn Deeply. Simply.",
+    "references": [
+      "AI-forward product tours (glowing 3D hero objects, neural-network motifs)",
+      "modern developer-tool marketing sites (gradient-accented, dark-mode-first)",
+      "interactive ML/AI learning tools (loss-curve visualizations, live simulations)"
+    ],
+    "photography": "No photography of people. Abstract 3D renders and generative/AI visuals only: glowing gradient S-mark on a pedestal, neural network node graphs, holographic geometric grids, silhouette-in-portal compositions. Consistent blue-cyan-violet gradient lighting across every image.",
+    "iconography": "Lucide-style outline icons, 1.75px-2px stroke, rounded joins, no fill except active/selected states. Domain set: home, courses (book), labs (flask), AI playground (brain), learning paths (route), community (users), assistant/help (message-circle).",
+    "density": "Medium density bento-style grid of feature tiles and stat cards; confident whitespace between sections; data/interactive panels (loss curve, simulator) are allowed to be denser than marketing sections.",
+    "personality": "Friendly, modern, AI-forward, confident but approachable — 'learn deep concepts, simply.' Technical credibility without being cold or corporate.",
+    "layout_style": "Centered hero with large 3D gradient mark, bento grid of feature tiles, dedicated interactive-learning module (sliders + live chart), mixed asymmetric proof/vision sections, consistent card-with-icon-tile pattern.",
+    "hero_style": "Centered, product-forward hero: headline + subhead + dual CTA beside a glowing 3D brand mark composition.",
+    "cta_tone": "ابدأ التعلم الآن / استكشف الكورسات — start learning, explore courses, try the AI playground.",
+    "project_type": "EdTech",
+    "palette": {
+      "primary": "#2563EB",
+      "accent": "#7C3AED",
+      "background": "#F8FAFC",
+      "surface": "#FFFFFF",
+      "text": "#071426",
+      "text_inverse": "#FFFFFF",
+      "generation": "explicit-user-asset"
+    },
+    "dark_palette": {
+      "primary": "#2563EB",
+      "accent": "#7C3AED",
+      "background": "#071426",
+      "surface": "#0B1D3A",
+      "text": "#F7FAFC",
+      "text_inverse": "#071426",
+      "generation": "explicit-user-asset"
+    },
+    "extended_swatches": {
+      "cyan": "#00D1FF",
+      "violet_2": "#B026FF",
+      "light_border": "#E5E7EB",
+      "light_bg_alt": "#F8FAFC",
+      "dark_muted": "#A1A8B3"
+    },
+    "fonts": {
+      "arabic_heading": "IBM Plex Sans Arabic",
+      "arabic_body": "IBM Plex Sans Arabic",
+      "latin_fallback": "Inter",
+      "mono": "JetBrains Mono",
+      "generation": "explicit-user-asset"
+    },
+    "theming": {
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "default": "respect-os-preference",
+      "user_override": true,
+      "mechanism": "data-theme attribute on <html>, persisted in localStorage",
+      "storage_key": "simpleelm-theme"
+    },
+    "competitive_basis": {
+      "patterns_to_copy": [
+        "AI-forward product tours",
+        "modern developer-tool marketing sites",
+        "interactive ML/AI learning tools"
+      ],
+      "patterns_to_avoid": [
+        "generic SaaS hero",
+        "three-card syndrome",
+        "fake metrics",
+        "stock classroom photography"
+      ],
+      "hero_types": [
+        "centered-product",
+        "gradient-mesh-abstract",
+        "bento",
+        "stats-hero"
+      ],
+      "section_types": [
+        "feature-bento",
+        "interactive-simulator",
+        "visual-style-strip",
+        "vision-statement",
+        "trust-strip"
+      ],
+      "copy_tone": [
+        "Arabic-first and confident, technical but warm"
+      ],
+      "spacing_observations": [
+        "marketing sections breathe; interactive/data panels stay denser and functional"
+      ]
+    }
+  },
+  "direction_artifacts": {
+    "competitive_analysis": {
+      "state": "approved-source",
+      "patterns_to_copy": [
+        "training organization websites",
+        "executive education pages",
+        "Arabic course catalog experiences",
+        "premium service brands",
+        "expert-led boutique sites",
+        "high-trust editorial portfolios"
+      ],
+      "patterns_to_avoid": [
+        "generic SaaS hero",
+        "three-card syndrome",
+        "fake metrics",
+        "centered everything"
+      ],
+      "hero_types": [
+        "proof-first",
+        "editorial",
+        "asymmetric",
+        "founder/expert",
+        "magazine",
+        "split"
+      ],
+      "section_types": [
+        "bento",
+        "timeline",
+        "editorial-list",
+        "proof-strip",
+        "split-detail",
+        "data-table",
+        "focused-panel",
+        "record-workspace",
+        "methodology-flow"
+      ],
+      "copy_tone": [
+        "Browse courses, reserve a seat, request program details."
+      ],
+      "spacing_observations": [
+        "Low-to-medium density, strong contrast, fewer but more confident sections."
+      ],
+      "layout_observations": [
+        "Asymmetric hero, large proof quote, premium course cards, strong whitespace."
+      ],
+      "visual_personality": [
+        "Selective, premium, expert-led, confident."
+      ],
+      "version": "v5",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "moodboard": {
+      "state": "approved-source",
+      "photography": "No photography of people. Abstract 3D renders and generative/AI visuals only: glowing gradient S-mark on a pedestal, neural network node graphs, holographic geometric grids, silhouette-in-portal compositions. Consistent blue-cyan-violet gradient lighting.",
+      "density": "Medium density bento-style grid of feature tiles and stat cards; confident whitespace between marketing sections; interactive/data panels are denser and functional.",
+      "card_style": "Rounded tiles (12-16px radius) with a small icon chip, short title, and one line of support copy; consistent icon-tile pattern across feature grids.",
+      "spacing_style": "Medium density bento-style grid of feature tiles and stat cards; confident whitespace between marketing sections; interactive/data panels are denser and functional.",
+      "icon_style": "Lucide-style outline icons, 1.75px-2px stroke, rounded joins, no fill except active/selected states.",
+      "color_temperature": "cool — blue/cyan/violet gradient family on near-white (light) or deep navy (dark)",
+      "editorial_feel": "Friendly, modern, AI-forward, confident but approachable.",
+      "version": "v4",
+      "generated_at": "2026-08-18T19:00:00Z"
+    },
+    "visual_dna": {
+      "state": "approved-source",
+      "personality": "Friendly, modern, AI-forward, confident but approachable — technical credibility without corporate coldness.",
+      "geometry": "soft rounded tiles and glassy panels, glowing gradient orbs and pedestal compositions, thin neural-network connector lines as decorative motif",
+      "density": "Medium density bento-style grid of feature tiles and stat cards; confident whitespace between marketing sections; interactive/data panels are denser and functional.",
+      "motion": "smooth, encouraging transitions; live-updating charts/sliders in the interactive learning module",
+      "contrast": "AA minimum, strong hierarchy — verified independently in both light and dark modes",
+      "photography_style": "No photography of people. Abstract 3D renders and generative/AI visuals only: glowing gradient S-mark on a pedestal, neural network node graphs, holographic geometric grids, silhouette-in-portal compositions.",
+      "iconography": "Lucide-style outline icons, 1.75px-2px stroke, rounded joins, no fill except active/selected states.",
+      "theming": "dual identity — light (near-white canvas, deep navy ink, blue/cyan/violet accents) and dark (deep navy canvas, near-white ink, same accent family) — user-toggleable, not only OS-driven",
+      "version": "v4",
+      "generated_at": "2026-08-18T19:00:00Z"
+    },
+    "layout_dna": {
+      "state": "approved-source",
+      "symmetry": "low-to-medium",
+      "editorialness": "medium",
+      "card_density": "medium",
+      "grid_style": "Asymmetric hero, large proof quote, premium course cards, strong whitespace.",
+      "alignment_style": "mixed alignment by section purpose; avoid centered paragraphs as default",
+      "section_rhythm": "rotate proof, narrative, data, methodology, and action sections by page type",
+      "asymmetry_level": "low",
+      "page_assignments": {
+        "frontend-register": {
+          "layout_pattern": "editorial-index",
+          "hero_influence": "Founder/expert or premium proof-first hero.",
+          "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+        },
+        "frontend-mfa-setup": {
+          "layout_pattern": "proof-led-detail",
+          "hero_influence": "Founder/expert or premium proof-first hero.",
+          "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+        },
+        "role-scoped": {
+          "layout_pattern": "asymmetric-feature",
+          "hero_influence": "Founder/expert or premium proof-first hero.",
+          "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+        }
+      },
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "photography_system": {
+      "state": "approved-source",
+      "style": "No photography of people. Abstract 3D renders and generative/AI visuals only: glowing gradient S-mark on a pedestal, neural network node graphs, holographic geometric grids, silhouette-in-portal compositions. Consistent blue-cyan-violet gradient lighting across every image.",
+      "aspect_ratios": {
+        "hero": "1:1 or 4:3 centered composition",
+        "cards": "4:3",
+        "portraits": "not used — brand uses no human photography"
+      },
+      "color_grading": "cool blue-cyan-violet gradient lighting; deep navy shadows in both light and dark contexts; no warm/natural color grading",
+      "background_style": "abstract 3D renders, particle/network fields, geometric grids — never real environments or stock photography",
+      "portrait_rules": "no human portraits or headshots anywhere in the product; all proof/credibility signals use data, logos, or ratings instead",
+      "version": "v3",
+      "generated_at": "2026-08-18T19:00:00Z"
+    },
+    "iconography_system": {
+      "state": "approved-source",
+      "style": "Lucide-style outline icons, 1.75px-2px stroke, rounded joins, no fill except active/selected states.",
+      "stroke_width": "1.75px-2px",
+      "corner_radius": "match approved component geometry (12-16px tiles)",
+      "density": "one icon per feature tile / nav item; never decorative repeated rows",
+      "placement": "inline with labels or inside a small rounded icon chip at the start of a card/nav item",
+      "domain_rule": "home, courses (book-open), labs (flask-conical), AI playground (brain), learning paths (route), community (users), assistant/help (message-circle) — real product-navigation icons only",
+      "version": "v3",
+      "generated_at": "2026-08-18T19:00:00Z"
+    },
+    "hero_diversity": {
+      "state": "approved-source",
+      "patterns": [
+        "proof-first",
+        "editorial",
+        "asymmetric",
+        "founder/expert",
+        "magazine",
+        "split"
+      ],
+      "page_assignments": {
+        "frontend-register": "magazine",
+        "frontend-mfa-setup": "magazine",
+        "role-scoped": "magazine"
+      },
+      "assignment_logic": "page-type aware: home/detail/listing/admin/auth, not round-robin",
+      "anti_repetition_rules": [
+        "no same hero pattern on adjacent public pages",
+        "homepage must not use generic centered SaaS hero"
+      ],
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "component_personality": {
+      "state": "approved-source",
+      "buttons": "specific CTA text, clear primary/secondary hierarchy",
+      "cards": "vary layout by content type; no six equal cards",
+      "badges": "max three badge types per page",
+      "stats": "one featured metric or real table; no fake metric row",
+      "forms": "labeled, compact, realistic validation states",
+      "tables": "dense admin utility, restrained borders, no zebra-striping",
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "content_realism": {
+      "state": "approved-source",
+      "numbers": "derive numbers from visible records or page-specific inventory; explain if estimated",
+      "names": "use locale/domain-appropriate names for EdTech; admin records must look operational",
+      "titles": "real page/entity titles from the page map and spec vocabulary, never numbered placeholders",
+      "testimonials": "only with named context and believable outcome; omit if the spec has no testimonial signal",
+      "metrics_logic": "prefer counts from static_content_needed; avoid broad success claims unless sourced",
+      "name_logic": "Arabic-first public names when Arabic/RTL is detected; role-specific admin names",
+      "forbidden": [
+        "John Doe",
+        "Jane Doe",
+        "Course 1",
+        "500+",
+        "99%",
+        "24/7",
+        "Get Started Today"
+      ],
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "narrative_patterns": {
+      "state": "approved-source",
+      "patterns": [
+        "authority",
+        "transformation",
+        "methodology",
+        "case-study",
+        "editorial",
+        "premium",
+        "comparison",
+        "operational",
+        "utility"
+      ],
+      "page_assignments": {
+        "frontend-register": "editorial",
+        "frontend-mfa-setup": "editorial",
+        "role-scoped": "editorial"
+      },
+      "assignment_logic": "page-purpose aware: home authority, detail methodology, listing comparison, admin operational",
+      "anti_repetition_rules": [
+        "do not repeat Problem-Proof-CTA on every page",
+        "detail pages should use evidence and methodology"
+      ],
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "section_diversity": {
+      "state": "approved-source",
+      "patterns": [
+        "bento",
+        "timeline",
+        "editorial-list",
+        "proof-strip",
+        "split-detail",
+        "data-table",
+        "focused-panel",
+        "record-workspace",
+        "methodology-flow"
+      ],
+      "page_assignments": {
+        "frontend-register": "timeline",
+        "frontend-mfa-setup": "timeline",
+        "role-scoped": "timeline"
+      },
+      "assignment_logic": "content-structure aware: listing/detail/form/admin sections choose different section systems",
+      "anti_repetition_rules": [
+        "no repeated Hero-Cards-CTA-Footer sequence",
+        "alternate data-heavy and story-heavy sections"
+      ],
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    }
+  },
+  "images": {
+    "strategy": {
+      "hero": {
+        "style": "product screenshot or UI mockup",
+        "subjects": [
+          "dashboard screenshot",
+          "app interface mockup"
+        ],
+        "mood": "professional, efficient, modern",
+        "aspect_ratio": "16:9",
+        "unsplash_id": "1551288049-bebda4e38f71",
+        "unsplash_query": "dashboard analytics software"
+      },
+      "feature_image": {
+        "style": "UI screenshot in device frame",
+        "aspect_ratio": "4:3",
+        "unsplash_id": "1460925895917-afdab827c52f",
+        "unsplash_query": "software interface screen"
+      },
+      "background_patterns": "subtle noise texture or very light geometric pattern"
+    },
+    "css_helpers": "/* Image utilities */\n.img-cover     { width:100%; height:100%; object-fit:cover; }\n.img-contain   { width:100%; height:100%; object-fit:contain; }\n.img-circle    { border-radius:50%; aspect-ratio:1; object-fit:cover; }\n.img-card      { aspect-ratio:16/9; object-fit:cover; width:100%; }\n.img-card-sq   { aspect-ratio:1; object-fit:cover; width:100%; }\n.img-portrait  { aspect-ratio:3/4; object-fit:cover; width:100%; }\n.img-hero      { width:100%; aspect-ratio:16/9; object-fit:cover; }\n.img-avatar-sm { width:32px; height:32px; border-radius:50%; object-fit:cover; }\n.img-avatar-md { width:48px; height:48px; border-radius:50%; object-fit:cover; }\n.img-avatar-lg { width:80px; height:80px; border-radius:50%; object-fit:cover; }\n.img-avatar-xl { width:120px; height:120px; border-radius:50%; object-fit:cover; }\n.img-overlay   { position:relative; overflow:hidden; }\n.img-overlay::after {\n  content:''; position:absolute; inset:0;\n  background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.7) 100%);\n}"
+  },
+  "icons": {
+    "recommended_set": {
+      "set": "Lucide",
+      "style": "outline",
+      "size": 16,
+      "category_icons": [
+        "chart-bar",
+        "trending-up",
+        "users",
+        "settings",
+        "bell",
+        "grid"
+      ],
+      "cdn": "<script src=\"https://unpkg.com/lucide@latest/dist/umd/lucide.min.js\"></script>"
+    },
+    "css": ".icon { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }\n.icon--xs  { width:12px; height:12px; }\n.icon--sm  { width:16px; height:16px; }\n.icon--md  { width:20px; height:20px; }\n.icon--lg  { width:24px; height:24px; }\n.icon--xl  { width:32px; height:32px; }\n.icon--2xl { width:40px; height:40px; }\n.icon svg  { width:100%; height:100%; }"
+  },
+  "animations": {
+    "profile": {
+      "personality": "precise and efficient",
+      "duration_base": "150ms",
+      "duration_fast": "100ms",
+      "duration_slow": "300ms",
+      "easing_primary": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "easing_entrance": "cubic-bezier(0, 0, 0.2, 1)",
+      "easing_exit": "cubic-bezier(0.4, 0, 1, 1)",
+      "hover_lift": "translateY(-1px)",
+      "hover_shadow": "0 4px 12px rgba(0,0,0,0.08)",
+      "page_transition": "fade",
+      "card_entrance": "fade-in",
+      "scroll_reveal": false,
+      "skeleton_loading": true,
+      "number_counting": true,
+      "forbidden": [
+        "bounce",
+        "elastic",
+        "dramatic-slide",
+        "spin-forever"
+      ]
+    },
+    "css_variables": ":root {\n  --duration-fast:   100ms;\n  --duration-base:   150ms;\n  --duration-slow:   300ms;\n  --ease-primary:    cubic-bezier(0.4, 0, 0.2, 1);\n  --ease-entrance:   cubic-bezier(0, 0, 0.2, 1);\n  --ease-exit:       cubic-bezier(0.4, 0, 1, 1);\n}",
+    "keyframes": "@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }\n@keyframes fadeInUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }\n@keyframes skeleton { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }\n@keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }\n@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.5;} }",
+    "utility_css": ".animate-fade-in      { animation: fadeIn 150ms cubic-bezier(0, 0, 0.2, 1) both; }\n.animate-fade-in-up   { animation: fadeInUp 150ms cubic-bezier(0, 0, 0.2, 1) both; }\n.animate-fade-in-down { animation: fadeInDown 150ms cubic-bezier(0, 0, 0.2, 1) both; }\n.animate-scale-pop    { animation: scalePop 200ms cubic-bezier(0.4, 0, 0.2, 1); }\n.animate-spin         { animation: spin 1s linear infinite; }\n.animate-pulse        { animation: pulse 2s ease-in-out infinite; }\n.delay-100 { animation-delay:100ms; }\n.delay-200 { animation-delay:200ms; }\n.delay-300 { animation-delay:300ms; }\n.delay-400 { animation-delay:400ms; }\n.delay-500 { animation-delay:500ms; }\n.skeleton {\n  background: linear-gradient(90deg,var(--color-border) 25%,\n    var(--color-bg-subtle) 50%,var(--color-border) 75%);\n  background-size:200% 100%;\n  animation:skeleton 1.5s ease-in-out infinite;\n  border-radius:4px;\n}\n.transition-base { transition:all 150ms cubic-bezier(0.4, 0, 0.2, 1); }\n.transition-fast { transition:all 150ms cubic-bezier(0.4, 0, 0.2, 1); }\n.transition-slow { transition:all 300ms cubic-bezier(0.4, 0, 0.2, 1); }\n@media (prefers-reduced-motion:reduce) {\n  *,*::before,*::after {\n    animation-duration:.01ms !important;\n    animation-iteration-count:1 !important;\n    transition-duration:.01ms !important;\n  }\n}"
+  },
+  "layout": {
+    "header": {
+      "style": "sidebar-layout",
+      "sidebar_width": "240px",
+      "sidebar_collapsed": "64px",
+      "top_bar_height": "60px",
+      "logo_position": "right",
+      "nav_position": "center",
+      "user_menu": "top-bar-right",
+      "mobile_pattern": "overlay-drawer",
+      "special_features": [
+        "workspace selector",
+        "search command palette"
+      ],
+      "cta_position": "left",
+      "direction": "rtl"
+    },
+    "footer": {
+      "style": "three-column",
+      "columns_en": [
+        "Product",
+        "Company",
+        "Legal"
+      ],
+      "bottom_bar": "copyright + status page link",
+      "background": "bg-subtle",
+      "newsletter": false,
+      "columns": [
+        "Product",
+        "Company",
+        "Legal"
+      ],
+      "direction": "rtl"
+    },
+    "page_structures": {
+      "landing_page": [
+        "hero (full viewport height or 80vh)",
+        "social proof / logos strip",
+        "features or benefits (3 or 4 items)",
+        "how it works (3 steps)",
+        "testimonials",
+        "pricing or CTA section",
+        "FAQ accordion",
+        "final CTA",
+        "footer"
+      ],
+      "listing_page": [
+        "page header (title + breadcrumb + filter count)",
+        "filter sidebar or filter bar",
+        "results grid (with skeleton loading states)",
+        "pagination or infinite scroll indicator",
+        "empty state design",
+        "footer"
+      ],
+      "detail_page": [
+        "breadcrumb navigation",
+        "hero section (image + key info + primary CTA)",
+        "tabs or sections navigation",
+        "main content area",
+        "sidebar (related items or key actions)",
+        "reviews or social proof",
+        "related items grid",
+        "footer"
+      ],
+      "dashboard_page": [
+        "top stats bar (4 KPI cards)",
+        "primary chart or visualization",
+        "data table with actions",
+        "secondary metrics",
+        "activity feed or notifications"
+      ],
+      "auth_page": [
+        "centered card layout",
+        "logo at top",
+        "form with labels above inputs",
+        "primary action button (full width)",
+        "alternative action link",
+        "social proof below card"
+      ],
+      "profile_page": [
+        "cover image or gradient header",
+        "avatar + name + title",
+        "key stats strip",
+        "tab navigation",
+        "content sections per tab",
+        "sidebar (contact or related actions)"
+      ]
+    }
+  },
+  "quality": {
+    "type_tier": "technical_precision",
+    "type_css": ":root {\n  --type-display-size:     clamp(2.25rem,4.5vw,3.5rem);\n  --type-display-weight:   800;\n  --type-display-tracking: -0.03em;\n  --type-display-leading:  1.05;\n  --type-h1-size:     clamp(1.875rem,3.5vw,2.75rem);\n  --type-h1-weight:   700;\n  --type-h1-tracking: -0.02em;\n  --type-h1-leading:  1.15;\n  --type-h2-size:     clamp(1.5rem,2.5vw,2rem);\n  --type-h2-weight:   600;\n  --type-h2-tracking: -0.01em;\n  --type-h2-leading:  1.25;\n  --type-h3-size:     clamp(1.125rem,1.5vw,1.5rem);\n  --type-h3-weight:   600;\n  --type-h3-tracking: 0;\n  --type-h3-leading:  1.35;\n  --type-body-size:     0.9375rem;\n  --type-body-weight:   400;\n  --type-body-tracking: 0;\n  --type-body-leading:  1.6;\n  --type-small-size:     0.8125rem;\n  --type-small-weight:   400;\n  --type-small-tracking: 0.01em;\n  --type-small-leading:  1.5;\n  --type-label-size:     0.75rem;\n  --type-label-weight:   500;\n  --type-label-tracking: 0.06em;\n  --type-label-leading:  1.4;\n}",
+    "gradients": [
+      "Use approved brand tokens only; no category gradient presets.",
+      "Image overlay gradients may use rgba(0,0,0,...) only when needed for readability.",
+      "Section backgrounds should use approved surface tokens, not generic gray alternation."
+    ],
+    "hero_assignments": {
+      "frontend-register": {
+        "page_name": "Frontend Register",
+        "hero_pattern": "centered-minimal-white",
+        "description": "Clean white background, centered headline, large subtitle",
+        "gradient": "Use approved brand tokens only; no category gradient presets."
+      },
+      "frontend-mfa-setup": {
+        "page_name": "Frontend Mfa Setup",
+        "hero_pattern": "card-grid-hero",
+        "description": "Hero text above a grid of floating cards",
+        "gradient": "Image overlay gradients may use rgba(0,0,0,...) only when needed for readability."
+      },
+      "role-scoped": {
+        "page_name": "Role-Scoped",
+        "hero_pattern": "mobile-screenshot-hero",
+        "description": "App/product screenshot mockup hero for SaaS",
+        "gradient": "Section backgrounds should use approved surface tokens, not generic gray alternation."
+      },
+      "register": {
+        "page_name": "Register",
+        "hero_pattern": "split-image-right",
+        "description": "50/50 split â€” text left, image right",
+        "gradient": "Use approved brand tokens only; no category gradient presets."
+      },
+      "mfa-setup": {
+        "page_name": "Mfa Setup",
+        "hero_pattern": "full-bleed-image",
+        "description": "Full-viewport image with centered overlay text",
+        "gradient": "Image overlay gradients may use rgba(0,0,0,...) only when needed for readability."
+      }
+    },
+    "section_assignments": {
+      "frontend-register": {
+        "features": "numbered-steps",
+        "testimonials": "quote-spotlight",
+        "pricing": "three-tier-cards",
+        "faq": "two-column",
+        "stats": "dark-contrast",
+        "cta": "split-with-image"
+      },
+      "frontend-mfa-setup": {
+        "features": "icon-grid-3col",
+        "testimonials": "video-testimonial",
+        "pricing": "comparison-table",
+        "faq": "accordion",
+        "stats": "dark-contrast",
+        "cta": "centered-banner"
+      },
+      "role-scoped": {
+        "features": "tab-switcher",
+        "testimonials": "video-testimonial",
+        "pricing": "comparison-table",
+        "faq": "chat-bubble",
+        "stats": "number-row",
+        "cta": "email-capture"
+      },
+      "register": {
+        "features": "tab-switcher",
+        "testimonials": "card-carousel",
+        "pricing": "three-tier-cards",
+        "faq": "chat-bubble",
+        "stats": "number-row",
+        "cta": "email-capture"
+      },
+      "mfa-setup": {
+        "features": "numbered-steps",
+        "testimonials": "quote-spotlight",
+        "pricing": "toggle-annual",
+        "faq": "two-column",
+        "stats": "infographic",
+        "cta": "split-with-image"
+      }
+    }
+  },
+  "visual_research": {
+    "visual_brief": "Study real product patterns from the references below. No pre-made colors or fonts are supplied — derive tokens from approved brand direction only.",
+    "top_3_products": [
+      {
+        "name": "Category leader in your domain",
+        "what_to_study": "Information hierarchy and trust proof placement"
+      },
+      {
+        "name": "Operational/admin tool in your domain",
+        "what_to_study": "Dense forms, tables, filters, and admin ergonomics"
+      },
+      {
+        "name": "Editorial reference in your domain",
+        "what_to_study": "Story rhythm, proof placement, and reading flow"
+      }
+    ],
+    "top_3_inspo_sites": [
+      {
+        "name": "Top editorial site in your category",
+        "what_to_study": "Article-like sections and expert credibility signals"
+      },
+      {
+        "name": "Enterprise tool in your category",
+        "what_to_study": "Partner proof and conversion path"
+      },
+      {
+        "name": "Admin-heavy product surface",
+        "what_to_study": "Compact controls and scan-friendly data layout"
+      }
+    ],
+    "do_this": [
+      "vary hero structures by page purpose",
+      "use page-specific narrative patterns",
+      "keep admin screens dense and utilitarian",
+      "separate public RTL and admin LTR decisions"
+    ],
+    "not_this": [
+      "do not use category color palettes",
+      "do not use category font pairings",
+      "do not repeat centered hero plus equal-card grid",
+      "do not use fake metrics or placeholder people"
+    ]
+  },
+  "raw_signals": {
+    "detected_colors": [],
+    "detected_fonts": [],
+    "preset_applied": null
+  },
+  "generated_at": "2026-08-18T17:11:04Z"
+}

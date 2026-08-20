@@ -1,0 +1,10 @@
+ui-prototypes/index.html
+.ui-bridge/
+__pycache__/
+*.pyc
+node_modules/
+test-project/.ui-bridge/
+
+# Impeccable is installed at runtime — not stored in this repo
+.claude/skills/impeccable/
+.claude/hooks/

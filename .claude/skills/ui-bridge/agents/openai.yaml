@@ -1,0 +1,8 @@
+interface:
+  display_name: "UI Bridge"
+  short_description: "Spec Kit UI plans to HTML prototypes"
+  default_prompt: "Use $ui-plan, $ui-implement, or $ui-link-html-to-plan to turn Spec Kit plan.md and tasks.md into linked self-contained HTML prototypes."
+commands:
+  - "$ui-plan"
+  - "$ui-implement"
+  - "$ui-link-html-to-plan"

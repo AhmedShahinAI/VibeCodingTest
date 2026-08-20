@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "generated": "2026-08-20",
+  "project": "Implementation Plan: Phase 1 — Foundation (Auth, RBAC, Tenancy, Bilingual Shell)",
+  "pages": [
+    {
+      "id": "page_frontend_register",
+      "slug": "frontend-register",
+      "title": "إنشاء حساب",
+      "group": "Public",
+      "file": "pages/frontend-register.html",
+      "direction": "rtl"
+    },
+    {
+      "id": "page_frontend_mfa_setup",
+      "slug": "frontend-mfa-setup",
+      "title": "إعداد التحقق بخطوتين",
+      "group": "Public",
+      "file": "pages/frontend-mfa-setup.html",
+      "direction": "rtl"
+    },
+    {
+      "id": "page_role_scoped",
+      "slug": "role-scoped",
+      "title": "لوحة التحكم",
+      "group": "Public",
+      "file": "pages/role-scoped.html",
+      "direction": "rtl"
+    }
+  ],
+  "docs": [
+    {
+      "id": "doc_data_model",
+      "title": "Data Model",
+      "file": "docs/data-model.md"
+    },
+    {
+      "id": "doc_plan",
+      "title": "Plan",
+      "file": "docs/plan.md"
+    },
+    {
+      "id": "doc_quickstart",
+      "title": "Quickstart",
+      "file": "docs/quickstart.md"
+    },
+    {
+      "id": "doc_research",
+      "title": "Research",
+      "file": "docs/research.md"
+    },
+    {
+      "id": "doc_spec",
+      "title": "Spec",
+      "file": "docs/spec.md"
+    },
+    {
+      "id": "doc_tasks",
+      "title": "Tasks",
+      "file": "docs/tasks.md"
+    },
+    {
+      "id": "doc_scenario_public",
+      "title": "Public Scenarios",
+      "file": "docs/scenario-public.md"
+    }
+  ],
+  "nav_wires": [
+    {
+      "from": "page_frontend_register",
+      "to": "page_frontend_mfa_setup"
+    },
+    {
+      "from": "page_frontend_register",
+      "to": "page_role_scoped"
+    },
+    {
+      "from": "page_frontend_mfa_setup",
+      "to": "page_frontend_register"
+    },
+    {
+      "from": "page_frontend_mfa_setup",
+      "to": "page_role_scoped"
+    },
+    {
+      "from": "page_role_scoped",
+      "to": "page_frontend_register"
+    },
+    {
+      "from": "page_role_scoped",
+      "to": "page_frontend_mfa_setup"
+    }
+  ]
+}

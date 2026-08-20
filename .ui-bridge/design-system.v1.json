@@ -1,0 +1,723 @@
+{
+  "generated_by": "infer_master.py",
+  "version": "1.0",
+  "root": "D:\\Vibe Coding Course\\Lec2",
+  "category": "EdTech",
+  "effective_category": "EdTech",
+  "is_arabic": false,
+  "is_rtl": true,
+  "spec": {
+    "project_name": "Implementation Plan: Phase 1 — Foundation (Auth, RBAC, Tenancy, Bilingual Shell)",
+    "plan_path": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\plan.md",
+    "tasks_path": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\tasks.md",
+    "phases": []
+  },
+  "pages": [
+    {
+      "name": "Frontend Register",
+      "slug": "frontend-register",
+      "route": "/frontend-register",
+      "source": "Build frontend Register page",
+      "detection": "semantic",
+      "section_hints": []
+    },
+    {
+      "name": "Frontend Mfa Setup",
+      "slug": "frontend-mfa-setup",
+      "route": "/frontend-mfa-setup",
+      "source": "Build frontend MFA setup page",
+      "detection": "semantic",
+      "section_hints": []
+    },
+    {
+      "name": "Role-Scoped",
+      "slug": "role-scoped",
+      "route": "/role-scoped",
+      "source": "Build role-scoped dashboard",
+      "detection": "semantic",
+      "section_hints": [
+        "dashboard"
+      ]
+    },
+    {
+      "name": "Register",
+      "slug": "register",
+      "route": "/register",
+      "source": "Build Register page",
+      "detection": "semantic",
+      "section_hints": []
+    },
+    {
+      "name": "Mfa Setup",
+      "slug": "mfa-setup",
+      "route": "/mfa-setup",
+      "source": "Build MFA setup page",
+      "detection": "semantic",
+      "section_hints": []
+    }
+  ],
+  "typography": {
+    "font_pair": {
+      "heading": "Cairo",
+      "body": "Cairo",
+      "mono": "JetBrains Mono",
+      "rationale": "Approved brand direction",
+      "google_url": ""
+    },
+    "css_import": "",
+    "css_variables": "/* Typography System */\n:root {\n  --font-heading: 'Cairo', sans-serif;\n  --font-body: 'Cairo', sans-serif;\n  --font-mono: 'JetBrains Mono', monospace;\n\n  --text-display: 4rem;\n  --text-h1: 3rem;\n  --text-h2: 2.25rem;\n  --text-h3: 1.875rem;\n  --text-h4: 1.5rem;\n  --text-h5: 1.25rem;\n  --text-h6: 1.125rem;\n  --text-body-lg: 1.125rem;\n  --text-body: 1rem;\n  --text-body-sm: 0.875rem;\n  --text-caption: 0.75rem;\n  --text-label: 0.6875rem;\n\n  --leading-display: 1.1;\n  --leading-heading: 1.25;\n  --leading-subheading: 1.35;\n  --leading-body: 1.6;\n  --leading-body-compact: 1.4;\n  --leading-caption: 1.4;\n\n  --tracking-display: -0.03em;\n  --tracking-heading: -0.02em;\n  --tracking-subheading: -0.01em;\n  --tracking-body: 0em;\n  --tracking-label-uppercase: 0.08em;\n  --tracking-caption-uppercase: 0.1em;\n\n  --weight-black: 900;\n  --weight-extrabold: 800;\n  --weight-bold: 700;\n  --weight-semibold: 600;\n  --weight-medium: 500;\n  --weight-regular: 400;\n  --weight-light: 300;\n}"
+  },
+  "colors": {
+    "palette": {
+      "primary": "#37702E",
+      "primary_dark": "#295322",
+      "primary_light": "#458d3a",
+      "primary_subtle": "#f7f8f7",
+      "accent": "#623C9F",
+      "secondary": "#295322",
+      "accent_subtle": "#f4f3f6",
+      "warning": "#326a7b",
+      "error": "#3a327b",
+      "success": "#6c2d59",
+      "bg": "#FFFFFF",
+      "bg_subtle": "#fafafa",
+      "surface": "#F3F6F4",
+      "border": "#daddda",
+      "border_strong": "#b5bcb3",
+      "text_primary": "#1C2C1B",
+      "text_secondary": "#495247",
+      "text_tertiary": "#717b6f",
+      "text_inverse": "#FFFFFF"
+    },
+    "css_variables": "/* Color System */\n:root {\n  --color-primary: #37702E;\n  --color-primary-dark: #295322;\n  --color-primary-light: #458d3a;\n  --color-primary-subtle: #f7f8f7;\n  --color-accent: #623C9F;\n  --color-secondary: #295322;\n  --color-accent-subtle: #f4f3f6;\n  --color-warning: #326a7b;\n  --color-error: #3a327b;\n  --color-success: #6c2d59;\n  --color-bg: #FFFFFF;\n  --color-bg-subtle: #fafafa;\n  --color-surface: #F3F6F4;\n  --color-border: #daddda;\n  --color-border-strong: #b5bcb3;\n  --color-text-primary: #1C2C1B;\n  --color-text-secondary: #495247;\n  --color-text-tertiary: #717b6f;\n  --color-text-inverse: #FFFFFF;\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n    --color-bg: #171c17;\n    --color-bg-subtle: #262d25;\n    --color-surface: #2b322a;\n    --color-border: #434d41;\n    --color-border-strong: #5c685a;\n    --color-text-primary: #eff0ef;\n    --color-text-secondary: #cbceca;\n    --color-text-tertiary: #a6aca5;\n    --color-text-inverse: #171c17;\n    --color-primary: #458d3a;\n    --color-primary-light: #458d3a;\n    --color-primary-dark: #37702E;\n    --color-primary-subtle: #2e392d;\n    --color-secondary: #295322;\n    --color-accent: #623C9F;\n    --color-accent-subtle: #f4f3f6;\n    --color-warning: #326a7b;\n    --color-error: #3a327b;\n    --color-success: #6c2d59;\n  }\n}"
+  },
+  "approved_brand": {
+    "id": "C",
+    "state": "inferred_proposal",
+    "name": "Premium",
+    "references": [
+      "training organization websites",
+      "executive education pages",
+      "Arabic course catalog experiences",
+      "premium service brands",
+      "expert-led boutique sites",
+      "high-trust editorial portfolios"
+    ],
+    "photography": "Real training rooms, named instructors, course materials, cohort moments, no anonymous classroom stock. Premium portraits and real spaces, controlled lighting, restrained color grading.",
+    "iconography": "Minimal symbols, 1.5px stroke, no decorative icon rows.",
+    "density": "Low-to-medium density, strong contrast, fewer but more confident sections.",
+    "personality": "Selective, premium, expert-led, confident.",
+    "layout_style": "Asymmetric hero, large proof quote, premium course cards, strong whitespace.",
+    "hero_style": "Founder/expert or premium proof-first hero.",
+    "cta_tone": "Browse courses, reserve a seat, request program details.",
+    "project_type": "EdTech",
+    "palette": {
+      "primary": "#37702E",
+      "accent": "#623C9F",
+      "background": "#FFFFFF",
+      "surface": "#F3F6F4",
+      "text": "#1C2C1B",
+      "generation": "project-signal-hash"
+    },
+    "fonts": {
+      "arabic_heading": "Cairo",
+      "arabic_body": "Cairo",
+      "latin_fallback": "Inter",
+      "generation": "user-approved"
+    },
+    "competitive_basis": {
+      "patterns_to_copy": [
+        "training organization websites",
+        "executive education pages",
+        "Arabic course catalog experiences"
+      ],
+      "patterns_to_avoid": [
+        "generic SaaS hero",
+        "three-card syndrome",
+        "fake metrics",
+        "centered everything"
+      ],
+      "hero_types": [
+        "proof-first",
+        "editorial",
+        "asymmetric",
+        "founder/expert",
+        "magazine",
+        "split"
+      ],
+      "section_types": [
+        "methodology",
+        "course evidence",
+        "expert proof",
+        "partner proof",
+        "registration form",
+        "admin table"
+      ],
+      "copy_tone": [
+        "Arabic-first and evidence-led"
+      ],
+      "spacing_observations": [
+        "public pages can breathe; admin pages stay compact and scannable"
+      ]
+    }
+  },
+  "direction_artifacts": {
+    "competitive_analysis": {
+      "state": "approved-source",
+      "patterns_to_copy": [
+        "training organization websites",
+        "executive education pages",
+        "Arabic course catalog experiences",
+        "premium service brands",
+        "expert-led boutique sites",
+        "high-trust editorial portfolios"
+      ],
+      "patterns_to_avoid": [
+        "generic SaaS hero",
+        "three-card syndrome",
+        "fake metrics",
+        "centered everything"
+      ],
+      "hero_types": [
+        "proof-first",
+        "editorial",
+        "asymmetric",
+        "founder/expert",
+        "magazine",
+        "split"
+      ],
+      "section_types": [
+        "bento",
+        "timeline",
+        "editorial-list",
+        "proof-strip",
+        "split-detail",
+        "data-table",
+        "focused-panel",
+        "record-workspace",
+        "methodology-flow"
+      ],
+      "copy_tone": [
+        "Browse courses, reserve a seat, request program details."
+      ],
+      "spacing_observations": [
+        "Low-to-medium density, strong contrast, fewer but more confident sections."
+      ],
+      "layout_observations": [
+        "Asymmetric hero, large proof quote, premium course cards, strong whitespace."
+      ],
+      "visual_personality": [
+        "Selective, premium, expert-led, confident."
+      ],
+      "version": "v5",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "moodboard": {
+      "state": "approved-source",
+      "photography": "Real training rooms, named instructors, course materials, cohort moments, no anonymous classroom stock. Premium portraits and real spaces, controlled lighting, restrained color grading.",
+      "density": "Low-to-medium density, strong contrast, fewer but more confident sections.",
+      "card_style": "Asymmetric hero, large proof quote, premium course cards, strong whitespace.",
+      "spacing_style": "Low-to-medium density, strong contrast, fewer but more confident sections.",
+      "icon_style": "Minimal symbols, 1.5px stroke, no decorative icon rows.",
+      "color_temperature": "derived from approved/proposed palette",
+      "editorial_feel": "Selective, premium, expert-led, confident.",
+      "version": "v3",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "visual_dna": {
+      "state": "approved-source",
+      "personality": "Selective, premium, expert-led, confident.",
+      "geometry": "restrained, no decorative blobs",
+      "density": "Low-to-medium density, strong contrast, fewer but more confident sections.",
+      "motion": "minimal, functional transitions only",
+      "contrast": "AA minimum, strong hierarchy",
+      "photography_style": "Real training rooms, named instructors, course materials, cohort moments, no anonymous classroom stock. Premium portraits and real spaces, controlled lighting, restrained color grading.",
+      "iconography": "Minimal symbols, 1.5px stroke, no decorative icon rows.",
+      "version": "v3",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "layout_dna": {
+      "state": "approved-source",
+      "symmetry": "low-to-medium",
+      "editorialness": "medium",
+      "card_density": "medium",
+      "grid_style": "Asymmetric hero, large proof quote, premium course cards, strong whitespace.",
+      "alignment_style": "mixed alignment by section purpose; avoid centered paragraphs as default",
+      "section_rhythm": "rotate proof, narrative, data, methodology, and action sections by page type",
+      "asymmetry_level": "low",
+      "page_assignments": {
+        "frontend-register": {
+          "layout_pattern": "editorial-index",
+          "hero_influence": "Founder/expert or premium proof-first hero.",
+          "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+        },
+        "frontend-mfa-setup": {
+          "layout_pattern": "proof-led-detail",
+          "hero_influence": "Founder/expert or premium proof-first hero.",
+          "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+        },
+        "role-scoped": {
+          "layout_pattern": "asymmetric-feature",
+          "hero_influence": "Founder/expert or premium proof-first hero.",
+          "density": "Low-to-medium density, strong contrast, fewer but more confident sections."
+        }
+      },
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "photography_system": {
+      "state": "approved-source",
+      "style": "Real training rooms, named instructors, course materials, cohort moments, no anonymous classroom stock. Premium portraits and real spaces, controlled lighting, restrained color grading.",
+      "aspect_ratios": {
+        "hero": "16:9 or 4:3",
+        "cards": "4:3",
+        "portraits": "not primary unless real people are part of the domain"
+      },
+      "color_grading": "natural contrast; domain-appropriate warmth; no glossy AI stock grading",
+      "background_style": "real environments tied to EdTech, not abstract backdrops",
+      "portrait_rules": "named real people with role context; avoid anonymous stock headshots",
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "iconography_system": {
+      "state": "approved-source",
+      "style": "Minimal symbols, 1.5px stroke, no decorative icon rows.",
+      "stroke_width": "1.5px",
+      "corner_radius": "match approved component geometry",
+      "density": "sparse; icons support scanning, not decoration",
+      "placement": "inline with labels or functional controls; never repeated decorative icon tiles",
+      "domain_rule": "choose symbols from actual EdTech workflows, not generic feature icons",
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "hero_diversity": {
+      "state": "approved-source",
+      "patterns": [
+        "proof-first",
+        "editorial",
+        "asymmetric",
+        "founder/expert",
+        "magazine",
+        "split"
+      ],
+      "page_assignments": {
+        "frontend-register": "magazine",
+        "frontend-mfa-setup": "magazine",
+        "role-scoped": "magazine"
+      },
+      "assignment_logic": "page-type aware: home/detail/listing/admin/auth, not round-robin",
+      "anti_repetition_rules": [
+        "no same hero pattern on adjacent public pages",
+        "homepage must not use generic centered SaaS hero"
+      ],
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "component_personality": {
+      "state": "approved-source",
+      "buttons": "specific CTA text, clear primary/secondary hierarchy",
+      "cards": "vary layout by content type; no six equal cards",
+      "badges": "max three badge types per page",
+      "stats": "one featured metric or real table; no fake metric row",
+      "forms": "labeled, compact, realistic validation states",
+      "tables": "dense admin utility, restrained borders, no zebra-striping",
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "content_realism": {
+      "state": "approved-source",
+      "numbers": "derive numbers from visible records or page-specific inventory; explain if estimated",
+      "names": "use locale/domain-appropriate names for EdTech; admin records must look operational",
+      "titles": "real page/entity titles from the page map and spec vocabulary, never numbered placeholders",
+      "testimonials": "only with named context and believable outcome; omit if the spec has no testimonial signal",
+      "metrics_logic": "prefer counts from static_content_needed; avoid broad success claims unless sourced",
+      "name_logic": "Arabic-first public names when Arabic/RTL is detected; role-specific admin names",
+      "forbidden": [
+        "John Doe",
+        "Jane Doe",
+        "Course 1",
+        "500+",
+        "99%",
+        "24/7",
+        "Get Started Today"
+      ],
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "narrative_patterns": {
+      "state": "approved-source",
+      "patterns": [
+        "authority",
+        "transformation",
+        "methodology",
+        "case-study",
+        "editorial",
+        "premium",
+        "comparison",
+        "operational",
+        "utility"
+      ],
+      "page_assignments": {
+        "frontend-register": "editorial",
+        "frontend-mfa-setup": "editorial",
+        "role-scoped": "editorial"
+      },
+      "assignment_logic": "page-purpose aware: home authority, detail methodology, listing comparison, admin operational",
+      "anti_repetition_rules": [
+        "do not repeat Problem-Proof-CTA on every page",
+        "detail pages should use evidence and methodology"
+      ],
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    },
+    "section_diversity": {
+      "state": "approved-source",
+      "patterns": [
+        "bento",
+        "timeline",
+        "editorial-list",
+        "proof-strip",
+        "split-detail",
+        "data-table",
+        "focused-panel",
+        "record-workspace",
+        "methodology-flow"
+      ],
+      "page_assignments": {
+        "frontend-register": "timeline",
+        "frontend-mfa-setup": "timeline",
+        "role-scoped": "timeline"
+      },
+      "assignment_logic": "content-structure aware: listing/detail/form/admin sections choose different section systems",
+      "anti_repetition_rules": [
+        "no repeated Hero-Cards-CTA-Footer sequence",
+        "alternate data-heavy and story-heavy sections"
+      ],
+      "version": "v2",
+      "generated_at": "2026-08-18T12:58:16Z"
+    }
+  },
+  "images": {
+    "strategy": {
+      "hero": {
+        "style": "illustration or photography",
+        "subjects": [
+          "diverse students learning",
+          "online learning setup",
+          "instructor teaching",
+          "course completion celebration"
+        ],
+        "mood": "aspirational, focused, warm",
+        "aspect_ratio": "16:9 or 4:3",
+        "unsplash_id": "1522202176988-66273c2fd55f",
+        "unsplash_query": "online learning education student"
+      },
+      "course_card": {
+        "style": "abstract or topic illustration",
+        "aspect_ratio": "16:9",
+        "unsplash_id": "1516321318423-f06f85e504b3",
+        "unsplash_query": "technology learning course"
+      },
+      "instructor": {
+        "style": "professional headshot",
+        "aspect_ratio": "1:1 (circle crop)",
+        "pravatar_seed": 10,
+        "unsplash_query": "professional teacher portrait"
+      },
+      "background_patterns": "subtle grid or dot pattern, very light opacity"
+    },
+    "css_helpers": "/* Image utilities */\n.img-cover     { width:100%; height:100%; object-fit:cover; }\n.img-contain   { width:100%; height:100%; object-fit:contain; }\n.img-circle    { border-radius:50%; aspect-ratio:1; object-fit:cover; }\n.img-card      { aspect-ratio:16/9; object-fit:cover; width:100%; }\n.img-card-sq   { aspect-ratio:1; object-fit:cover; width:100%; }\n.img-portrait  { aspect-ratio:3/4; object-fit:cover; width:100%; }\n.img-hero      { width:100%; aspect-ratio:16/9; object-fit:cover; }\n.img-avatar-sm { width:32px; height:32px; border-radius:50%; object-fit:cover; }\n.img-avatar-md { width:48px; height:48px; border-radius:50%; object-fit:cover; }\n.img-avatar-lg { width:80px; height:80px; border-radius:50%; object-fit:cover; }\n.img-avatar-xl { width:120px; height:120px; border-radius:50%; object-fit:cover; }\n.img-overlay   { position:relative; overflow:hidden; }\n.img-overlay::after {\n  content:''; position:absolute; inset:0;\n  background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.7) 100%);\n}"
+  },
+  "icons": {
+    "recommended_set": {
+      "set": "Lucide",
+      "style": "outline",
+      "size": 20,
+      "category_icons": [
+        "book",
+        "play-circle",
+        "award",
+        "chart-bar",
+        "users",
+        "clock"
+      ],
+      "cdn": "<script src=\"https://unpkg.com/lucide@latest/dist/umd/lucide.min.js\"></script>"
+    },
+    "css": ".icon { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }\n.icon--xs  { width:12px; height:12px; }\n.icon--sm  { width:16px; height:16px; }\n.icon--md  { width:20px; height:20px; }\n.icon--lg  { width:24px; height:24px; }\n.icon--xl  { width:32px; height:32px; }\n.icon--2xl { width:40px; height:40px; }\n.icon svg  { width:100%; height:100%; }"
+  },
+  "animations": {
+    "profile": {
+      "personality": "encouraging and smooth",
+      "duration_base": "300ms",
+      "duration_fast": "150ms",
+      "duration_slow": "500ms",
+      "easing_primary": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "easing_entrance": "cubic-bezier(0, 0, 0.2, 1)",
+      "easing_exit": "cubic-bezier(0.4, 0, 1, 1)",
+      "hover_lift": "translateY(-2px)",
+      "hover_shadow": "0 8px 25px rgba(0,0,0,0.12)",
+      "page_transition": "fade-slide-up",
+      "card_entrance": "fade-in-up",
+      "scroll_reveal": true,
+      "skeleton_loading": true,
+      "progress_bars": true,
+      "forbidden": [
+        "bounce",
+        "elastic",
+        "spin-forever",
+        "flash"
+      ]
+    },
+    "css_variables": ":root {\n  --duration-fast:   150ms;\n  --duration-base:   300ms;\n  --duration-slow:   500ms;\n  --ease-primary:    cubic-bezier(0.4, 0, 0.2, 1);\n  --ease-entrance:   cubic-bezier(0, 0, 0.2, 1);\n  --ease-exit:       cubic-bezier(0.4, 0, 1, 1);\n}",
+    "keyframes": "@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }\n@keyframes fadeInUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }\n@keyframes skeleton { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }\n@keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }\n@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.5;} }\n@keyframes fadeInUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }",
+    "utility_css": ".animate-fade-in      { animation: fadeIn 300ms cubic-bezier(0, 0, 0.2, 1) both; }\n.animate-fade-in-up   { animation: fadeInUp 300ms cubic-bezier(0, 0, 0.2, 1) both; }\n.animate-fade-in-down { animation: fadeInDown 300ms cubic-bezier(0, 0, 0.2, 1) both; }\n.animate-scale-pop    { animation: scalePop 200ms cubic-bezier(0.4, 0, 0.2, 1); }\n.animate-spin         { animation: spin 1s linear infinite; }\n.animate-pulse        { animation: pulse 2s ease-in-out infinite; }\n.delay-100 { animation-delay:100ms; }\n.delay-200 { animation-delay:200ms; }\n.delay-300 { animation-delay:300ms; }\n.delay-400 { animation-delay:400ms; }\n.delay-500 { animation-delay:500ms; }\n.skeleton {\n  background: linear-gradient(90deg,var(--color-border) 25%,\n    var(--color-bg-subtle) 50%,var(--color-border) 75%);\n  background-size:200% 100%;\n  animation:skeleton 1.5s ease-in-out infinite;\n  border-radius:4px;\n}\n.transition-base { transition:all 300ms cubic-bezier(0.4, 0, 0.2, 1); }\n.transition-fast { transition:all 150ms cubic-bezier(0.4, 0, 0.2, 1); }\n.transition-slow { transition:all 500ms cubic-bezier(0.4, 0, 0.2, 1); }\n@media (prefers-reduced-motion:reduce) {\n  *,*::before,*::after {\n    animation-duration:.01ms !important;\n    animation-iteration-count:1 !important;\n    transition-duration:.01ms !important;\n  }\n}"
+  },
+  "layout": {
+    "header": {
+      "style": "standard-with-cta",
+      "height": "72px",
+      "position": "sticky",
+      "background": "white with subtle shadow",
+      "logo_position": "right",
+      "nav_position": "center",
+      "cta_position": "left",
+      "cta_text_ar": "Ø§Ø¨Ø¯Ø£ Ø§Ù„Ø¢Ù†",
+      "cta_text_en": "Get Started",
+      "nav_links_ar": [
+        "Ø§Ù„Ø¯ÙˆØ±Ø§Øª",
+        "Ø§Ù„Ø®Ø¨Ø±Ø§Ø¡",
+        "Ø¹Ù† Ø§Ù„Ù…Ù†ØµØ©",
+        "ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§"
+      ],
+      "nav_links_en": [
+        "Courses",
+        "Experts",
+        "About",
+        "Contact"
+      ],
+      "mobile_pattern": "hamburger-drawer",
+      "special_features": [
+        "user avatar if logged in",
+        "notification bell"
+      ],
+      "direction": "ltr"
+    },
+    "footer": {
+      "style": "four-column",
+      "columns_en": [
+        "Company",
+        "Courses",
+        "Support",
+        "Follow Us"
+      ],
+      "columns_ar": [
+        "Ø§Ù„Ø´Ø±ÙƒØ©",
+        "Ø§Ù„Ø¯ÙˆØ±Ø§Øª",
+        "Ø§Ù„Ø¯Ø¹Ù…",
+        "ØªØ§Ø¨Ø¹Ù†Ø§"
+      ],
+      "bottom_bar": "copyright + privacy + terms",
+      "background": "bg-subtle",
+      "newsletter": true,
+      "columns": [
+        "Company",
+        "Courses",
+        "Support",
+        "Follow Us"
+      ],
+      "direction": "ltr"
+    },
+    "page_structures": {
+      "landing_page": [
+        "hero (full viewport height or 80vh)",
+        "social proof / logos strip",
+        "features or benefits (3 or 4 items)",
+        "how it works (3 steps)",
+        "testimonials",
+        "pricing or CTA section",
+        "FAQ accordion",
+        "final CTA",
+        "footer"
+      ],
+      "listing_page": [
+        "page header (title + breadcrumb + filter count)",
+        "filter sidebar or filter bar",
+        "results grid (with skeleton loading states)",
+        "pagination or infinite scroll indicator",
+        "empty state design",
+        "footer"
+      ],
+      "detail_page": [
+        "breadcrumb navigation",
+        "hero section (image + key info + primary CTA)",
+        "tabs or sections navigation",
+        "main content area",
+        "sidebar (related items or key actions)",
+        "reviews or social proof",
+        "related items grid",
+        "footer"
+      ],
+      "dashboard_page": [
+        "top stats bar (4 KPI cards)",
+        "primary chart or visualization",
+        "data table with actions",
+        "secondary metrics",
+        "activity feed or notifications"
+      ],
+      "auth_page": [
+        "centered card layout",
+        "logo at top",
+        "form with labels above inputs",
+        "primary action button (full width)",
+        "alternative action link",
+        "social proof below card"
+      ],
+      "profile_page": [
+        "cover image or gradient header",
+        "avatar + name + title",
+        "key stats strip",
+        "tab navigation",
+        "content sections per tab",
+        "sidebar (contact or related actions)"
+      ]
+    }
+  },
+  "quality": {
+    "type_tier": "humanist_warmth",
+    "type_css": ":root {\n  --type-display-size:     clamp(2.5rem,5vw,4rem);\n  --type-display-weight:   700;\n  --type-display-tracking: -0.02em;\n  --type-display-leading:  1.1;\n  --type-h1-size:     clamp(2rem,4vw,3rem);\n  --type-h1-weight:   700;\n  --type-h1-tracking: -0.02em;\n  --type-h1-leading:  1.2;\n  --type-h2-size:     clamp(1.5rem,3vw,2.25rem);\n  --type-h2-weight:   600;\n  --type-h2-tracking: -0.01em;\n  --type-h2-leading:  1.3;\n  --type-h3-size:     clamp(1.25rem,2vw,1.75rem);\n  --type-h3-weight:   600;\n  --type-h3-tracking: 0;\n  --type-h3-leading:  1.4;\n  --type-body-size:     1.0625rem;\n  --type-body-weight:   400;\n  --type-body-tracking: 0;\n  --type-body-leading:  1.7;\n  --type-small-size:     0.9375rem;\n  --type-small-weight:   400;\n  --type-small-tracking: 0;\n  --type-small-leading:  1.6;\n  --type-label-size:     0.8125rem;\n  --type-label-weight:   600;\n  --type-label-tracking: 0.05em;\n  --type-label-leading:  1.4;\n}",
+    "gradients": [
+      "Use approved brand tokens only; no category gradient presets.",
+      "Image overlay gradients may use rgba(0,0,0,...) only when needed for readability.",
+      "Section backgrounds should use approved surface tokens, not generic gray alternation."
+    ],
+    "hero_assignments": {
+      "frontend-register": {
+        "page_name": "Frontend Register",
+        "hero_pattern": "split-image-right",
+        "description": "50/50 split â€” text left, image right",
+        "gradient": "Use approved brand tokens only; no category gradient presets."
+      },
+      "frontend-mfa-setup": {
+        "page_name": "Frontend Mfa Setup",
+        "hero_pattern": "gradient-mesh-abstract",
+        "description": "Gradient background with abstract shapes, centered content",
+        "gradient": "Image overlay gradients may use rgba(0,0,0,...) only when needed for readability."
+      },
+      "role-scoped": {
+        "page_name": "Role-Scoped",
+        "hero_pattern": "stats-hero",
+        "description": "Hero with large stats numbers to establish credibility",
+        "gradient": "Section backgrounds should use approved surface tokens, not generic gray alternation."
+      },
+      "register": {
+        "page_name": "Register",
+        "hero_pattern": "full-bleed-image",
+        "description": "Full-viewport image with centered overlay text",
+        "gradient": "Use approved brand tokens only; no category gradient presets."
+      },
+      "mfa-setup": {
+        "page_name": "Mfa Setup",
+        "hero_pattern": "centered-minimal-white",
+        "description": "Clean white background, centered headline, large subtitle",
+        "gradient": "Image overlay gradients may use rgba(0,0,0,...) only when needed for readability."
+      }
+    },
+    "section_assignments": {
+      "frontend-register": {
+        "features": "numbered-steps",
+        "testimonials": "grid-mosaic",
+        "pricing": "comparison-table",
+        "faq": "chat-bubble",
+        "stats": "number-row",
+        "cta": "centered-banner"
+      },
+      "frontend-mfa-setup": {
+        "features": "tab-switcher",
+        "testimonials": "quote-spotlight",
+        "pricing": "toggle-annual",
+        "faq": "two-column",
+        "stats": "infographic",
+        "cta": "split-with-image"
+      },
+      "role-scoped": {
+        "features": "alternating-rows",
+        "testimonials": "grid-mosaic",
+        "pricing": "toggle-annual",
+        "faq": "two-column",
+        "stats": "number-row",
+        "cta": "split-with-image"
+      },
+      "register": {
+        "features": "icon-grid-3col",
+        "testimonials": "card-carousel",
+        "pricing": "three-tier-cards",
+        "faq": "accordion",
+        "stats": "dark-contrast",
+        "cta": "split-with-image"
+      },
+      "mfa-setup": {
+        "features": "tab-switcher",
+        "testimonials": "card-carousel",
+        "pricing": "three-tier-cards",
+        "faq": "two-column",
+        "stats": "dark-contrast",
+        "cta": "email-capture"
+      }
+    }
+  },
+  "visual_research": {
+    "visual_brief": "Study real product patterns from the references below. No pre-made colors or fonts are supplied — derive tokens from approved brand direction only.",
+    "top_3_products": [
+      {
+        "name": "Coursera",
+        "url": "coursera.org",
+        "what_to_study": "Social proof placement: partner logos, learner counts, and outcome stats. Note how they sequence trust before CTA."
+      },
+      {
+        "name": "80,000 Hours",
+        "url": "80000hours.org",
+        "what_to_study": "Editorial narrative flow: long-form sections with article-like rhythm, evidence-first copy, and zero equal-card grids."
+      },
+      {
+        "name": "Kajabi",
+        "url": "kajabi.com",
+        "what_to_study": "Instructor authority pattern: named expert photo, short bio line, and course cards that lead with the instructor, not the price."
+      }
+    ],
+    "top_3_inspo_sites": [
+      {
+        "name": "Harvard Online (online.harvard.edu)",
+        "what_to_study": "Institutional credibility without decoration: clean typography, proof by affiliation, asymmetric feature blocks."
+      },
+      {
+        "name": "Outlier.org",
+        "what_to_study": "Minimalist academic feel: generous whitespace, serif-weight headlines for authority, outcome proof in two lines, no hero image required."
+      },
+      {
+        "name": "Luma.id",
+        "what_to_study": "Event/cohort page rhythm: date prominence, speaker credibility, scarcity-aware CTA copy ('Registration closes…')."
+      }
+    ],
+    "do_this": [
+      "vary hero structure per page purpose: home uses proof-first, course detail uses evidence-led split, admin uses compact table-first",
+      "lead with a named expert or real cohort photo — no anonymous stock classroom images",
+      "keep admin screens compact and scannable: tight row height, status chips, inline actions",
+      "sequence trust before CTA: show proof (alumni, partners, outcomes) before asking for registration",
+      "use Arabic-first copy in public pages; admin stays LTR"
+    ],
+    "not_this": [
+      "do not start every section with a centered h2 + three equal cards — break this pattern at least 3 times per page",
+      "do not use fake round numbers: '500+ students', '99% satisfaction', '24/7 support' — use real or omit",
+      "do not use anonymous stock photos of people smiling at laptops",
+      "do not use premade category color palettes — derive all colors from approved brand signals",
+      "do not use premade category font pairings — use only approved project fonts",
+      "do not repeat the same section structure on adjacent sections of the same page"
+    ]
+  },
+  "raw_signals": {
+    "detected_colors": [],
+    "detected_fonts": [],
+    "preset_applied": null
+  },
+  "generated_at": "2026-08-18T12:59:08Z"
+}

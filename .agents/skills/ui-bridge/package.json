@@ -1,0 +1,49 @@
+{
+  "name": "ui-gernreate-from-plan",
+  "version": "1.1.1",
+  "description": "Multi-agent skill that turns Spec Kit plan.md + tasks.md into production-quality HTML prototypes with a 14-layer automated design system",
+  "author": "yousefabdallah171",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "openai-skill",
+    "claude-code",
+    "agent-skill",
+    "spec-kit",
+    "ui-prototype",
+    "html-generation",
+    "design-system",
+    "impeccable",
+    "arabic-rtl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rakymat-plugins/ui-gernreate-from-plan.git"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "bin": {
+    "ui-gernreate-from-plan": "./scripts/install.js"
+  },
+  "scripts": {
+    "install-skill": "node scripts/install.js",
+    "postinstall": "node scripts/install.js"
+  },
+  "skill": {
+    "name": "ui-gernreate-from-plan",
+    "type": "agent-skill",
+    "entry": "SKILL.md",
+    "commands": ".claude/commands/",
+    "codex_aliases": ".codex/skills/",
+    "subskills": "subskills/",
+    "scripts": "scripts/",
+    "references": "references/",
+    "templates": "templates/",
+    "requires": {
+      "python": ">=3.8",
+      "codex": "*",
+      "claude-code": "*"
+    }
+  }
+}

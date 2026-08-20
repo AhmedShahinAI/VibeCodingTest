@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["state", "symmetry", "editorialness", "card_density", "grid_style", "alignment_style", "section_rhythm", "asymmetry_level", "page_assignments"],
+  "properties": {
+    "state": { "enum": ["draft", "approved-source"] },
+    "symmetry": { "enum": ["low", "low-to-medium", "medium", "medium-to-high"] },
+    "editorialness": { "enum": ["low", "medium", "high"] },
+    "card_density": { "enum": ["low", "medium", "high"] },
+    "grid_style": { "type": "string", "minLength": 12 },
+    "alignment_style": { "type": "string", "minLength": 12 },
+    "section_rhythm": { "type": "string", "minLength": 12 },
+    "asymmetry_level": { "enum": ["low", "medium", "high"] },
+    "page_assignments": {
+      "type": "object",
+      "minProperties": 1
+    }
+  }
+}

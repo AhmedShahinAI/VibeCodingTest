@@ -1,0 +1,109 @@
+{
+  "state": "approved_brand",
+  "policy": "proposal",
+  "proposal_id": "C",
+  "approved_direction": {
+    "id": "C",
+    "state": "inferred_proposal",
+    "name": "Premium",
+    "references": [
+      "training organization websites",
+      "executive education pages",
+      "Arabic course catalog experiences",
+      "premium service brands",
+      "expert-led boutique sites",
+      "high-trust editorial portfolios"
+    ],
+    "photography": "Real training rooms, named instructors, course materials, cohort moments, no anonymous classroom stock. Premium portraits and real spaces, controlled lighting, restrained color grading.",
+    "iconography": "Minimal symbols, 1.5px stroke, no decorative icon rows.",
+    "density": "Low-to-medium density, strong contrast, fewer but more confident sections.",
+    "personality": "Selective, premium, expert-led, confident.",
+    "layout_style": "Asymmetric hero, large proof quote, premium course cards, strong whitespace.",
+    "hero_style": "Founder/expert or premium proof-first hero.",
+    "cta_tone": "Browse courses, reserve a seat, request program details.",
+    "project_type": "EdTech",
+    "palette": {
+      "primary": "#37702E",
+      "accent": "#623C9F",
+      "background": "#FFFFFF",
+      "surface": "#F3F6F4",
+      "text": "#1C2C1B",
+      "generation": "project-signal-hash"
+    },
+    "fonts": {
+      "arabic_heading": "Cairo",
+      "arabic_body": "Cairo",
+      "latin_fallback": "Inter",
+      "generation": "user-approved"
+    },
+    "competitive_basis": {
+      "patterns_to_copy": [
+        "training organization websites",
+        "executive education pages",
+        "Arabic course catalog experiences"
+      ],
+      "patterns_to_avoid": [
+        "generic SaaS hero",
+        "three-card syndrome",
+        "fake metrics",
+        "centered everything"
+      ],
+      "hero_types": [
+        "proof-first",
+        "editorial",
+        "asymmetric",
+        "founder/expert",
+        "magazine",
+        "split"
+      ],
+      "section_types": [
+        "methodology",
+        "course evidence",
+        "expert proof",
+        "partner proof",
+        "registration form",
+        "admin table"
+      ],
+      "copy_tone": [
+        "Arabic-first and evidence-led"
+      ],
+      "spacing_observations": [
+        "public pages can breathe; admin pages stay compact and scannable"
+      ]
+    }
+  },
+  "signals": {
+    "hex_colors": [],
+    "css_variables": [
+      {
+        "variable": "--font-heading`, `--font-body`, `--type-*` scale vars |\n| `colors.palette` | All color roles with hex values |\n| `colors.css_variables` | `--color-primary`, `--color-text-*`, `--color-bg-*` vars |\n| `images.strategy` | Which Unsplash photo IDs to use by image type |\n| `animations.profile` | Easing functions, durations, utility classes |\n| `layout.header` | Header pattern type, logo/nav positions |\n| `layout.page_structures` | Section order for each page type |\n| `quality.hero_assignments` | Per-page slug → `{hero_pattern, gradient, description}` — MUST follow |\n| `quality.section_assignments` | Per-page slug → section variant per section type |\n| `quality.type_css` | Type-hierarchy CSS vars — paste verbatim |\n| `visual_research.visual_brief` | Design feel, photography mood, typography personality |\n| `visual_research.top_3_products` | Real products to match quality of |\n\n---\n\n## Anti-Slop System (52 Rules)\n\n`anti_slop_database.py` encodes 52 forbidden patterns across 8 categories.\nEvery generated HTML file is checked against all 52 before it is returned.\n\n| Category | Count | Example forbidden pattern |\n|---|---|---|\n| Colors | 9 | Purple-to-blue gradient as primary palette |\n| Typography | 8 | `background-clip: text` gradient on headings |",
+        "file": ".agents/skills/ui-bridge/README.md",
+        "confidence": "explicit"
+      },
+      {
+        "variable": "--color-primary)` accent strip |\n| Sections | 4 | \"How it works\" with 3 numbered icon tiles |\n| **Total** | **52** | |\n\n**17 required elements** — every HTML file must include:\n`design-system.css` embed, Google Fonts import, `--color-primary` var, `dir` attribute,",
+        "file": ".agents/skills/ui-bridge/README.md",
+        "confidence": "explicit"
+      },
+      {
+        "variable": "--font-heading`, `--font-body`, `--type-*` scale vars |\n| `colors.palette` | All color roles with hex values |\n| `colors.css_variables` | `--color-primary`, `--color-text-*`, `--color-bg-*` vars |\n| `images.strategy` | Which Unsplash photo IDs to use by image type |\n| `animations.profile` | Easing functions, durations, utility classes |\n| `layout.header` | Header pattern type, logo/nav positions |\n| `layout.page_structures` | Section order for each page type |\n| `quality.hero_assignments` | Per-page slug → `{hero_pattern, gradient, description}` — MUST follow |\n| `quality.section_assignments` | Per-page slug → section variant per section type |\n| `quality.type_css` | Type-hierarchy CSS vars — paste verbatim |\n| `visual_research.visual_brief` | Design feel, photography mood, typography personality |\n| `visual_research.top_3_products` | Real products to match quality of |\n\n---\n\n## Anti-Slop System (52 Rules)\n\n`anti_slop_database.py` encodes 52 forbidden patterns across 8 categories.\nEvery generated HTML file is checked against all 52 before it is returned.\n\n| Category | Count | Example forbidden pattern |\n|---|---|---|\n| Colors | 9 | Purple-to-blue gradient as primary palette |\n| Typography | 8 | `background-clip: text` gradient on headings |",
+        "file": "agent/skills/ui-bridge/README.md",
+        "confidence": "explicit"
+      },
+      {
+        "variable": "--color-primary)` accent strip |\n| Sections | 4 | \"How it works\" with 3 numbered icon tiles |\n| **Total** | **52** | |\n\n**17 required elements** — every HTML file must include:\n`design-system.css` embed, Google Fonts import, `--color-primary` var, `dir` attribute,",
+        "file": "agent/skills/ui-bridge/README.md",
+        "confidence": "explicit"
+      }
+    ],
+    "font_families": [],
+    "google_fonts": [],
+    "tailwind_colors": {},
+    "logos": [],
+    "rtl_detected": true,
+    "arabic_detected": true
+  },
+  "required_user_action": [],
+  "version": "v2",
+  "generated_at": "2026-08-18T01:28:59Z"
+}

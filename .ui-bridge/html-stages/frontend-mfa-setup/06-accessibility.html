@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html data-accessibility-reviewed="true" lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Mfa Setup</title>
+  <link rel="stylesheet" href="design-tokens.css">
+  <style>
+    :root {
+  --color-primary: #37702E;
+  --color-accent: #623C9F;
+  --color-bg: #FFFFFF;
+  --font-heading: 'Cairo', sans-serif;
+  --font-body: 'Cairo', sans-serif;
+  --text-h1: clamp(2.4rem, 6vw, 5.4rem);
+  --space-4: 1rem;
+  --radius-md: 1rem;
+  --duration-base: 220ms;
+  --ease-primary: cubic-bezier(0.22, 1, 0.36, 1);
+}
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--color-bg); color: var(--color-text-primary, #1F2724); font-family: var(--font-body); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; transition: color var(--duration-base) var(--ease-primary); }
+    .skip-link { position: absolute; inset-inline-start: 16px; top: -48px; background: var(--color-primary); color: white; padding: 10px 14px; z-index: 20; }
+    .skip-link:focus { top: 12px; }
+    .draft-watermark { position: sticky; top: 0; z-index: 30; background: #111; color: #fff; text-align: center; padding: 8px; font-weight: 700; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: clamp(28px, 5vw, 72px); align-items: end; padding: clamp(56px, 8vw, 112px) 0 clamp(32px, 6vw, 72px); }
+    .context-line, .row-meta { color: var(--color-accent); font-weight: 800; margin: 0 0 8px; }
+    .section-kicker { color: var(--color-accent); text-transform: uppercase; letter-spacing: .12em; font-size: .76rem; font-weight: 800; margin: 0 0 10px; }
+    h1, h2, h3 { font-family: var(--font-heading); line-height: 1.15; margin: 0; }
+    h1 { font-size: var(--text-h1); max-width: 11ch; }
+    h2 { font-size: var(--text-h2, clamp(1.8rem, 3.5vw, 2.8rem)); margin-bottom: var(--space-4); }
+    .lede { max-width: 64ch; font-size: 1.08rem; color: var(--color-text-secondary, #53615C); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 18px; border: 1px solid var(--color-primary); border-radius: var(--radius-md); font-weight: 700; }
+    .button.primary { background: var(--color-primary); color: #fff; }
+    .button.secondary { background: transparent; color: var(--color-primary); }
+    .proof-list { background: var(--color-surface, #F4F2EC); border-top: 2px solid var(--color-accent); padding: 24px; display: grid; gap: 12px; border-radius: var(--radius-md); box-shadow: var(--shadow-card, 0 20px 50px rgba(12,22,19,.08)); }
+    .proof-list span { border-bottom: 1px solid var(--color-border, #D7DCD8); padding-bottom: 10px; font-weight: 700; }
+    .hero-media { display: grid; gap: 16px; align-self: stretch; }
+    .hero-media-panel { border-radius: calc(var(--radius-md) * 1.5); padding: 24px; min-height: 180px; box-shadow: var(--shadow-card, 0 20px 50px rgba(12,22,19,.08)); display: flex; flex-direction: column; justify-content: end; background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 18%, white), rgba(255,255,255,.9)); border: 1px solid color-mix(in srgb, var(--color-primary) 10%, white); }
+    .hero-media-panel.accent { background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 18%, white), rgba(255,255,255,.88)); border-color: color-mix(in srgb, var(--color-accent) 12%, white); }
+    .hero-media-panel span { font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--color-accent); font-weight: 800; }
+    .hero-media-panel strong { margin-top: 12px; font-size: 1.35rem; font-family: var(--font-heading); max-width: 12ch; }
+    .hero-media-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .feature-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 12px; }
+    .feature-tile { background: #fff; border: 1px solid var(--color-border, #D7DCD8); border-radius: var(--radius-md); padding: 22px; box-shadow: var(--shadow-card, 0 20px 50px rgba(12,22,19,.08)); }
+    .feature-tile span { display: inline-block; font-size: .76rem; text-transform: uppercase; letter-spacing: .1em; color: var(--color-accent); font-weight: 800; margin-bottom: 10px; }
+    .feature-tile h3 { margin-bottom: 10px; font-size: 1.1rem; }
+    .feature-tile p { margin: 0; color: var(--color-text-secondary, #53615C); }
+    .content-band { padding: clamp(40px, 7vw, 96px) 0; }
+    .content-grid { background: #fff; border: 1px solid var(--color-border, #D7DCD8); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-card, 0 20px 50px rgba(12,22,19,.08)); }
+    .content-row { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 20px; padding: 24px; border-bottom: 1px solid var(--color-border, #D7DCD8); }
+    .content-row:last-child { border-bottom: 0; }
+    .row-mark { width: 10px; height: 10px; margin-top: .45rem; background: var(--color-accent); display: inline-block; }
+    .showcase-band, .product-band { padding: clamp(40px, 7vw, 90px) 0; }
+    .section-copy { display: grid; gap: 8px; margin-bottom: 22px; max-width: 58ch; }
+    .section-copy p:last-child { margin: 0; color: var(--color-text-secondary, #53615C); }
+    .collection-grid, .product-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .collection-card, .product-card { background: #fff; border: 1px solid var(--color-border, #D7DCD8); border-radius: calc(var(--radius-md) * 1.25); padding: 18px; box-shadow: var(--shadow-card, 0 20px 50px rgba(12,22,19,.08)); }
+    .collection-visual, .product-image { border-radius: calc(var(--radius-md) * 1.1); min-height: 180px; margin-bottom: 16px; background: linear-gradient(160deg, color-mix(in srgb, var(--color-primary) 14%, white), color-mix(in srgb, var(--color-accent) 12%, white)); }
+    .product-image { min-height: 220px; background: linear-gradient(160deg, color-mix(in srgb, var(--color-surface, #F3F6F4) 72%, white), color-mix(in srgb, var(--color-primary) 10%, white)); }
+    .collection-card h3, .product-card h3 { margin-bottom: 8px; font-size: 1.12rem; }
+    .collection-card p, .product-card p { margin: 0; color: var(--color-text-secondary, #53615C); }
+    .product-card strong { display: block; margin-top: 12px; font-size: 1.4rem; font-family: var(--font-heading); }
+    .product-meta { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-accent); font-weight: 800; margin-bottom: 10px !important; }
+    .product-link { display: inline-flex; margin-top: 14px; color: var(--color-primary); font-weight: 700; }
+    .cta-section { padding: clamp(36px, 6vw, 76px) 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
+    .page-main { padding-bottom: var(--space-12); }
+    .topbar { padding-top: var(--space-6); }
+    @media (max-width: 768px) {
+      .hero, .cta-section { grid-template-columns: 1fr; }
+      .hero-media-stack, .feature-strip, .collection-grid, .product-grid { grid-template-columns: 1fr; }
+      h1 { max-width: 100%; }
+      .content-row { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+<meta name="ui-stage" content="styling-complete"></head>
+<body class="public-body">
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى الرئيسي</a>
+  
+  <header class="site-shell-header"><!-- PARTIAL:nav-public -->
+<!-- /PARTIAL:nav-public --></header>
+  <main id="main" class="page-main" data-layout-reviewed="true">
+    <div class="container">
+      <section class="hero" data-page="frontend-mfa-setup" data-layout="proof-led-detail" data-hero="magazine" data-narrative="editorial">
+        <div class="hero-copy">
+          <p class="context-line">editorial</p>
+          <h1>Approved page prototype for client-facing review</h1>
+          <p class="lede">This page is produced as part of UI Phase 0 and should be reviewed before code implementation moves ahead.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#cta">اطلب عرض النموذج</a>
+            <a class="button secondary" href="prototype-hub.html">استعرض التشكيلات</a>
+          </div>
+        </div>
+        <aside class="proof-list" aria-label="Proof panel"><span>Page map guided layout</span><span>Token-driven styling</span><span>Phase 0 approved reference</span></aside>
+      </section>
+      
+      <section class="content-band" data-section-pattern="timeline">
+        <h2>Frontend Mfa Setup</h2>
+        <div class="content-grid">
+          <article class="content-row"><span class="row-mark" aria-hidden="true"></span><div><h3>Page hero</h3><p class="row-meta">Message and visual hierarchy</p><p>Headline, supporting copy, and call to action reflect the approved direction.</p></div></article><article class="content-row"><span class="row-mark" aria-hidden="true"></span><div><h3>Main content</h3><p class="row-meta">Section ordering from page map</p><p>Sections follow the exact planning sequence rather than a generic template order.</p></div></article><article class="content-row"><span class="row-mark" aria-hidden="true"></span><div><h3>Implementation reference</h3><p class="row-meta">Tokens, partials, and navigation</p><p>The page shares the same token system and shell conventions as the rest of the prototype set.</p></div></article>
+        </div>
+      </section>
+      <section id="cta" class="cta-section">
+        <div>
+          <h2>Shared implementation reference</h2>
+          <p>This page keeps color, typography, spacing, and motion in shared variables so the full feature can be re-themed safely later.</p>
+        </div>
+        <a class="button primary" href="mailto:prototype@example.com" aria-label="اطلب عرض النموذج">اطلب عرض النموذج</a>
+      </section>
+    </div>
+  </main>
+  <footer class="site-shell-footer"><!-- PARTIAL:footer-public -->
+<!-- /PARTIAL:footer-public --></footer>
+  <nav class="prototype-nav" aria-label="Prototype navigation" dir="ltr"><a href="frontend-register.html">Frontend Register</a> <a href="frontend-mfa-setup.html" class="current">Frontend Mfa Setup</a> <a href="role-scoped.html">Role-Scoped</a> <a href="prototype-hub.html">Prototype Hub</a></nav>
+  <div class="proto-spacer" aria-hidden="true"></div>
+  <script type="application/json" id="ui-stage-data">{&quot;page&quot;: &quot;frontend-mfa-setup&quot;, &quot;hero_pattern&quot;: &quot;magazine&quot;, &quot;narrative_pattern&quot;: &quot;editorial&quot;}</script>
+  <script>
+    document.documentElement.dataset.stage = "interactions";
+    document.querySelectorAll(".button").forEach(function(el) {
+      el.addEventListener("click", function() {
+        document.documentElement.dataset.intent = "cta";
+      });
+    });
+  </script>
+</body>
+</html>

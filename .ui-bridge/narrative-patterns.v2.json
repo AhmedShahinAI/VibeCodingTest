@@ -1,0 +1,26 @@
+{
+  "state": "approved-source",
+  "patterns": [
+    "authority",
+    "transformation",
+    "methodology",
+    "case-study",
+    "editorial",
+    "premium",
+    "comparison",
+    "operational",
+    "utility"
+  ],
+  "page_assignments": {
+    "frontend-register": "editorial",
+    "frontend-mfa-setup": "editorial",
+    "role-scoped": "editorial"
+  },
+  "assignment_logic": "page-purpose aware: home authority, detail methodology, listing comparison, admin operational",
+  "anti_repetition_rules": [
+    "do not repeat Problem-Proof-CTA on every page",
+    "detail pages should use evidence and methodology"
+  ],
+  "version": "v2",
+  "generated_at": "2026-08-18T12:58:16Z"
+}

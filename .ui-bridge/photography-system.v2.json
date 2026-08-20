@@ -1,0 +1,14 @@
+{
+  "state": "approved-source",
+  "style": "Real training rooms, named instructors, course materials, cohort moments, no anonymous classroom stock. Premium portraits and real spaces, controlled lighting, restrained color grading.",
+  "aspect_ratios": {
+    "hero": "16:9 or 4:3",
+    "cards": "4:3",
+    "portraits": "not primary unless real people are part of the domain"
+  },
+  "color_grading": "natural contrast; domain-appropriate warmth; no glossy AI stock grading",
+  "background_style": "real environments tied to EdTech, not abstract backdrops",
+  "portrait_rules": "named real people with role context; avoid anonymous stock headshots",
+  "version": "v2",
+  "generated_at": "2026-08-18T12:58:16Z"
+}

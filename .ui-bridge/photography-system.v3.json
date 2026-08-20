@@ -1,0 +1,14 @@
+{
+  "state": "approved-source",
+  "style": "No photography of people. Abstract 3D renders and generative/AI visuals only: glowing gradient S-mark on a pedestal, neural network node graphs, holographic geometric grids, silhouette-in-portal compositions. Consistent blue-cyan-violet gradient lighting across every image.",
+  "aspect_ratios": {
+    "hero": "1:1 or 4:3 centered composition",
+    "cards": "4:3",
+    "portraits": "not used — brand uses no human photography"
+  },
+  "color_grading": "cool blue-cyan-violet gradient lighting; deep navy shadows in both light and dark contexts; no warm/natural color grading",
+  "background_style": "abstract 3D renders, particle/network fields, geometric grids — never real environments or stock photography",
+  "portrait_rules": "no human portraits or headshots anywhere in the product; all proof/credibility signals use data, logos, or ratings instead",
+  "version": "v3",
+  "generated_at": "2026-08-18T19:00:00Z"
+}

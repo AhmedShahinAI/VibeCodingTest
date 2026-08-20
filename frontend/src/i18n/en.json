@@ -1,0 +1,63 @@
+{
+  "app": {
+    "name": "Elm Platform"
+  },
+  "common": {
+    "submit": "Submit",
+    "loading": "Loading…",
+    "retry": "Retry",
+    "resendCode": "Resend code",
+    "languageSwitcherLabel": "Language"
+  },
+  "auth": {
+    "register": {
+      "title": "Create your account",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "roleLabel": "I am a",
+      "roleLearner": "Learner",
+      "roleInstructor": "Course Provider",
+      "submit": "Create account"
+    },
+    "mfaSetup": {
+      "title": "Set up two-factor authentication",
+      "instructions": "Scan this QR code with an authenticator app, then continue to sign in.",
+      "continueToLogin": "Continue to sign in"
+    },
+    "login": {
+      "title": "Sign in",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "submit": "Sign in"
+    },
+    "mfaVerify": {
+      "title": "Enter your authentication code",
+      "codeLabel": "6-digit code",
+      "submit": "Verify"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome, {{role}}",
+    "sections": {
+      "browseCourses": "Browse courses",
+      "manageCourses": "Manage my courses",
+      "gradeAssigned": "Grade assigned submissions",
+      "reviewFlagged": "Review flagged content",
+      "reviewApprove": "Review & approve courses",
+      "manageUsers": "Manage users",
+      "tenantSettings": "Tenant settings",
+      "provisionTenants": "Provision tenants"
+    }
+  },
+  "errors": {
+    "invalidCredentials": "Incorrect email or password.",
+    "invalidMfaCode": "That code is invalid or expired.",
+    "mfaChallengeExpired": "Your sign-in attempt expired — please sign in again.",
+    "emailAlreadyRegistered": "An account with this email already exists.",
+    "sessionExpired": "Your session has expired — please sign in again.",
+    "sessionRevoked": "Your session was revoked for security reasons — please sign in again.",
+    "forbidden": "You don't have access to do that.",
+    "generic": "Something went wrong. Please try again."
+  }
+}

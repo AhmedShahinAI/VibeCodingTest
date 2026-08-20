@@ -1,0 +1,91 @@
+# Design System: {{PROJECT_NAME}}
+
+## Brand Colors
+
+| Role | Hex | Usage |
+|------|-----|-------|
+| Primary | {{PRIMARY_COLOR}} | Main CTAs, active nav, links |
+| Accent | {{ACCENT_COLOR}} | Highlights, badges, hover states |
+| Background | {{BACKGROUND_COLOR}} | Page background |
+| Surface | {{SURFACE_COLOR}} | Cards, panels, modals |
+| Text Primary | {{TEXT_PRIMARY}} | Headings and primary body text |
+| Text Secondary | {{TEXT_SECONDARY}} | Captions, labels, metadata |
+| Border | {{BORDER_COLOR}} | Dividers, input borders, table lines |
+| Success | {{SUCCESS_COLOR}} | Confirmations, positive states |
+| Error | {{ERROR_COLOR}} | Validation errors, destructive actions |
+
+## Typography
+
+| Role | Font Family | Weight | Approx Size |
+|------|-------------|--------|-------------|
+| Heading (Latin) | {{HEADING_FONT}} | 700 | 2rem–3rem |
+| Subheading (Latin) | {{HEADING_FONT}} | 600 | 1.25rem–1.5rem |
+| Body (Latin) | {{BODY_FONT}} | 400 | 1rem |
+| Heading (Arabic) | {{ARABIC_HEADING_FONT}} | 700 | 2rem–3rem |
+| Body (Arabic) | {{ARABIC_BODY_FONT}} | 400 | 1rem |
+| Monospace | monospace | 400 | 0.875rem |
+
+## Layout
+
+- **Text direction**: {{DIRECTION}}
+- **Max content width**: {{MAX_WIDTH}}
+- **Base spacing unit**: 4px (0.25rem)
+- **Border radius**: {{BORDER_RADIUS}}
+- **Shadow style**: {{SHADOW_STYLE}}
+
+## Spacing Scale
+
+| Name | Size | CSS custom property |
+|------|------|---------------------|
+| xs | 8px | `--space-xs` |
+| sm | 12px | `--space-sm` |
+| md | 16px | `--space-md` |
+| lg | 24px | `--space-lg` |
+| xl | 40px | `--space-xl` |
+| xxl | 64px | `--space-xxl` |
+
+## Breakpoints
+
+| Name | Min width | Notes |
+|------|-----------|-------|
+| Mobile | 375px | Base (no media query) |
+| Tablet | 768px | `@media (min-width: 768px)` |
+| Desktop | 1280px | `@media (min-width: 1280px)` |
+
+## Component Style
+
+- **Buttons**: {{BUTTON_STYLE}}
+  (Example: "Filled primary, 12px vertical padding, 24px horizontal, 8px border-radius.
+  Ghost buttons for secondary actions. No icon-only buttons without aria-label.")
+
+- **Cards**: {{CARD_STYLE}}
+  (Example: "White surface, 24px padding, 8px border-radius, subtle shadow.
+  No nested cards. Max 1 primary CTA per card.")
+
+- **Inputs**: {{INPUT_STYLE}}
+  (Example: "Outlined with 1px border, 8px border-radius, 12px padding.
+  Focus ring: 2px primary color, 2px offset.")
+
+- **Tables**: {{TABLE_STYLE}}
+  (Example: "No zebra striping. Row hover with 2% background tint.
+  Wrap in overflow-x: auto div on mobile.")
+
+- **Badges/tags**: {{BADGE_STYLE}}
+  (Example: "Pill shape (999px radius), 6px vertical padding, 12px horizontal.
+  Max 3 badge types per card. Never use color alone to encode meaning.")
+
+## Accessibility
+
+- **Minimum text contrast**: 4.5:1 (WCAG AA)
+- **Large text contrast**: 3:1 (text ≥ 18pt or 14pt bold)
+- **Focus indicator**: 2px solid primary color, 2px offset, never hidden
+- **Motion preference**: Respect `prefers-reduced-motion: reduce`
+
+## Overall Aesthetic
+
+{{AESTHETIC_DESCRIPTION}}
+
+(Write 2–3 sentences describing the visual personality.
+Example: "Professional and trustworthy. Clean white surfaces with strategic use of the primary
+blue to direct attention. Arabic-first layout with generous whitespace and strong typographic
+hierarchy. Inspired by respected regional educational institutions, not startup SaaS.")

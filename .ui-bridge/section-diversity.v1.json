@@ -1,0 +1,26 @@
+{
+  "state": "draft",
+  "patterns": [
+    "bento",
+    "timeline",
+    "editorial-list",
+    "proof-strip",
+    "split-detail",
+    "data-table",
+    "focused-panel",
+    "record-workspace",
+    "methodology-flow"
+  ],
+  "page_assignments": {
+    "frontend-register": "timeline",
+    "frontend-mfa-setup": "timeline",
+    "role-scoped": "timeline"
+  },
+  "assignment_logic": "content-structure aware: listing/detail/form/admin sections choose different section systems",
+  "anti_repetition_rules": [
+    "no repeated Hero-Cards-CTA-Footer sequence",
+    "alternate data-heavy and story-heavy sections"
+  ],
+  "version": "v1",
+  "generated_at": "2026-08-18T01:22:42Z"
+}

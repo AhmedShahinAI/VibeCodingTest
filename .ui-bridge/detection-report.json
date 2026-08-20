@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-08-18T12:59:07.236155Z",
+  "command": "ui-plan",
+  "layer_1": {
+    "plan_path": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\plan.md",
+    "tasks_path": "D:\\Vibe Coding Course\\Lec2\\specs\\001-phase-1-foundation\\tasks.md",
+    "phases_found": 0,
+    "tasks_phases_found": 8,
+    "tasks_found": 69,
+    "has_constitution": true,
+    "status": "ok"
+  },
+  "layer_2": {
+    "framework": "Unknown",
+    "project_category": "EdTech",
+    "is_arabic": true,
+    "is_rtl": true,
+    "has_admin_panel": true,
+    "has_auth": true,
+    "status": "ok"
+  },
+  "layer_3": {
+    "state": "approved_brand",
+    "primary_color": {
+      "value": null,
+      "confidence": "approved"
+    },
+    "accent_color": {
+      "value": null,
+      "confidence": "not_selected"
+    },
+    "heading_font": {
+      "value": null,
+      "confidence": "missing"
+    },
+    "body_font": {
+      "value": null,
+      "confidence": "missing"
+    },
+    "logo_path": null,
+    "brand_signals_count": 0,
+    "approved": true
+  },
+  "layer_4": {
+    "pages": [
+      {
+        "name": "Frontend Register",
+        "slug": "frontend-register",
+        "route": "/frontend-register",
+        "is_admin": false,
+        "source_tasks": [
+          "semantic: \"Build frontend Register page\""
+        ],
+        "detection_method": "semantic",
+        "estimated_sections": 4
+      },
+      {
+        "name": "Frontend Mfa Setup",
+        "slug": "frontend-mfa-setup",
+        "route": "/frontend-mfa-setup",
+        "is_admin": false,
+        "source_tasks": [
+          "semantic: \"Build frontend MFA setup page\""
+        ],
+        "detection_method": "semantic",
+        "estimated_sections": 4
+      },
+      {
+        "name": "Role-Scoped",
+        "slug": "role-scoped",
+        "route": "/role-scoped",
+        "is_admin": false,
+        "source_tasks": [
+          "semantic: \"Build role-scoped dashboard\""
+        ],
+        "detection_method": "semantic",
+        "estimated_sections": 4
+      }
+    ],
+    "total_pages": 3,
+    "public_count": 3,
+    "admin_count": 0,
+    "source": "parsed-speckit"
+  },
+  "layer_5": {
+    "impeccable_installed": false,
+    "product_md_exists": true,
+    "design_md_exists": true,
+    "npx_available": true,
+    "install_needed": true
+  },
+  "layer_6": {
+    "previous_run_exists": true,
+    "page_map_exists": true,
+    "prototypes_exist": false,
+    "prototypes_count": 0,
+    "phase_0_already_added": false,
+    "resuming": true
+  },
+  "layer_7": {
+    "locked_primary_color": null,
+    "locked_font_family": null,
+    "locked_border_radius": null,
+    "locked_nav_html": null,
+    "consistency_baseline_set": false
+  },
+  "summary": {
+    "can_proceed": true,
+    "warnings": [],
+    "decisions_made": [],
+    "brand_policy": "strict"
+  }
+}

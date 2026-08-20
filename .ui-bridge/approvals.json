@@ -1,0 +1,31 @@
+{
+  "brand_direction": {
+    "approved": true,
+    "version": "v3",
+    "approved_at": "2026-08-18T19:00:00Z",
+    "approved_by": "user",
+    "proposal": "SimpleElm",
+    "artifact": "brand-intake.v3.json"
+  },
+  "moodboard": {
+    "approved": true,
+    "version": "v4",
+    "approved_at": "2026-08-18T19:00:00Z",
+    "approved_by": "user",
+    "artifact": "moodboard.v4.json"
+  },
+  "visual_layout_dna": {
+    "approved": true,
+    "version": "v4",
+    "approved_at": "2026-08-18T19:00:00Z",
+    "approved_by": "user",
+    "artifact": "visual-dna.v4.json + layout-dna.v2.json"
+  },
+  "design_system": {
+    "approved": true,
+    "version": "v3",
+    "approved_at": "2026-08-18T19:00:00Z",
+    "approved_by": "user",
+    "artifact": "design-system.v3.json"
+  }
+}

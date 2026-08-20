@@ -1,0 +1,35 @@
+# Node
+node_modules/
+dist/
+build/
+coverage/
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Prisma
+backend/services/shared/prisma/generated/
+
+# Frontend
+frontend/dist/
+frontend/.vite/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Claude agent folder (may hold local credentials/session state)
+.claude/settings.local.json
+
+# Spec Kit local state (project-local, not shared)
+.specify/feature.json
+
+# Third-party tool clone (own git history/remote — not project source)
+ui-gernreate-from-plan/

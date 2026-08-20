@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["photography", "density", "card_style", "spacing_style", "icon_style", "color_temperature"]
+}

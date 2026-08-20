@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-08-18T12:59:07Z",
+  "success": true,
+  "command_required": [
+    "/impeccable init",
+    "/impeccable document"
+  ],
+  "version": null,
+  "input_hashes": {
+    "PRODUCT.md": "19e2ec458698492769f20a530af2b47d5800f92488b68596b34d6e4eaad643b0",
+    "DESIGN.md": "ed3c13ea50d9be8426c8637f740cdf7fe85ab000d7a696a780710ad2d9eb3a91"
+  },
+  "output_hashes": {
+    ".ui-bridge/PRODUCT.md": null,
+    ".ui-bridge/DESIGN.md": null
+  },
+  "failures": []
+}

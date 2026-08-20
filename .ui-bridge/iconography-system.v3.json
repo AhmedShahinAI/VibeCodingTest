@@ -1,0 +1,11 @@
+{
+  "state": "approved-source",
+  "style": "Lucide-style outline icons, 1.75px-2px stroke, rounded joins, no fill except active/selected states.",
+  "stroke_width": "1.75px-2px",
+  "corner_radius": "match approved component geometry (12-16px tiles)",
+  "density": "one icon per feature tile / nav item; never decorative repeated rows",
+  "placement": "inline with labels or inside a small rounded icon chip at the start of a card/nav item",
+  "domain_rule": "home, courses (book-open), labs (flask-conical), AI playground (brain), learning paths (route), community (users), assistant/help (message-circle) — real product-navigation icons only",
+  "version": "v3",
+  "generated_at": "2026-08-18T19:00:00Z"
+}

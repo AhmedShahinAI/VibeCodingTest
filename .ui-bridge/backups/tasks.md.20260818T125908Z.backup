@@ -1,0 +1,267 @@
+---
+
+description: "Task list for Phase 1 — Foundation implementation"
+
+---
+
+# Tasks: Phase 1 — Foundation (Auth, RBAC, Tenancy, Bilingual Shell)
+
+**Input**: Design documents from `/specs/001-phase-1-foundation/`
+
+**Prerequisites**: plan.md, spec.md, research.md, data-model.md, contracts/auth-api.md, contracts/tenancy-api.md, quickstart.md
+
+**Tests**: Included. The constitution's Development Workflow & Quality Gates
+section mandates an explicit cross-tenant-isolation test case for any feature
+touching tenant-scoped data, and RBAC/audit correctness for every protected
+action — both apply directly to this feature, so contract/integration tests
+are not optional here.
+
+**Organization**: Tasks are grouped by user story (US1–US4, matching spec.md
+priorities P1–P4) to enable independent implementation and testing of each.
+
+## Format: `[ID] [P?] [Story] Description`
+
+- **[P]**: Can run in parallel (different files, no dependencies)
+- **[Story]**: Which user story this task belongs to (US1, US2, US3, US4)
+- File paths are exact and match the layout in plan.md's Project Structure
+
+## Path Conventions (from plan.md)
+
+- Backend: `backend/services/auth-service/`, `backend/services/tenancy-service/`, `backend/services/shared/`
+- Frontend: `frontend/src/`, `frontend/tests/`
+
+---
+
+## Phase 1: Setup (Shared Infrastructure)
+
+**Purpose**: Project initialization and basic structure
+
+- [X] T001 Create repository layout per plan.md Project Structure (`backend/services/{auth-service,tenancy-service,shared}`, `frontend/`)
+- [X] T002 Initialize `auth-service` NestJS project with Prisma, Passport (local/jwt/google-oauth20), `otplib` dependencies in `backend/services/auth-service/`
+- [X] T003 [P] Initialize `tenancy-service` NestJS project in `backend/services/tenancy-service/`
+- [X] T004 [P] Initialize `shared` library package (guards, audit, i18n message resolver) in `backend/services/shared/`
+- [X] T005 [P] Initialize frontend Vite + React 18 + TypeScript project with Tailwind CSS (logical-properties config) and `react-i18next` in `frontend/`
+- [X] T006 [P] Configure ESLint + Prettier for backend and frontend workspaces
+- [X] T007 Configure `docker-compose.yml` with PostgreSQL 15 and Redis 7 for local development at repository root
+
+---
+
+## Phase 2: Foundational (Blocking Prerequisites)
+
+**Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
+
+**⚠️ CRITICAL**: No user story work can begin until this phase is complete
+
+- [X] T008 Define Prisma schema for `Tenant`, `User`, `SupervisorPermissionOverride`, `AuditLogEntry` per data-model.md in `backend/services/shared/prisma/schema.prisma`
+- [X] T009 Write initial Prisma migration and enable Postgres Row-Level Security on all tenant-scoped tables in `backend/services/shared/prisma/migrations/`
+- [X] T010 [P] Implement `TenantContextGuard` (resolves tenant from JWT claim + subdomain cross-check) in `backend/services/shared/src/guards/tenant-context.guard.ts`
+- [X] T011 [P] Implement `RbacGuard` and `@RequirePermission` decorator in `backend/services/shared/src/guards/rbac.guard.ts`
+- [X] T012 [P] Implement shared `AuditLogService` (synchronous, same-transaction writer) in `backend/services/shared/src/audit/audit-log.service.ts`
+- [X] T013 [P] Implement Redis-backed refresh-token store with family tracking, rotation, and reuse detection in `backend/services/shared/src/auth/refresh-token.store.ts`
+- [X] T014 Configure structured JSON logging with >1% error-rate alerting hook in `backend/services/shared/src/logging/`
+- [X] T015 [P] Scaffold frontend i18n config (`ar.json`, `en.json`, `fallbackLng: 'en'`, missing-key gap logging) in `frontend/src/i18n/`
+- [X] T016 [P] Build RTL/LTR-aware root layout (document `dir` binding driven by locale) in `frontend/src/shared/layout/`
+
+**Checkpoint**: Foundation ready - user story implementation can now begin
+
+---
+
+## Phase 3: User Story 1 - Secure Registration & Sign-In (Priority: P1) 🎯 MVP
+
+**Goal**: A user can register or sign in, complete an MFA challenge, and receive a valid session — with no session ever granted on invalid credentials or an invalid/expired MFA code.
+
+**Independent Test**: Register a new account, complete MFA setup, sign in with correct credentials + valid MFA code and confirm tokens are issued; repeat with wrong password and wrong/expired MFA code and confirm no token is issued in either case. Runs standalone against `auth-service` with no RBAC/tenancy/i18n dependencies beyond the Foundational guards.
+
+### Tests for User Story 1 ⚠️
+
+- [X] T017 [P] [US1] Contract test `POST /auth/register` (incl. duplicate-email 409) in `backend/services/auth-service/test/contract/register.spec.ts`
+- [X] T018 [P] [US1] Contract test `POST /auth/login` + `POST /auth/mfa/verify` (success and failure paths) in `backend/services/auth-service/test/contract/login-mfa.spec.ts`
+- [X] T019 [P] [US1] Contract test `POST /auth/refresh` rotation and reuse-detection (403 + family revocation) in `backend/services/auth-service/test/contract/refresh.spec.ts`
+- [X] T020 [P] [US1] Integration test: full register → mfa-setup → login → mfa-verify flow issues a session, and every attempt (success/failure) produces an audit entry, in `backend/services/auth-service/test/integration/auth-flow.spec.ts`
+
+### Implementation for User Story 1
+
+- [X] T021 [P] [US1] Create `User` Prisma repository/model access layer in `backend/services/auth-service/src/users/user.repository.ts`
+- [X] T022 [US1] Implement `RegisterService` (email/password + Google OAuth registration) in `backend/services/auth-service/src/auth/register.service.ts` (depends on T021)
+- [X] T023 [US1] Implement MFA setup (TOTP secret generation + `otpauth://` QR payload) in `backend/services/auth-service/src/auth/mfa-setup.service.ts`
+- [X] T024 [US1] Implement `LoginService` (credential check → MFA challenge token issuance, no session token yet) in `backend/services/auth-service/src/auth/login.service.ts`
+- [X] T025 [US1] Implement `MfaVerifyService` (TOTP code validation → access + refresh token issuance) in `backend/services/auth-service/src/auth/mfa-verify.service.ts` (depends on T013, T023)
+- [X] T026 [US1] Implement `POST /auth/refresh` handler (rotation, reuse detection, family revocation) in `backend/services/auth-service/src/auth/refresh.controller.ts` (depends on T013)
+- [X] T027 [US1] Implement `POST /auth/logout` handler (revoke current token family) in `backend/services/auth-service/src/auth/logout.controller.ts` (depends on T013)
+- [X] T028 [US1] Wire `AuditLogService` writes into register/login/mfa-verify/refresh flows (`login_success`, `login_failure`, `mfa_failure`, `token_reuse_detected`) across `backend/services/auth-service/src/auth/*.ts` (depends on T012)
+- [X] T029 [US1] Implement `GET /me` endpoint in `backend/services/auth-service/src/users/me.controller.ts`
+- [X] T030 [P] [US1] Build frontend Register page in `frontend/src/features/auth/RegisterPage.tsx`
+- [X] T031 [P] [US1] Build frontend MFA setup page (QR display) in `frontend/src/features/auth/MfaSetupPage.tsx`
+- [X] T032 [P] [US1] Build frontend Login and MFA-verify pages in `frontend/src/features/auth/LoginPage.tsx` and `frontend/src/features/auth/MfaVerifyPage.tsx`
+- [X] T033 [US1] Implement frontend auth API client with token storage and silent-refresh interceptor in `frontend/src/features/auth/authClient.ts` (depends on T030, T031, T032)
+- [X] T034 [US1] Add inline, localized validation and error handling to all auth screens in `frontend/src/features/auth/` (depends on T033)
+
+**Checkpoint**: User Story 1 fully functional and independently testable
+
+---
+
+## Phase 4: User Story 2 - Role-Scoped Access (Priority: P2)
+
+**Goal**: An authenticated user can perform only the actions their role (of six) permits; unpermitted actions are denied and logged; instructors cannot reach each other's resources.
+
+**Independent Test**: Sign in as each of the six roles and confirm each performs only its permitted actions; confirm an instructor cannot access another instructor's course; confirm a customized Supervisor override changes the enforced boundary.
+
+### Tests for User Story 2 ⚠️
+
+- [X] T035 [P] [US2] Contract test `GET /rbac/permissions/me` in `backend/services/tenancy-service/test/contract/rbac-permissions.spec.ts`
+- [X] T036 [P] [US2] Contract test `PUT /rbac/supervisor-overrides/:userId` (Owner/Admin-only) in `backend/services/tenancy-service/test/contract/supervisor-overrides.spec.ts`
+- [X] T037 [P] [US2] Integration test: each of six roles performs only permitted actions; instructor cannot access another instructor's course/learners in `backend/services/tenancy-service/test/integration/rbac-enforcement.spec.ts`
+
+### Implementation for User Story 2
+
+- [X] T038 [P] [US2] Define default per-role permission matrix (config/seed) in `backend/services/tenancy-service/src/rbac/permission-matrix.ts`
+- [X] T039 [P] [US2] Create `SupervisorPermissionOverride` Prisma repository in `backend/services/tenancy-service/src/rbac/supervisor-override.repository.ts`
+- [X] T040 [US2] Implement `RbacService` (merges role defaults with Supervisor overrides) in `backend/services/tenancy-service/src/rbac/rbac.service.ts` (depends on T038, T039)
+- [X] T041 [US2] Implement `GET /rbac/permissions/me` endpoint in `backend/services/tenancy-service/src/rbac/permissions.controller.ts` (depends on T040)
+- [X] T042 [US2] Implement `PUT /rbac/supervisor-overrides/:userId` endpoint restricted to Owner/Administrator in `backend/services/tenancy-service/src/rbac/supervisor-overrides.controller.ts` (depends on T040)
+- [X] T043 [US2] Apply `@RequirePermission` decorators + `RbacGuard` to all protected US1 routes in `backend/services/auth-service/src/**/*.controller.ts` and `backend/services/tenancy-service/src/**/*.controller.ts` (depends on T011, T040)
+- [X] T044 [US2] Wire `permission_denied` audit writes into `RbacGuard` in `backend/services/shared/src/guards/rbac.guard.ts` (depends on T012, T011)
+- [X] T045 [P] [US2] Build frontend `usePermissions` hook consuming `GET /rbac/permissions/me` in `frontend/src/shared/rbac/usePermissions.ts`
+- [X] T046 [P] [US2] Build role-scoped dashboard shell (renders only permitted sections per role) in `frontend/src/features/dashboard/DashboardPage.tsx` (depends on T045)
+- [X] T047 [US2] Build localized "You don't have access" denial view in `frontend/src/shared/rbac/ForbiddenView.tsx` (depends on T045)
+
+**Checkpoint**: User Stories 1 AND 2 both work independently
+
+---
+
+## Phase 5: User Story 3 - Tenant-Isolated Access (Priority: P3)
+
+**Goal**: A user in one tenant never sees, affects, or is affected by another tenant's data; requests without resolvable tenant context are rejected; cross-tenant attempts are denied and logged.
+
+**Independent Test**: Provision two tenants; confirm every read/write a user performs stays within their own tenant; confirm a request with mismatched/missing tenant context is rejected before any data access; confirm cross-tenant attempts are logged as suspicious.
+
+### Tests for User Story 3 ⚠️
+
+- [X] T048 [P] [US3] Integration test: two-tenant isolation — no cross-tenant row is ever returned across auth/RBAC endpoints in `backend/services/tenancy-service/test/integration/tenant-isolation.spec.ts`
+- [X] T049 [P] [US3] Contract test `GET /tenants/:id` cross-tenant denial (403 + audit entry) in `backend/services/tenancy-service/test/contract/tenants.spec.ts`
+- [X] T050 [P] [US3] Integration test: request with missing/mismatched tenant context is rejected before data access in `backend/services/shared/test/integration/tenant-context-guard.spec.ts`
+
+### Implementation for User Story 3
+
+- [X] T051 [US3] Create `Tenant` Prisma repository in `backend/services/tenancy-service/src/tenants/tenant.repository.ts`
+- [X] T052 [US3] Implement `GET /tenants/:id` endpoint enforcing same-tenant-only access in `backend/services/tenancy-service/src/tenants/tenants.controller.ts` (depends on T051)
+- [X] T053 [US3] Wire `TenantContextGuard` into both services' global guard pipeline in `backend/services/auth-service/src/main.ts` and `backend/services/tenancy-service/src/main.ts` (depends on T010)
+- [X] T054 [US3] Author and apply Postgres RLS policies for all tenant-scoped tables in `backend/services/shared/prisma/migrations/` (depends on T008, T009)
+- [X] T055 [US3] Wire `cross_tenant_attempt` audit writes into `TenantContextGuard` in `backend/services/shared/src/guards/tenant-context.guard.ts` (depends on T012, T010)
+- [X] T056 [P] [US3] Seed two isolated test tenants for local/dev/test environments in `backend/services/shared/prisma/seed.ts`
+
+**Checkpoint**: All user stories 1–3 independently functional; isolation verified
+
+---
+
+## Phase 6: User Story 4 - Bilingual, Direction-Aware Experience (Priority: P4)
+
+**Goal**: Registration, sign-in, MFA, and the role-scoped dashboard render fully in Arabic (RTL) or English (LTR), including notifications, with graceful fallback on missing translations.
+
+**Independent Test**: Switch language between Arabic and English and confirm every US1–US3 screen re-renders with correct localized text and layout direction; remove a translation key and confirm English fallback + gap logging instead of a broken screen.
+
+### Tests for User Story 4 ⚠️
+
+- [X] T057 [P] [US4] Playwright e2e test: AR/EN + RTL/LTR rendering across register/login/MFA/dashboard in `frontend/tests/e2e/bilingual.spec.ts`
+- [X] T058 [P] [US4] Unit test: missing translation key falls back to English and logs the gap in `frontend/tests/unit/i18n-fallback.spec.ts`
+
+### Implementation for User Story 4
+
+- [X] T059 [P] [US4] Populate full `ar.json`/`en.json` resource bundles for all US1–US3 screens in `frontend/src/i18n/ar.json` and `frontend/src/i18n/en.json` (depends on T030, T031, T032, T046, T047)
+- [X] T060 [US4] Implement language switcher with persisted `User.locale` update in `frontend/src/features/dashboard/LanguageSwitcher.tsx` (depends on T059)
+- [X] T061 [US4] Implement backend locale-aware message resolver for notifications in `backend/services/shared/src/i18n/message-resolver.ts` (depends on T012)
+- [X] T062 [US4] Audit and apply Tailwind logical-properties (RTL-safe) styling across all US1–US3 components in `frontend/src/features/` and `frontend/src/shared/` (depends on T059)
+- [X] T063 [US4] Wire missing-translation-key fallback + gap logging in `frontend/src/i18n/i18next-config.ts` (depends on T059)
+
+**Checkpoint**: All four user stories independently functional — Phase 1 validation target ("register, sign in with MFA, and access a role-scoped, localized dashboard within an isolated tenant") is met
+
+---
+
+## Phase 7: Polish & Cross-Cutting Concerns
+
+**Purpose**: Improvements that affect multiple user stories
+
+- [ ] T064 [P] Run all quickstart.md validation scenarios end-to-end
+- [X] T065 [P] WCAG 2.1 AA accessibility pass (focus states, ARIA labels, contrast) across `frontend/src/features/auth/` and `frontend/src/features/dashboard/`
+- [ ] T066 [P] Load-test auth and RBAC endpoints; confirm API p95 < 500ms per constitution Principle VII
+- [X] T067 Security hardening pass: rate-limit `/auth/login` and `/auth/mfa/verify`, confirm AES-256-at-rest and TLS 1.3 config in deployment manifests
+- [X] T068 [P] Update local-dev setup documentation in `docs/`
+- [ ] T069 Remove any remaining scaffold/placeholder code and finalize commit history
+
+---
+
+## Dependencies & Execution Order
+
+### Phase Dependencies
+
+- **Setup (Phase 1)**: No dependencies — start immediately
+- **Foundational (Phase 2)**: Depends on Setup — BLOCKS all user stories
+- **User Story 1 (Phase 3)**: Depends on Foundational only
+- **User Story 2 (Phase 4)**: Depends on Foundational; T043 also depends on US1's routes existing (T022–T029) to decorate
+- **User Story 3 (Phase 5)**: Depends on Foundational; independently testable once T053 wires the shared guard, but T054's RLS policies apply to tables introduced across Foundational + US1 + US2
+- **User Story 4 (Phase 6)**: Depends on Foundational; its implementation tasks (T059, T062) apply localization on top of the screens built in US1–US3, so it is sequenced last even though the i18n scaffold itself (T015, T016) is Foundational
+- **Polish (Phase 7)**: Depends on all four user stories being complete
+
+### Parallel Opportunities
+
+- All `[P]` Setup tasks (T003–T006) run in parallel
+- All `[P]` Foundational tasks (T010–T013, T015, T016) run in parallel after T008/T009
+- Tests within a story phase (all `[P]`) run in parallel before that story's implementation tasks
+- T021, and the frontend pages T030–T032, run in parallel within US1
+- T038/T039 run in parallel within US2; T045/T046 run in parallel on the frontend side
+- T048/T049/T050 run in parallel within US3
+- T057/T058 run in parallel within US4
+
+---
+
+## Parallel Example: User Story 1
+
+```bash
+# Tests together:
+Task: "Contract test POST /auth/register in backend/services/auth-service/test/contract/register.spec.ts"
+Task: "Contract test POST /auth/login + /auth/mfa/verify in backend/services/auth-service/test/contract/login-mfa.spec.ts"
+Task: "Contract test POST /auth/refresh in backend/services/auth-service/test/contract/refresh.spec.ts"
+
+# Frontend pages together:
+Task: "Build Register page in frontend/src/features/auth/RegisterPage.tsx"
+Task: "Build MFA setup page in frontend/src/features/auth/MfaSetupPage.tsx"
+Task: "Build Login and MFA-verify pages in frontend/src/features/auth/LoginPage.tsx and MfaVerifyPage.tsx"
+```
+
+---
+
+## Implementation Strategy
+
+### MVP First (User Story 1 Only)
+
+1. Complete Phase 1: Setup
+2. Complete Phase 2: Foundational (blocks everything else)
+3. Complete Phase 3: User Story 1
+4. **STOP and VALIDATE**: run quickstart.md Scenario 1 + 2 independently
+5. Demo: a user can register, set up MFA, sign in, and hold a rotating session — before any RBAC, tenancy, or localization work exists
+
+### Incremental Delivery
+
+1. Setup + Foundational → foundation ready
+2. Add US1 → validate (quickstart Scenario 1–2) → demo (MVP)
+3. Add US2 → validate (quickstart Scenario 3) → demo
+4. Add US3 → validate (quickstart Scenario 4) → demo
+5. Add US4 → validate (quickstart Scenario 5) → demo — Phase 1 validation target fully met
+6. Polish
+
+### Parallel Team Strategy
+
+With multiple developers, after Foundational is done: one developer on US1
+(auth-service core), one on US2 (RBAC, can stub against US1's contract until
+it lands), one on US3 (tenancy-service + RLS), and frontend work in US1/US2/US4
+can proceed in parallel against the contracts in `contracts/`.
+
+---
+
+## Notes
+
+- `[P]` tasks touch different files with no unfinished dependency
+- `[Story]` labels give per-task traceability back to spec.md's prioritized user stories
+- Tests are included per the constitution's mandatory tenant-isolation and RBAC test-coverage gates — write and confirm they fail before implementing the corresponding task
+- Commit after each task or logical group
+- Stop at any Checkpoint to validate a story independently before continuing

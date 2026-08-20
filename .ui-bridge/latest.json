@@ -1,0 +1,16 @@
+{
+  "brand-intake": "brand-intake.v3.json",
+  "competitive-analysis": "competitive-analysis.v5.json",
+  "brand-proposals": "brand-proposals.v2.json",
+  "moodboard": "moodboard.v4.json",
+  "visual-dna": "visual-dna.v4.json",
+  "layout-dna": "layout-dna.v2.json",
+  "photography-system": "photography-system.v3.json",
+  "iconography-system": "iconography-system.v3.json",
+  "hero-diversity": "hero-diversity.v2.json",
+  "component-personality": "component-personality.v2.json",
+  "content-realism": "content-realism.v2.json",
+  "narrative-patterns": "narrative-patterns.v2.json",
+  "section-diversity": "section-diversity.v2.json",
+  "design-system": "design-system.v3.json"
+}

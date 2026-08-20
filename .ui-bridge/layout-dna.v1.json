@@ -1,0 +1,29 @@
+{
+  "state": "draft",
+  "symmetry": "low-to-medium",
+  "editorialness": "high",
+  "card_density": "low",
+  "grid_style": "Editorial asymmetry, proof blocks, long-form sections, fewer equal grids.",
+  "alignment_style": "mixed alignment by section purpose; avoid centered paragraphs as default",
+  "section_rhythm": "rotate proof, narrative, data, methodology, and action sections by page type",
+  "asymmetry_level": "medium",
+  "page_assignments": {
+    "frontend-register": {
+      "layout_pattern": "editorial-index",
+      "hero_influence": "Proof-first or editorial hero with a specific headline and evidence below.",
+      "density": "Airy editorial with fewer cards and larger reading blocks."
+    },
+    "frontend-mfa-setup": {
+      "layout_pattern": "proof-led-detail",
+      "hero_influence": "Proof-first or editorial hero with a specific headline and evidence below.",
+      "density": "Airy editorial with fewer cards and larger reading blocks."
+    },
+    "role-scoped": {
+      "layout_pattern": "asymmetric-feature",
+      "hero_influence": "Proof-first or editorial hero with a specific headline and evidence below.",
+      "density": "Airy editorial with fewer cards and larger reading blocks."
+    }
+  },
+  "version": "v1",
+  "generated_at": "2026-08-18T01:22:42Z"
+}

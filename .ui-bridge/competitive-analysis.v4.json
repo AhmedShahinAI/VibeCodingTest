@@ -1,0 +1,50 @@
+{
+  "state": "draft",
+  "patterns_to_copy": [
+    "training organization websites",
+    "executive education pages",
+    "Arabic course catalog experiences",
+    "editorial case-study sites",
+    "evidence-led institutional pages",
+    "publication-style service pages"
+  ],
+  "patterns_to_avoid": [
+    "generic SaaS hero",
+    "three-card syndrome",
+    "fake metrics",
+    "centered everything"
+  ],
+  "hero_types": [
+    "proof-first",
+    "editorial",
+    "asymmetric",
+    "founder/expert",
+    "magazine",
+    "split"
+  ],
+  "section_types": [
+    "bento",
+    "timeline",
+    "editorial-list",
+    "proof-strip",
+    "split-detail",
+    "data-table",
+    "focused-panel",
+    "record-workspace",
+    "methodology-flow"
+  ],
+  "copy_tone": [
+    "Browse courses, reserve a seat, request program details."
+  ],
+  "spacing_observations": [
+    "Airy editorial with fewer cards and larger reading blocks."
+  ],
+  "layout_observations": [
+    "Editorial asymmetry, proof blocks, long-form sections, fewer equal grids."
+  ],
+  "visual_personality": [
+    "Authoritative, calm, evidence-led."
+  ],
+  "version": "v4",
+  "generated_at": "2026-08-18T01:22:42Z"
+}

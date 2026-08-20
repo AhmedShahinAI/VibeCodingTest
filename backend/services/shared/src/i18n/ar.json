@@ -1,0 +1,8 @@
+{
+  "errors.invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+  "errors.invalidMfaCode": "هذا الرمز غير صالح أو منتهي الصلاحية.",
+  "errors.emailAlreadyRegistered": "يوجد حساب بهذا البريد الإلكتروني مسبقًا.",
+  "errors.forbidden": "ليس لديك صلاحية للقيام بذلك.",
+  "notifications.mfaEnrolled": "تم تفعيل المصادقة الثنائية على حسابك.",
+  "notifications.loginFromNewSession": "لقد قمت بتسجيل الدخول إلى منصة علم."
+}

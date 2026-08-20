@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  var t = localStorage.getItem('simpleelm-theme');
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<title>إنشاء حساب — SimpleElm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-tokens.css">
+<style>
+:root {
+  --color-primary: #2563EB;
+  --color-accent: #7C3AED;
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-border: #E5E7EB;
+  --color-text-primary: #071426;
+  --color-text-secondary: #475569;
+  --color-error: #DC2626;
+  --font-heading: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --text-h1: clamp(2rem, 4vw, 2.85rem);
+  --space-4: 1rem;
+  --radius-md: 1rem;
+  --duration-base: 220ms;
+  --ease-primary: cubic-bezier(0.22, 1, 0.36, 1);
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding-bottom: 48px; }
+.skip-link { position: absolute; inset-inline-start: -999px; top: 0; background: var(--color-primary); color: #fff; padding: 12px 20px; border-radius: 0 0 8px 8px; z-index: 10000; font-weight: 600; }
+.skip-link:focus { inset-inline-start: 0; }
+a { color: inherit; }
+button { font-family: inherit; }
+
+/* Shared header/footer (from _partials, stamped by compile-partials.py) */
+.topnav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: .9rem; }
+.brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; }
+.brand-mark { width: 38px; height: 38px; flex-shrink: 0; }
+.brand-mark-lg { width: 46px; height: 46px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: var(--color-text-primary); }
+.brand-tagline { font-family: 'Inter', sans-serif; font-size: .68rem; letter-spacing: .08em; color: var(--color-text-secondary); text-transform: uppercase; }
+.topnav-links { display: flex; align-items: center; gap: 1rem; }
+.topnav-help { font-size: .92rem; font-weight: 600; color: var(--color-text-secondary); text-decoration: none; }
+.topnav-help:hover { color: var(--color-primary); }
+.lang-toggle { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 999px; padding: .4rem .85rem; font-size: .82rem; color: var(--color-text-primary); cursor: pointer; }
+.footer-inner { padding-block: 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+.footer-copy { margin: 0; color: var(--color-text-secondary); font-size: .9rem; max-width: 42ch; }
+.footer-legal { margin: 0; color: var(--color-text-secondary); font-size: .82rem; }
+.footer-legal a { color: var(--color-text-secondary); text-decoration: underline; }
+
+/* Focus states */
+a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible {
+  outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 4px;
+}
+
+/* Hero / auth split */
+.auth-hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr); gap: clamp(24px, 4vw, 56px); align-items: start; padding-block: clamp(28px, 5vw, 56px) clamp(48px, 7vw, 80px); }
+.auth-panel h1 { font-family: var(--font-heading); font-size: var(--text-h1); margin: 0 0 .5rem; line-height: 1.15; }
+.auth-panel > p.lede { color: var(--color-text-secondary); font-size: 1.05rem; margin: 0 0 1.75rem; max-width: 46ch; }
+
+.field { margin-bottom: 1.1rem; }
+.field label { display: block; font-weight: 600; font-size: .92rem; margin-bottom: .4rem; }
+.field input { width: 100%; padding: .78rem .9rem; border: 1px solid var(--color-border); border-radius: .6rem; font-size: 1rem; font-family: inherit; background: var(--color-surface); color: var(--color-text-primary); }
+.field input:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.field-hint { font-size: .8rem; color: var(--color-text-secondary); margin-top: .35rem; }
+
+.terms-row { display: flex; align-items: flex-start; gap: .6rem; margin: 1.4rem 0 1.5rem; font-size: .88rem; color: var(--color-text-secondary); }
+.terms-row input { margin-top: .2rem; }
+.terms-row a { color: var(--color-primary); font-weight: 600; text-decoration: underline; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: 0 1.5rem; border-radius: .6rem; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; transition: transform var(--duration-base) var(--ease-primary), box-shadow var(--duration-base) var(--ease-primary); }
+.btn-primary { background: var(--color-primary); color: #fff; width: 100%; }
+.btn-primary:hover { box-shadow: 0 10px 24px rgba(37,99,235,.28); }
+.btn-oauth { width: 100%; background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text-primary); margin-top: .9rem; }
+.btn-oauth:hover { border-color: var(--color-primary); }
+.btn-oauth svg { width: 18px; height: 18px; }
+
+.divider { display: flex; align-items: center; gap: .75rem; margin: 1.6rem 0; color: var(--color-text-secondary); font-size: .82rem; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--color-border); }
+
+.switch-line { margin-top: 1.6rem; font-size: .92rem; color: var(--color-text-secondary); text-align: center; }
+.switch-line a { color: var(--color-primary); font-weight: 700; text-decoration: none; }
+.switch-line a:hover { text-decoration: underline; }
+
+/* Proof panel (no card-inside-card, solid bg, no blur) */
+.proof-panel { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 1.4rem; padding: clamp(1.75rem, 3vw, 2.5rem); position: sticky; top: 96px; }
+.proof-quote { font-family: var(--font-heading); font-size: 1.2rem; line-height: 1.6; margin: 0 0 1.25rem; position: relative; padding-inline-start: 1.1rem; }
+.proof-quote::before { content: "\201C"; position: absolute; inset-inline-start: 0; top: -.2rem; font-size: 2rem; color: var(--color-accent); font-family: Georgia, serif; line-height: 1; }
+.proof-author { display: flex; align-items: center; gap: .75rem; margin-bottom: 2rem; }
+.proof-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-heading); flex-shrink: 0; }
+.proof-author-name { font-weight: 700; font-size: .92rem; }
+.proof-author-role { font-size: .8rem; color: var(--color-text-secondary); }
+
+.trust-list { list-style: none; margin: 0; padding: 1.5rem 0 0; border-top: 1px solid var(--color-border); display: grid; gap: .85rem; }
+.trust-list li { display: flex; align-items: flex-start; gap: .65rem; font-size: .9rem; color: var(--color-text-primary); }
+.trust-list svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-primary); margin-top: 1px; }
+
+@media (max-width: 768px) {
+  .auth-hero { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .proof-panel { position: static; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">تجاوز إلى المحتوى الرئيسي</a>
+
+<header class="site-shell-header">
+<!-- PARTIAL:nav-public -->
+<div class="container topnav-inner">
+  <a href="frontend-register.html" class="brand" aria-label="SimpleElm — تعلم بعمق. ببساطة">
+    <svg class="brand-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="seMarkNav" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#2563EB"/>
+          <stop offset=".55" stop-color="#00D1FF"/>
+          <stop offset="1" stop-color="#7C3AED"/>
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" rx="12" fill="url(#seMarkNav)"/>
+      <circle cx="20" cy="20" r="4.5" fill="#fff"/>
+      <path d="M20 9.5a10.5 10.5 0 0 1 10.5 10.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M20 30.5A10.5 10.5 0 0 1 9.5 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".7"/>
+    </svg>
+    <span class="brand-text">
+      <span class="brand-name">Simple<span class="brand-name-accent">Elm</span></span>
+      <span class="brand-tagline">تعلم بعمق. ببساطة</span>
+    </span>
+  </a>
+  <nav class="topnav-links" aria-label="التنقل الرئيسي">
+    <a href="#main" class="topnav-help">مركز المساعدة</a>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-label="تبديل المظهر بين الفاتح والداكن" aria-pressed="false">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
+    <button type="button" class="lang-toggle" aria-label="تبديل اللغة إلى الإنجليزية">EN&nbsp;/&nbsp;<strong>ع</strong></button>
+  </nav>
+</div>
+<script>
+(function () {
+  var STORAGE_KEY = 'simpleelm-theme';
+  var btn = document.currentScript.previousElementSibling.querySelector('[data-theme-toggle]');
+  if (!btn) return;
+  function current() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'light' || stored === 'dark') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function apply(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    btn.setAttribute('aria-pressed', String(theme === 'dark'));
+  }
+  apply(current());
+  btn.addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(STORAGE_KEY, next);
+    apply(next);
+  });
+})();
+</script>
+<!-- /PARTIAL:nav-public -->
+</header>
+
+<main id="main" class="container">
+  <section class="auth-hero">
+    <div class="auth-panel">
+      <h1>إنشاء حساب جديد في SimpleElm</h1>
+      <p class="lede">حساب واحد لمؤسستك التدريبية، بحماية بخطوتين وصلاحيات مخصّصة لكل دور. الخطوة التالية بعد التسجيل هي إعداد التحقق بخطوتين.</p>
+
+      <form>
+        <div class="field">
+          <label for="full-name">الاسم الكامل</label>
+          <input type="text" id="full-name" name="full-name" autocomplete="name" placeholder="مثال: سارة عبد الرحمن">
+        </div>
+        <div class="field">
+          <label for="email">البريد الإلكتروني للعمل</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="name@organization.com">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="password">كلمة المرور</label>
+            <input type="password" id="password" name="password" autocomplete="new-password">
+            <p class="field-hint">10 أحرف على الأقل، حرف كبير ورمز واحد.</p>
+          </div>
+          <div class="field">
+            <label for="password-confirm">تأكيد كلمة المرور</label>
+            <input type="password" id="password-confirm" name="password-confirm" autocomplete="new-password">
+          </div>
+        </div>
+
+        <div class="terms-row">
+          <input type="checkbox" id="terms" name="terms">
+          <label for="terms">أوافق على <a href="#main">شروط الاستخدام</a> و<a href="#main">سياسة الخصوصية</a>، وأدرك أن حسابي سيُربط بمساحة عمل مؤسستي فقط.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">إنشاء الحساب والمتابعة لإعداد التحقق بخطوتين</button>
+
+        <div class="divider">أو</div>
+
+        <button type="button" class="btn btn-oauth">
+          <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.9c1.7-1.56 2.7-3.87 2.7-6.62Z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.95v2.33A9 9 0 0 0 9 18Z"/><path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 0 1 3.67 9c0-.59.1-1.16.28-1.7V4.97H.95A9 9 0 0 0 0 9c0 1.45.35 2.83.95 4.03l3-2.33Z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.46.9 11.42 0 9 0A9 9 0 0 0 .95 4.97l3 2.33C4.66 5.17 6.65 3.58 9 3.58Z"/></svg>
+          التسجيل عبر حساب Google المؤسسي
+        </button>
+      </form>
+
+      <p class="switch-line">لديك حساب بالفعل؟ <a href="#main">تسجيل الدخول</a></p>
+    </div>
+
+    <aside class="proof-panel">
+      <p class="proof-quote">أهم ما يميز نظام الدخول الجديد أنه لا يمنح أي جلسة قبل التحقق بخطوتين — هذا بالضبط ما كنا نطلبه من أي منصة تدريب نتعامل معها.</p>
+      <div class="proof-author">
+        <span class="proof-avatar" aria-hidden="true">ل.أ</span>
+        <span>
+          <span class="proof-author-name" style="display:block;">د. ليلى أحمد الشريف</span>
+          <span class="proof-author-role">محاضرة إدارة المشاريع، منصوبة عبر SimpleElm</span>
+        </span>
+      </div>
+      <ul class="trust-list">
+        <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2 3 5v5c0 4.4 3 7.6 7 8 4-.4 7-3.6 7-8V5l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.2 10 2 2 3.6-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> تحقق إلزامي بخطوتين قبل أي جلسة دخول</li>
+        <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2 3 5v5c0 4.4 3 7.6 7 8 4-.4 7-3.6 7-8V5l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.2 10 2 2 3.6-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> عزل كامل لبيانات كل مؤسسة عن غيرها</li>
+        <li><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 2 3 5v5c0 4.4 3 7.6 7 8 4-.4 7-3.6 7-8V5l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.2 10 2 2 3.6-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> ستة أدوار صلاحيات مضبوطة لكل عضو في فريقك</li>
+      </ul>
+    </aside>
+  </section>
+</main>
+
+<footer class="site-shell-footer">
+<!-- PARTIAL:footer-public -->
+<div class="container footer-inner">
+  <a href="frontend-register.html" class="brand brand-footer" aria-label="SimpleElm — تعلم بعمق. ببساطة">
+    <svg class="brand-mark brand-mark-lg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="seMarkFooter" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#2563EB"/>
+          <stop offset=".55" stop-color="#00D1FF"/>
+          <stop offset="1" stop-color="#7C3AED"/>
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" rx="12" fill="url(#seMarkFooter)"/>
+      <circle cx="20" cy="20" r="4.5" fill="#fff"/>
+      <path d="M20 9.5a10.5 10.5 0 0 1 10.5 10.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M20 30.5A10.5 10.5 0 0 1 9.5 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".7"/>
+    </svg>
+    <span class="brand-text">
+      <span class="brand-name">Simple<span class="brand-name-accent">Elm</span></span>
+      <span class="brand-tagline">تعلم بعمق. ببساطة</span>
+    </span>
+  </a>
+  <p class="footer-copy">منصة تدريب متعددة المستأجرين، بحماية على مستوى الصف وعزل كامل لبيانات كل جهة.</p>
+  <p class="footer-legal">© 2026 SimpleElm. جميع الحقوق محفوظة. · <a href="#main">الخصوصية</a> · <a href="#main">الشروط</a></p>
+</div>
+<!-- /PARTIAL:footer-public -->
+</footer>
+
+<nav class="prototype-nav" aria-label="التنقل بين نماذج الصفحات" dir="ltr">
+  <a href="frontend-register.html" class="current">Register</a> |
+  <a href="frontend-mfa-setup.html">MFA Setup</a> |
+  <a href="role-scoped.html">Dashboard</a> |
+  <a href="prototype-hub.html">Prototype Hub</a>
+</nav>
+<div class="proto-spacer" aria-hidden="true"></div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{
+  "pages": [
+    {
+      "name": "إنشاء حساب",
+      "slug": "frontend-register",
+      "source": "semantic: \"Build frontend Register page\"",
+      "html_output": "ui-prototypes/frontend-register.html",
+      "direction": "rtl",
+      "is_admin": false,
+      "sections": [
+        "Navbar",
+        "Main content",
+        "Footer"
+      ],
+      "static_content_needed": {
+        "content": [
+          "representative static copy",
+          "realistic labels",
+          "page-specific data"
+        ]
+      },
+      "api_contract_notes": {
+        "implementation_only": "Public APIs belong in contracts/public.md; static prototype embeds representative content."
+      }
+    },
+    {
+      "name": "إعداد التحقق بخطوتين",
+      "slug": "frontend-mfa-setup",
+      "source": "semantic: \"Build frontend MFA setup page\"",
+      "html_output": "ui-prototypes/frontend-mfa-setup.html",
+      "direction": "rtl",
+      "is_admin": false,
+      "sections": [
+        "Navbar",
+        "Main content",
+        "Footer"
+      ],
+      "static_content_needed": {
+        "content": [
+          "representative static copy",
+          "realistic labels",
+          "page-specific data"
+        ]
+      },
+      "api_contract_notes": {
+        "implementation_only": "Public APIs belong in contracts/public.md; static prototype embeds representative content."
+      }
+    },
+    {
+      "name": "لوحة التحكم",
+      "slug": "role-scoped",
+      "source": "semantic: \"Build role-scoped dashboard\"",
+      "html_output": "ui-prototypes/role-scoped.html",
+      "direction": "rtl",
+      "is_admin": false,
+      "sections": [
+        "Navbar",
+        "Main content",
+        "Footer"
+      ],
+      "static_content_needed": {
+        "content": [
+          "representative static copy",
+          "realistic labels",
+          "page-specific data"
+        ]
+      },
+      "api_contract_notes": {
+        "implementation_only": "Public APIs belong in contracts/public.md; static prototype embeds representative content."
+      }
+    }
+  ],
+  "generated": "2026-08-18",
+  "scope": {
+    "page": null,
+    "group": null,
+    "max_pages": null
+  }
+}

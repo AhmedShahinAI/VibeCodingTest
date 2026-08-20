@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-08-18T19:12:23Z",
+  "page": null,
+  "group": null,
+  "max_pages": null,
+  "selected_pages": [
+    "frontend-register",
+    "frontend-mfa-setup",
+    "role-scoped"
+  ],
+  "stages": [
+    "skeleton",
+    "content",
+    "layout",
+    "styling",
+    "interactions",
+    "accessibility",
+    "anti-slop",
+    "reviewers"
+  ],
+  "max_review_fix_rounds": 2,
+  "draft": false
+}

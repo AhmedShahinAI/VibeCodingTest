@@ -1,0 +1,13 @@
+{
+  "state": "approved-source",
+  "personality": "Friendly, modern, AI-forward, confident but approachable — technical credibility without corporate coldness.",
+  "geometry": "soft rounded tiles and glassy panels, glowing gradient orbs and pedestal compositions, thin neural-network connector lines as decorative motif",
+  "density": "Medium density bento-style grid of feature tiles and stat cards; confident whitespace between marketing sections; interactive/data panels are denser and functional.",
+  "motion": "smooth, encouraging transitions; live-updating charts/sliders in the interactive learning module",
+  "contrast": "AA minimum, strong hierarchy — verified independently in both light and dark modes",
+  "photography_style": "No photography of people. Abstract 3D renders and generative/AI visuals only: glowing gradient S-mark on a pedestal, neural network node graphs, holographic geometric grids, silhouette-in-portal compositions.",
+  "iconography": "Lucide-style outline icons, 1.75px-2px stroke, rounded joins, no fill except active/selected states.",
+  "theming": "dual identity — light (near-white canvas, deep navy ink, blue/cyan/violet accents) and dark (deep navy canvas, near-white ink, same accent family) — user-toggleable, not only OS-driven",
+  "version": "v4",
+  "generated_at": "2026-08-18T19:00:00Z"
+}

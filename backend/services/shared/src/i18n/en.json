@@ -1,0 +1,8 @@
+{
+  "errors.invalidCredentials": "Incorrect email or password.",
+  "errors.invalidMfaCode": "That code is invalid or expired.",
+  "errors.emailAlreadyRegistered": "An account with this email already exists.",
+  "errors.forbidden": "You don't have access to do that.",
+  "notifications.mfaEnrolled": "Two-factor authentication was enabled on your account.",
+  "notifications.loginFromNewSession": "You signed in to Elm Platform."
+}

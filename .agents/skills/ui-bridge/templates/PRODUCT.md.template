@@ -1,0 +1,62 @@
+# {{PROJECT_NAME}}
+
+## What is this product?
+
+{{PROJECT_DESCRIPTION}}
+
+## Who uses it?
+
+{{TARGET_USERS}}
+
+## Core problems it solves
+
+{{PROBLEM_STATEMENT}}
+
+## Key capabilities (Phase 1)
+
+{{KEY_FEATURES}}
+
+## Register
+
+{{REGISTER}}
+
+(Example values: "professional", "approachable", "authoritative", "friendly", "expert-led")
+
+## Users
+
+{{AUDIENCE_PERSONA}}
+
+(Describe the primary user persona at a sentence level.
+Example: "Arabic-speaking professionals in Egypt and the Gulf seeking practical training courses.")
+
+## Voice
+
+{{VOICE}}
+
+(How the product speaks. Example: "Direct and clear. Uses active voice. Avoids jargon.
+Speaks to the user's goals, not the company's features. Never salesy.")
+
+## Anti-references
+
+{{ANTI_REFERENCES}}
+
+(Brands or aesthetics this product should NOT resemble.
+Example: "Avoid: consumer social-media aesthetic, fintech neon, startup-y landing pages.
+This is a professional training organization, not a SaaS product.")
+
+## Goals
+
+{{DESIGN_GOALS}}
+
+(Primary design objectives in priority order.
+Example:
+1. Build trust through visual credibility
+2. Reduce registration friction — make the CTA obvious
+3. Showcase expertise through expert profiles
+4. SEO-ready structure for Arabic content)
+
+## Language and text direction
+
+{{LANGUAGE_DIRECTION}}
+
+(Example: "Arabic RTL primary. Admin panel is LTR English.")

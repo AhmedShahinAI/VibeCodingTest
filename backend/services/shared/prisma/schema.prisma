@@ -1,0 +1,122 @@
+// Elm Platform — Phase 1 Foundation schema
+// Shared system of record for auth-service and tenancy-service.
+// Tenant isolation (constitution Principle II) is enforced twice:
+//   1. Every query is scoped by tenantId at the application layer (Prisma).
+//   2. Postgres Row-Level Security policies (see migrations) reject any row
+//      whose tenant_id does not match the session's app.current_tenant.
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TenantStatus {
+  active
+  suspended
+}
+
+enum UserRole {
+  platform_owner
+  platform_administrator
+  platform_supervisor
+  course_provider
+  teaching_assistant
+  learner
+}
+
+enum UserStatus {
+  pending_verification
+  active
+  disabled
+}
+
+enum Locale {
+  ar
+  en
+}
+
+enum AuditEventType {
+  login_success
+  login_failure
+  mfa_failure
+  permission_denied
+  cross_tenant_attempt
+  token_reuse_detected
+}
+
+model Tenant {
+  id        String       @id @default(uuid())
+  name      String
+  domain    String       @unique
+  status    TenantStatus @default(active)
+  createdAt DateTime     @default(now()) @map("created_at")
+
+  users               User[]
+  auditLogEntries     AuditLogEntry[]
+  supervisorOverrides SupervisorPermissionOverride[]
+
+  @@map("tenants")
+}
+
+model User {
+  id               String     @id @default(uuid())
+  tenantId         String     @map("tenant_id")
+  email            String
+  passwordHash     String?    @map("password_hash")
+  googleSubjectId  String?    @unique @map("google_subject_id")
+  role             UserRole
+  mfaEnrolled      Boolean    @default(false) @map("mfa_enrolled")
+  mfaTotpSecret    String?    @map("mfa_totp_secret")
+  locale           Locale     @default(en)
+  status           UserStatus @default(pending_verification)
+  createdAt        DateTime   @default(now()) @map("created_at")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+
+  overridesReceived SupervisorPermissionOverride[] @relation("OverriddenUser")
+  overridesSet      SupervisorPermissionOverride[] @relation("OverrideSetBy")
+  auditLogEntries   AuditLogEntry[]
+
+  @@unique([tenantId, email])
+  @@index([tenantId])
+  @@map("users")
+}
+
+model SupervisorPermissionOverride {
+  id            String   @id @default(uuid())
+  tenantId      String   @map("tenant_id")
+  userId        String   @map("user_id")
+  permissionKey String   @map("permission_key")
+  granted       Boolean
+  setByUserId   String   @map("set_by_user_id")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  tenant    Tenant @relation(fields: [tenantId], references: [id])
+  user      User   @relation("OverriddenUser", fields: [userId], references: [id])
+  setByUser User   @relation("OverrideSetBy", fields: [setByUserId], references: [id])
+
+  @@unique([userId, permissionKey])
+  @@index([tenantId])
+  @@map("supervisor_permission_overrides")
+}
+
+model AuditLogEntry {
+  id         String         @id @default(uuid())
+  tenantId   String?        @map("tenant_id")
+  userId     String?        @map("user_id")
+  eventType  AuditEventType @map("event_type")
+  detail     Json?
+  occurredAt DateTime       @default(now()) @map("occurred_at")
+
+  tenant Tenant? @relation(fields: [tenantId], references: [id])
+  user   User?   @relation(fields: [userId], references: [id])
+
+  @@index([tenantId])
+  @@index([eventType])
+  @@map("audit_log_entries")
+}

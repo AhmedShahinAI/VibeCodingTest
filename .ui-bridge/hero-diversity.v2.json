@@ -1,0 +1,23 @@
+{
+  "state": "approved-source",
+  "patterns": [
+    "proof-first",
+    "editorial",
+    "asymmetric",
+    "founder/expert",
+    "magazine",
+    "split"
+  ],
+  "page_assignments": {
+    "frontend-register": "magazine",
+    "frontend-mfa-setup": "magazine",
+    "role-scoped": "magazine"
+  },
+  "assignment_logic": "page-type aware: home/detail/listing/admin/auth, not round-robin",
+  "anti_repetition_rules": [
+    "no same hero pattern on adjacent public pages",
+    "homepage must not use generic centered SaaS hero"
+  ],
+  "version": "v2",
+  "generated_at": "2026-08-18T12:58:16Z"
+}

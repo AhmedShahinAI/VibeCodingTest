@@ -1,0 +1,11 @@
+{
+  "state": "approved-source",
+  "style": "Minimal symbols, 1.5px stroke, no decorative icon rows.",
+  "stroke_width": "1.5px",
+  "corner_radius": "match approved component geometry",
+  "density": "sparse; icons support scanning, not decoration",
+  "placement": "inline with labels or functional controls; never repeated decorative icon tiles",
+  "domain_rule": "choose symbols from actual EdTech workflows, not generic feature icons",
+  "version": "v2",
+  "generated_at": "2026-08-18T12:58:16Z"
+}

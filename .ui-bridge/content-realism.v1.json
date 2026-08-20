@@ -1,0 +1,20 @@
+{
+  "state": "draft",
+  "numbers": "derive numbers from visible records or page-specific inventory; explain if estimated",
+  "names": "use locale/domain-appropriate names for EdTech; admin records must look operational",
+  "titles": "real page/entity titles from the page map and spec vocabulary, never numbered placeholders",
+  "testimonials": "only with named context and believable outcome; omit if the spec has no testimonial signal",
+  "metrics_logic": "prefer counts from static_content_needed; avoid broad success claims unless sourced",
+  "name_logic": "Arabic-first public names when Arabic/RTL is detected; role-specific admin names",
+  "forbidden": [
+    "John Doe",
+    "Jane Doe",
+    "Course 1",
+    "500+",
+    "99%",
+    "24/7",
+    "Get Started Today"
+  ],
+  "version": "v1",
+  "generated_at": "2026-08-18T01:22:42Z"
+}

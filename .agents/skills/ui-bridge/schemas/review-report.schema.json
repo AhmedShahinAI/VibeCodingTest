@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["reviewer", "reviewers", "generated_at", "reviewed", "max_review_fix_rounds", "severity_counts", "findings", "passes"],
+  "properties": {
+    "passes": { "type": "boolean" },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "reviewers": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "generated_at": { "type": "string", "minLength": 10 },
+    "reviewed": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "max_review_fix_rounds": { "type": "integer", "minimum": 0, "maximum": 5 },
+    "severity_counts": {
+      "type": "object",
+      "required": ["critical", "major", "minor", "suggestion"],
+      "properties": {
+        "critical": { "type": "integer", "minimum": 0 },
+        "major": { "type": "integer", "minimum": 0 },
+        "minor": { "type": "integer", "minimum": 0 },
+        "suggestion": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["reviewer", "severity", "id", "message", "auto_fixed"],
+        "properties": {
+          "reviewer": { "type": "string", "minLength": 1 },
+          "severity": { "enum": ["critical", "major", "minor", "suggestion"] },
+          "id": { "type": "string", "minLength": 1 },
+          "message": { "type": "string", "minLength": 1 },
+          "auto_fixed": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}
